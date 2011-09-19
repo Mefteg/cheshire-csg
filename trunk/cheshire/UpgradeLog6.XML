@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="stochastic">
+</Property><Property Name="Fichier solution" Value="C:\Users\tom\Dropbox\Gamagora\TP\4-Ray\stochastic.sln">
+</Property><Property Name="Date" Value="dimanche 18 septembre 2011">
+</Property><Property Name="Time" Value="10:19:44">
+</Property><Property Name="Numéro de journal" Value="6">
+</Property></Properties><Event ErrorLevel="0" Project="stochastic" Source="stochastic.vcproj" Description="Converting project file 'C:\Users\tom\Dropbox\Gamagora\TP\4-Ray\stochastic.vcproj'.">
+</Event><Event ErrorLevel="2" Project="C:\Users\tom\Dropbox\Gamagora\TP\4-Ray\stochastic.vcxproj" Source="stochastic.vcxproj.filters" Description="Project file 'C:\Users\tom\Dropbox\Gamagora\TP\4-Ray\stochastic.vcxproj' or filters file 'C:\Users\tom\Dropbox\Gamagora\TP\4-Ray\stochastic.vcxproj.filters' already exist and will not attempt to overwrite them.">
+</Event><Event ErrorLevel="2" Project="stochastic" Source="stochastic.vcproj" Description="La mise à niveau du projet a échoué.">
+</Event><Event ErrorLevel="3" Project="stochastic" Source="stochastic.vcproj" Description="Non convertie">
+</Event><Event ErrorLevel="2" Project="" Source="stochastic.vcproj" Description="La mise à niveau du projet a échoué.">
+</Event></UpgradeLog>

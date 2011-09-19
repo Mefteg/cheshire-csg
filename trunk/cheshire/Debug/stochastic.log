@@ -1,0 +1,19 @@
+﻿La génération a démarré 14/09/2011 15:10:25.
+     1>Projet "C:\Documents and Settings\Tom\Mes documents\Dropbox\Gamagora\TP\4-Ray\stochastic.vcxproj" sur le nœud 2 (build cible(s)).
+     1>InitializeBuildStatus:
+         Création de "Debug\stochastic.unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\Qt4\include /IC:\X\Code\Core\Include /nologo /W3 /WX- /O2 /Ot /Oy- /D NO_DEBUG /D WIN32 /D _USRDLL /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHa /MD /GS- /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt box.cpp exe.cpp ray.cpp sphere.cpp
+         box.cpp
+         exe.cpp
+     1>exe.cpp(123): error C2059: erreur de syntaxe : 'constant'
+     1>exe.cpp(126): error C2065: 'RP' : identificateur non déclaré
+     1>exe.cpp(126): error C2065: 'TP' : identificateur non déclaré
+         ray.cpp
+         sphere.cpp
+         Génération de code en cours...
+     1>Génération du projet "C:\Documents and Settings\Tom\Mes documents\Dropbox\Gamagora\TP\4-Ray\stochastic.vcxproj" terminée (build cible(s)) -- ÉCHEC.
+
+ÉCHEC de la build.
+
+Temps écoulé 00:00:03.06

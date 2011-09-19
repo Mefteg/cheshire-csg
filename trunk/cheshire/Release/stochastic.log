@@ -1,0 +1,32 @@
+﻿La génération a démarré 18/09/2011 14:34:23.
+     1>Projet "C:\Users\tom\Dropbox\Gamagora\TP\4-Ray\stochastic.vcxproj" sur le nœud 2 (build cible(s)).
+     1>InitializeBuildStatus:
+         Création de "Release\stochastic.unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Ot /Oy- /GL /D WIN32 /D NDEBUG /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt exe.cpp
+         exe.cpp
+     1>exe.cpp(193): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : voir la déclaration de 'fopen'
+     1>exe.cpp(207): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(304) : voir la déclaration de 'scanf'
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\tom\Dropbox\Gamagora\TP\4-Ray\Release\stochastic.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\stochastic.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\tom\Dropbox\Gamagora\TP\4-Ray\Release\stochastic.pdb" /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"C:\Users\tom\Dropbox\Gamagora\TP\4-Ray\Release\stochastic.lib" /MACHINE:X86 Release\box.obj
+         Release\exe.obj
+         Release\node.obj
+         Release\primitive.obj
+         Release\ray.obj
+         Release\sphere.obj
+         Génération de code en cours
+     1>c:\users\tom\dropbox\gamagora\tp\4-ray\exe.cpp(207): warning C4700: variable locale 'out' non initialisée utilisée
+         Fin de la génération du code
+         stochastic.vcxproj -> C:\Users\tom\Dropbox\Gamagora\TP\4-Ray\Release\stochastic.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\tom\Dropbox\Gamagora\TP\4-Ray\Release\stochastic.exe;#1" /manifest Release\stochastic.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Suppression du fichier "Release\stochastic.unsuccessfulbuild".
+         Mise à jour de l'horodatage "Release\stochastic.lastbuildstate".
+     1>Génération du projet "C:\Users\tom\Dropbox\Gamagora\TP\4-Ray\stochastic.vcxproj" terminée (build cible(s)).
+
+La génération a réussi.
+
+Temps écoulé 00:00:00.70

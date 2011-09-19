@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="stochastic">
+</Property><Property Name="Fichier solution" Value="C:\Documents and Settings\Tom\Mes documents\Dropbox\Gamagora\TP\4-Ray\stochastic.sln">
+</Property><Property Name="Date" Value="mardi 13 septembre 2011">
+</Property><Property Name="Time" Value="15:39:06">
+</Property><Property Name="Numéro de journal" Value="3">
+</Property></Properties><Event ErrorLevel="0" Project="stochastic" Source="stochastic.vcproj" Description="Converting project file 'C:\Documents and Settings\Tom\Mes documents\Dropbox\Gamagora\TP\4-Ray\stochastic.vcproj'.">
+</Event><Event ErrorLevel="1" Project="stochastic" Source="stochastic.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="stochastic" Source="stochastic.vcproj" Description="Done converting to new project file 'C:\Documents and Settings\Tom\Mes documents\Dropbox\Gamagora\TP\4-Ray\stochastic.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="stochastic" Source="stochastic.vcproj" Description="Converted">
+</Event></UpgradeLog>
