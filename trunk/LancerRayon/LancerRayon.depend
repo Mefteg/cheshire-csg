@@ -1,0 +1,969 @@
+# depslib dependency file v1.0
+1299494768 source:e:\codeblocksprojects\lancerrayon\frame.cpp
+	"Frame.h"
+	<iostream>
+
+1299592666 e:\codeblocksprojects\lancerrayon\frame.h
+	".\glm-0.9.0\glm\setup.hpp"
+	".\glm-0.9.0\glm\glm.hpp"
+	".\glm-0.9.0\glm\ext.hpp"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\setup.hpp
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\glm.hpp
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	"./setup.hpp"
+	"./core/_detail.hpp"
+	"./core/type.hpp"
+	"./core/func_trigonometric.hpp"
+	"./core/func_exponential.hpp"
+	"./core/func_common.hpp"
+	"./core/func_packing.hpp"
+	"./core/func_geometric.hpp"
+	"./core/func_matrix.hpp"
+	"./core/func_vector_relational.hpp"
+	"./core/func_integer.hpp"
+	"./core/func_noise.hpp"
+	"./core/_swizzle.hpp"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\_detail.hpp
+	"../setup.hpp"
+	<cassert>
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type.hpp
+	"type_half.hpp"
+	"type_float.hpp"
+	"type_int.hpp"
+	"type_gentype.hpp"
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat2x2.hpp"
+	"type_mat2x3.hpp"
+	"type_mat2x4.hpp"
+	"type_mat3x2.hpp"
+	"type_mat3x3.hpp"
+	"type_mat3x4.hpp"
+	"type_mat4x2.hpp"
+	"type_mat4x3.hpp"
+	"type_mat4x4.hpp"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_half.hpp
+	<cstdlib>
+	"type_half.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_half.inl
+	"_detail.hpp"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_float.hpp
+	"type_half.hpp"
+	"../setup.hpp"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_int.hpp
+	"../setup.hpp"
+	"_detail.hpp"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_gentype.hpp
+	"type_size.hpp"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_size.hpp
+	<cstdlib>
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_vec1.hpp
+	"type_vec.hpp"
+	"type_float.hpp"
+	"type_int.hpp"
+	"type_size.hpp"
+	"_swizzle.hpp"
+	"type_vec1.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_vec.hpp
+	"type_gentype.hpp"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\_swizzle.hpp
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_vec1.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_vec2.hpp
+	"type_vec.hpp"
+	"type_float.hpp"
+	"type_int.hpp"
+	"type_size.hpp"
+	"_swizzle.hpp"
+	"type_vec2.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_vec2.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_vec3.hpp
+	"type_vec.hpp"
+	"type_float.hpp"
+	"type_int.hpp"
+	"type_size.hpp"
+	"_swizzle.hpp"
+	"type_vec3.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_vec3.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_vec4.hpp
+	"type_vec.hpp"
+	"type_float.hpp"
+	"type_int.hpp"
+	"type_size.hpp"
+	"_swizzle.hpp"
+	"_detail.hpp"
+	"type_vec4.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_vec4.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat2x2.hpp
+	"type_mat.hpp"
+	"type_mat2x2.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat.hpp
+	"type_gentype.hpp"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat2x2.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat2x3.hpp
+	"type_mat.hpp"
+	"type_mat2x3.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat2x3.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat2x4.hpp
+	"type_mat.hpp"
+	"type_mat2x4.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat2x4.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat3x2.hpp
+	"type_mat.hpp"
+	"type_mat3x2.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat3x2.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat3x3.hpp
+	"type_mat.hpp"
+	"type_mat3x3.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat3x3.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat3x4.hpp
+	"type_mat.hpp"
+	"type_mat3x4.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat3x4.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat4x2.hpp
+	"type_mat.hpp"
+	"type_mat4x2.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat4x2.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat4x3.hpp
+	"type_mat.hpp"
+	"type_mat4x3.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat4x3.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat4x4.hpp
+	"type_mat.hpp"
+	"type_mat4x4.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\type_mat4x4.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_trigonometric.hpp
+	"func_trigonometric.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_trigonometric.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_exponential.hpp
+	"func_exponential.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_exponential.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_common.hpp
+	"func_common.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_common.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_packing.hpp
+	"func_packing.inl"
+
+1296408104 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_packing.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_geometric.hpp
+	"func_geometric.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_geometric.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_matrix.hpp
+	"func_matrix.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_matrix.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_vector_relational.hpp
+	"func_vector_relational.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_vector_relational.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_integer.hpp
+	"func_integer.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_integer.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_noise.hpp
+	"func_noise.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\core\func_noise.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\ext.hpp
+	"./gtc/double_float.hpp"
+	"./gtc/half_float.hpp"
+	"./gtc/matrix_access.hpp"
+	"./gtc/matrix_operation.hpp"
+	"./gtc/matrix_projection.hpp"
+	"./gtc/matrix_transform.hpp"
+	"./gtc/quaternion.hpp"
+	"./gtc/swizzle.hpp"
+	"./gtc/type_precision.hpp"
+	"./gtc/type_ptr.hpp"
+	"./gtx/associated_min_max.hpp"
+	"./gtx/bit.hpp"
+	"./gtx/closest_point.hpp"
+	"./gtx/color_cast.hpp"
+	"./gtx/color_space.hpp"
+	"./gtx/color_space_YCoCg.hpp"
+	"./gtx/comparison.hpp"
+	"./gtx/compatibility.hpp"
+	"./gtx/component_wise.hpp"
+	"./gtx/determinant.hpp"
+	"./gtx/epsilon.hpp"
+	"./gtx/euler_angles.hpp"
+	"./gtx/extend.hpp"
+	"./gtx/extented_min_max.hpp"
+	"./gtx/fast_exponential.hpp"
+	"./gtx/fast_square_root.hpp"
+	"./gtx/fast_trigonometry.hpp"
+	"./gtx/gradient_paint.hpp"
+	"./gtx/handed_coordinate_space.hpp"
+	"./gtx/inertia.hpp"
+	"./gtx/int_10_10_10_2.hpp"
+	"./gtx/integer.hpp"
+	"./gtx/intersect.hpp"
+	"./gtx/inverse.hpp"
+	"./gtx/inverse_transpose.hpp"
+	"./gtx/log_base.hpp"
+	"./gtx/matrix_access.hpp"
+	"./gtx/matrix_cross_product.hpp"
+	"./gtx/matrix_major_storage.hpp"
+	"./gtx/matrix_operation.hpp"
+	"./gtx/matrix_projection.hpp"
+	"./gtx/matrix_query.hpp"
+	"./gtx/matrix_selection.hpp"
+	"./gtx/mixed_product.hpp"
+	"./gtx/norm.hpp"
+	"./gtx/normal.hpp"
+	"./gtx/normalize_dot.hpp"
+	"./gtx/number_precision.hpp"
+	"./gtx/ocl_type.hpp"
+	"./gtx/optimum_pow.hpp"
+	"./gtx/orthonormalize.hpp"
+	"./gtx/perpendicular.hpp"
+	"./gtx/polar_coordinates.hpp"
+	"./gtx/projection.hpp"
+	"./gtx/quaternion.hpp"
+	"./gtx/random.hpp"
+	"./gtx/raw_data.hpp"
+	"./gtx/reciprocal.hpp"
+	"./gtx/rotate_vector.hpp"
+	"./gtx/spline.hpp"
+	"./gtx/std_based_type.hpp"
+	"./gtx/string_cast.hpp"
+	"./gtx/transform.hpp"
+	"./gtx/transform2.hpp"
+	"./gtx/unsigned_int.hpp"
+	"./gtx/vec1.hpp"
+	"./gtx/vector_access.hpp"
+	"./gtx/vector_angle.hpp"
+	"./gtx/vector_query.hpp"
+	"./gtx/verbose_operator.hpp"
+	"./img/multiple.hpp"
+	"./img/wrap.hpp"
+	"./virtrev/address.hpp"
+	"./virtrev/equal_operator.hpp"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\double_float.hpp
+	"../glm.hpp"
+	"double_float.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\double_float.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\half_float.hpp
+	"../glm.hpp"
+	"half_float.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\half_float.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\matrix_access.hpp
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\matrix_operation.hpp
+	"../glm.hpp"
+	"matrix_operation.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\matrix_operation.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\matrix_projection.hpp
+	"../glm.hpp"
+	"../gtc/matrix_operation.hpp"
+	"matrix_projection.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\matrix_projection.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\matrix_transform.hpp
+	"../glm.hpp"
+	"../gtc/matrix_operation.hpp"
+	"matrix_transform.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\matrix_transform.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\quaternion.hpp
+	"../glm.hpp"
+	"../gtc/half_float.hpp"
+	"../gtc/double_float.hpp"
+	"quaternion.inl"
+
+1298548525 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\quaternion.inl
+	<limits>
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\swizzle.hpp
+	"../glm.hpp"
+	"swizzle.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\swizzle.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\type_precision.hpp
+	"../glm.hpp"
+	"../gtc/half_float.hpp"
+	"../gtc/double_float.hpp"
+	"../gtc/quaternion.hpp"
+	"type_precision.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\type_precision.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\type_ptr.hpp
+	"../glm.hpp"
+	"type_ptr.inl"
+
+1285273880 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtc\type_ptr.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\associated_min_max.hpp
+	"../glm.hpp"
+	"associated_min_max.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\associated_min_max.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\bit.hpp
+	"../glm.hpp"
+	"../gtc/half_float.hpp"
+	"bit.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\bit.inl
+	"../core/_detail.hpp"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\closest_point.hpp
+	"../glm.hpp"
+	"closest_point.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\closest_point.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\color_cast.hpp
+	"../glm.hpp"
+	"../gtx/number_precision.hpp"
+	"color_cast.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\number_precision.hpp
+	"../glm.hpp"
+	"../gtc/type_precision.hpp"
+	"number_precision.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\number_precision.inl
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\color_cast.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\color_space.hpp
+	"../glm.hpp"
+	"color_space.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\color_space.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\color_space_ycocg.hpp
+	"../glm.hpp"
+	"color_space_YCoCg.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\color_space_ycocg.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\comparison.hpp
+	"../glm.hpp"
+	"comparison.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\comparison.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\compatibility.hpp
+	"../glm.hpp"
+	"../gtc/half_float.hpp"
+	"../gtc/double_float.hpp"
+	<cfloat>
+	<cmath>
+	"compatibility.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\compatibility.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\component_wise.hpp
+	"../glm.hpp"
+	"component_wise.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\component_wise.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\determinant.hpp
+	"../glm.hpp"
+	"../gtc/matrix_operation.hpp"
+	"determinant.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\determinant.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\epsilon.hpp
+	"../glm.hpp"
+	"../gtc/double_float.hpp"
+	"../gtc/half_float.hpp"
+	"epsilon.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\epsilon.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\euler_angles.hpp
+	"../glm.hpp"
+	"../gtc/double_float.hpp"
+	"../gtc/half_float.hpp"
+	"euler_angles.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\euler_angles.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\extend.hpp
+	"../glm.hpp"
+	"extend.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\extend.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\extented_min_max.hpp
+	"../glm.hpp"
+	"../gtc/half_float.hpp"
+	"../gtc/double_float.hpp"
+	"extented_min_max.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\extented_min_max.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\fast_exponential.hpp
+	"../glm.hpp"
+	"../gtc/half_float.hpp"
+	"../gtc/double_float.hpp"
+	"fast_exponential.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\fast_exponential.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\fast_square_root.hpp
+	"../glm.hpp"
+	"fast_square_root.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\fast_square_root.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\fast_trigonometry.hpp
+	"../glm.hpp"
+	"fast_trigonometry.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\fast_trigonometry.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\gradient_paint.hpp
+	"../glm.hpp"
+	"../gtx/optimum_pow.hpp"
+	"gradient_paint.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\optimum_pow.hpp
+	"../glm.hpp"
+	"optimum_pow.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\optimum_pow.inl
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\gradient_paint.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\handed_coordinate_space.hpp
+	"../glm.hpp"
+	"handed_coordinate_space.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\handed_coordinate_space.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\inertia.hpp
+	"../glm.hpp"
+	"inertia.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\inertia.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\int_10_10_10_2.hpp
+	"../glm.hpp"
+	"../gtx/raw_data.hpp"
+	"int_10_10_10_2.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\raw_data.hpp
+	"../glm.hpp"
+	"../gtc/type_precision.hpp"
+	"raw_data.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\raw_data.inl
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\int_10_10_10_2.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\integer.hpp
+	"../glm.hpp"
+	"integer.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\integer.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\intersect.hpp
+	"../glm.hpp"
+	"../gtx/closest_point.hpp"
+	"intersect.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\intersect.inl
+	<cfloat>
+	<limits>
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\inverse.hpp
+	"../glm.hpp"
+	"../gtc/matrix_operation.hpp"
+	"inverse.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\inverse.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\inverse_transpose.hpp
+	"../glm.hpp"
+	"inverse_transpose.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\inverse_transpose.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\log_base.hpp
+	"../glm.hpp"
+	"log_base.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\log_base.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_access.hpp
+	"../glm.hpp"
+	"matrix_access.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_access.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_cross_product.hpp
+	"../glm.hpp"
+	"matrix_cross_product.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_cross_product.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_major_storage.hpp
+	"../glm.hpp"
+	"matrix_major_storage.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_major_storage.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_operation.hpp
+	"../glm.hpp"
+	"matrix_operation.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_operation.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_projection.hpp
+	"../glm.hpp"
+	"../gtc/matrix_projection.hpp"
+	"matrix_projection.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_projection.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_query.hpp
+	"../glm.hpp"
+	"matrix_query.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_query.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_selection.hpp
+	"../glm.hpp"
+	"matrix_selection.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\matrix_selection.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\mixed_product.hpp
+	"../glm.hpp"
+	"mixed_product.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\mixed_product.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\norm.hpp
+	"../glm.hpp"
+	"../gtc/double_float.hpp"
+	"../gtx/quaternion.hpp"
+	"norm.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\quaternion.hpp
+	"../glm.hpp"
+	"../gtc/quaternion.hpp"
+	"quaternion.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\quaternion.inl
+	<limits>
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\norm.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\normal.hpp
+	"../glm.hpp"
+	"normal.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\normal.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\normalize_dot.hpp
+	"../glm.hpp"
+	"../gtx/fast_square_root.hpp"
+	"normalize_dot.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\normalize_dot.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\ocl_type.hpp
+	"../glm.hpp"
+	"ocl_type.inl"
+
+1285273880 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\ocl_type.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\orthonormalize.hpp
+	"../glm.hpp"
+	"orthonormalize.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\orthonormalize.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\perpendicular.hpp
+	"../glm.hpp"
+	"../gtx/projection.hpp"
+	"perpendicular.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\projection.hpp
+	"../glm.hpp"
+	"projection.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\projection.inl
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\perpendicular.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\polar_coordinates.hpp
+	"../glm.hpp"
+	"polar_coordinates.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\polar_coordinates.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\random.hpp
+	"../glm.hpp"
+	"../gtc/half_float.hpp"
+	"random.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\random.inl
+	<ctime>
+	<cassert>
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\reciprocal.hpp
+	"../glm.hpp"
+	"reciprocal.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\reciprocal.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\rotate_vector.hpp
+	"../glm.hpp"
+	"../gtx/transform.hpp"
+	"rotate_vector.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\transform.hpp
+	"../glm.hpp"
+	"../gtc/matrix_transform.hpp"
+	"transform.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\transform.inl
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\rotate_vector.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\spline.hpp
+	"../glm.hpp"
+	"../gtx/optimum_pow.hpp"
+	"spline.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\spline.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\std_based_type.hpp
+	"../glm.hpp"
+	<cstdlib>
+	"std_based_type.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\std_based_type.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\string_cast.hpp
+	"../glm.hpp"
+	"../gtc/double_float.hpp"
+	"../gtc/half_float.hpp"
+	"../gtx/integer.hpp"
+	"../gtx/unsigned_int.hpp"
+	"../gtx/quaternion.hpp"
+	<string>
+	"string_cast.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\unsigned_int.hpp
+	"../glm.hpp"
+	"../gtx/integer.hpp"
+	"unsigned_int.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\unsigned_int.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\string_cast.inl
+	<cstdarg>
+	<cstdio>
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\transform2.hpp
+	"../glm.hpp"
+	"../gtx/transform.hpp"
+	"transform2.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\transform2.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\vec1.hpp
+	"../glm.hpp"
+	"../core/type_vec1.hpp"
+	"vec1.inl"
+
+1285273880 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\vec1.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\vector_access.hpp
+	"../glm.hpp"
+	"vector_access.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\vector_access.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\vector_angle.hpp
+	"../glm.hpp"
+	"../gtx/quaternion.hpp"
+	"../gtx/epsilon.hpp"
+	"vector_angle.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\vector_angle.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\vector_query.hpp
+	"../glm.hpp"
+	<cfloat>
+	<limits>
+	"vector_query.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\vector_query.inl
+	<cassert>
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\verbose_operator.hpp
+	"../glm.hpp"
+	"verbose_operator.inl"
+
+1296866008 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\gtx\verbose_operator.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\img\multiple.hpp
+	"../glm.hpp"
+	"multiple.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\img\multiple.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\img\wrap.hpp
+	"../glm.hpp"
+	"wrap.inl"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\img\wrap.inl
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\virtrev\address.hpp
+	"../glm.hpp"
+
+1297553020 e:\codeblocksprojects\lancerrayon\glm-0.9.0\glm\virtrev\equal_operator.hpp
+	"../glm.hpp"
+
+1299605484 source:e:\codeblocksprojects\lancerrayon\intersection.cpp
+	"Intersection.hpp"
+	"stdlib.h"
+
+1300801720 e:\codeblocksprojects\lancerrayon\intersection.hpp
+	".\glm-0.9.0\glm\setup.hpp"
+	".\glm-0.9.0\glm\glm.hpp"
+	".\glm-0.9.0\glm\ext.hpp"
+
+1299499065 source:e:\codeblocksprojects\lancerrayon\objet3d.cpp
+	"rayon.hpp"
+
+1301399040 e:\codeblocksprojects\lancerrayon\rayon.hpp
+	".\glm-0.9.0\glm\setup.hpp"
+	".\glm-0.9.0\glm\glm.hpp"
+	".\glm-0.9.0\glm\ext.hpp"
+	"Scene.hpp"
+
+1300199181 e:\codeblocksprojects\lancerrayon\scene.hpp
+	"Objet3D.hpp"
+	"Light.h"
+	<vector>
+
+1300204028 e:\codeblocksprojects\lancerrayon\objet3d.hpp
+	<iostream>
+	"Frame.h"
+	"Material.h"
+	"Intersection.hpp"
+	".\glm-0.9.0\glm\setup.hpp"
+	".\glm-0.9.0\glm\glm.hpp"
+	".\glm-0.9.0\glm\ext.hpp"
+
+1300199056 source:e:\codeblocksprojects\lancerrayon\scene.cpp
+	"Scene.hpp"
+
+1299495781 source:e:\codeblocksprojects\lancerrayon\bitmap.cpp
+	<stdio.h>
+	<stdlib.h>
+	"bitmap.hpp"
+
+1299592729 e:\codeblocksprojects\lancerrayon\bitmap.hpp
+	<stdlib.h>
+	"const.hpp"
+	".\glm-0.9.0\glm\setup.hpp"
+	".\glm-0.9.0\glm\glm.hpp"
+	".\glm-0.9.0\glm\ext.hpp"
+
+1297787580 e:\codeblocksprojects\lancerrayon\const.hpp
+
+1304425589 source:e:\codeblocksprojects\lancerrayon\camera.cpp
+	"camera.hpp"
+	"pixelmap.hpp"
+	"rayon.hpp"
+	"Scene.hpp"
+	<stdio.h>
+
+1304002130 e:\codeblocksprojects\lancerrayon\camera.hpp
+	"const.hpp"
+	"pixelmap.hpp"
+
+1299496429 e:\codeblocksprojects\lancerrayon\pixelmap.hpp
+	"bitmap.hpp"
+
+1297549420 source:e:\codeblocksprojects\lancerrayon\glm-0.9.0\doc\src\dummy.cpp
+	"../../glm/glm.hpp"
+	<vector>
+	"../../glm/gtc/matrix_projection.hpp"
+	"../../glm/gtc/matrix_transform.hpp"
+	"../../glm/gtc/type_ptr.hpp"
+	"../../glm/gtc/quaternion.hpp"
+	"../../glm/gtx/comparison.hpp"
+
+1304429137 source:e:\codeblocksprojects\lancerrayon\main.cpp
+	<stdio.h>
+	<iostream>
+	"camera.hpp"
+	"pixelmap.hpp"
+	"rayon.hpp"
+	"objet3D.hpp"
+	"Sphere.h"
+	"Plane.h"
+	"Light.h"
+	"Material.h"
+	"Triangle.h"
+	"Mesh.h"
+	"CSG.h"
+
+1299496578 source:e:\codeblocksprojects\lancerrayon\pixelmap.cpp
+	<math.h>
+	"pixelmap.hpp"
+	"bitmap.hpp"
+
+1304427661 source:e:\codeblocksprojects\lancerrayon\rayon.cpp
+	"rayon.hpp"
+	"objet3D.hpp"
+	<iostream>
+
+1302008799 source:e:\codeblocksprojects\lancerrayon\sphere.cpp
+	"Sphere.h"
+	"Rayon.hpp"
+
+1300204437 e:\codeblocksprojects\lancerrayon\sphere.h
+	<iostream>
+	"Objet3D.hpp"
+
+1303904079 source:e:\codeblocksprojects\lancerrayon\plane.cpp
+	"Plane.h"
+	"rayon.hpp"
+
+1303906816 e:\codeblocksprojects\lancerrayon\plane.h
+	"Objet3D.hpp"
+
+1300198790 e:\codeblocksprojects\lancerrayon\light.h
+	".\glm-0.9.0\glm\setup.hpp"
+	".\glm-0.9.0\glm\glm.hpp"
+	".\glm-0.9.0\glm\ext.hpp"
+
+1303114594 e:\codeblocksprojects\lancerrayon\material.h
+
+1304002517 e:\codeblocksprojects\lancerrayon\triangle.h
+	"Plane.h"
+	"rayon.hpp"
+
+1304344871 e:\codeblocksprojects\lancerrayon\mesh.h
+	"Objet3D.hpp"
+	<vector>
+	<iostream>
+	<fstream>
+	<sstream>
+	"Triangle.h"
+	<iostream>
+	"objLoader\objLoader.h"
+
+1304002651 source:e:\codeblocksprojects\lancerrayon\mesh.cpp
+	"Mesh.h"
+
+1221626230 e:\codeblocksprojects\lancerrayon\objloader\objloader.h
+	"obj_parser.h"
+
+1221619192 e:\codeblocksprojects\lancerrayon\objloader\obj_parser.h
+	"list.h"
+
+1221619192 e:\codeblocksprojects\lancerrayon\objloader\list.h
+
+1221625398 source:e:\codeblocksprojects\lancerrayon\objloader\list.cpp
+	"list.h"
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+
+1296578638 source:e:\codeblocksprojects\lancerrayon\objloader\objloader.cpp
+	"objLoader.h"
+	"obj_parser.h"
+
+1221625922 source:e:\codeblocksprojects\lancerrayon\objloader\obj_parser.cpp
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"obj_parser.h"
+	"list.h"
+	"string_extra.h"
+
+1221076252 e:\codeblocksprojects\lancerrayon\objloader\string_extra.h
+
+1221623316 source:e:\codeblocksprojects\lancerrayon\objloader\string_extra.cpp
+	"string_extra.h"
+	<string.h>
+
+1303377629 source:e:\codeblocksprojects\lancerrayon\csg.cpp
+	"CSG.h"
+
+1302617210 e:\codeblocksprojects\lancerrayon\csg.h
+	"Objet3D.hpp"
+
