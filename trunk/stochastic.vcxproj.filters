@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="headers">
+      <UniqueIdentifier>{e008ad8c-d276-4d9f-98bb-3c7eeca038bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources">
+      <UniqueIdentifier>{bbdcd301-1428-467a-91cb-14dacb8ee9d7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\box.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\intersection.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\opbin.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\primitive.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\ray.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\sphere.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\union.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\vector.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\node.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sources\union.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\sphere.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\ray.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\primitive.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\opbin.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\node.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\exe.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\box.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
