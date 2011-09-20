@@ -91,11 +91,12 @@ Vector radiance(const Ray &r, int depth)
 	if (!IntersectScene(r, inter)) return Vector(0.0,0.0,0.0); 
 
 	Node * obj = inter.obj;
-
-	Vector nl = inter.invNorm;
-	Vector x = inter.pos;
+	
+	//Vector x = inter.pos;
 	Vector n = inter.normal;
+	Vector nl=n*(r.Direction())<0?n:n*-1.0;
 
+	Vector x=r(inter.t);
 
 	Vector f=obj->getColor();
 	double p=obj->getF();
