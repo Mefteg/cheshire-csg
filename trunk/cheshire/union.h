@@ -7,7 +7,10 @@ class Union : public OpBin
 {
 public:
 	Union(void);
+	Union(Node*, Node*);
 	~Union(void);
+
+	int Intersect(const Ray&, double&);
 };
 
 #endif
