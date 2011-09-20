@@ -4,6 +4,7 @@
 // Include Vector class
 #include "vector.h"
 #include "ray.h"
+#include "Intersection.h"
 
 class Node
 {
@@ -11,7 +12,7 @@ public:
 	Node(void);
 	virtual ~Node(void);
 
-	virtual int Intersect( const Ray &, double & ) =0;
+	virtual int Intersect( const Ray &, Intersection&) =0;
 	//virtual int Intersect( const Ray &, double &, double & ) =0;
 
 	virtual Vector getPosition() =0;

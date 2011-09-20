@@ -38,7 +38,7 @@ public:
   // Intersection with a ray
   int Intersect(const Ray& ray) const;
   
-  int Intersect(const Ray&, double&);
+  int Intersect(const Ray&, Intersection&);
 
   int Intersect(const Ray&,double&,double&) const;
   int Intersect(const Ray&,double&,double&,Vector&,Vector&) const;

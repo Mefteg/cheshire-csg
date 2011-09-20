@@ -1,6 +1,6 @@
 // Fast Raytracer
 // Changelog 10.09.16
-
+#include <stdio.h>
 // Self include
 #include "box.h"
 
@@ -210,15 +210,17 @@ int Box::Intersect(const Ray& ray,double& tmin,double& tmax) const
   }
   else if (p[2]<a[2] || p[2]>b[2])
     return 0;
-
   return 1;
 }
 
-int Box::Intersect(const Ray& ray, double& t) {
+int Box::Intersect(const Ray& ray, Intersection& inter) {
 	double tab[2];
-	int inter = this->Intersect(ray, tab[0], tab[1]);
-	t = tab[0];
-	return inter;
+	int i = this->Intersect(ray, tab[0], tab[1]);
+	//distance to origin
+	inter.t = tab[0];
+	//position of the intersection
+	inter.pos = ray.Origin() + inter.t*ray.Direction();
+	return i;
 }
 
 /*!

@@ -1,19 +1,23 @@
-﻿La génération a démarré 14/09/2011 15:10:25.
-     1>Projet "C:\Documents and Settings\Tom\Mes documents\Dropbox\Gamagora\TP\4-Ray\stochastic.vcxproj" sur le nœud 2 (build cible(s)).
+﻿La génération a démarré 19/09/2011 17:49:09.
+     1>Projet "C:\Documents and Settings\icom\Mes documents\Cheshire-CSG\cheshire\stochastic.vcxproj" sur le nœud 2 (build cible(s)).
      1>InitializeBuildStatus:
-         Création de "Debug\stochastic.unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+         Mise à jour de l'horodatage "Debug\stochastic.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\Qt4\include /IC:\X\Code\Core\Include /nologo /W3 /WX- /O2 /Ot /Oy- /D NO_DEBUG /D WIN32 /D _USRDLL /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHa /MD /GS- /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt box.cpp exe.cpp ray.cpp sphere.cpp
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\Qt4\include /IC:\X\Code\Core\Include /nologo /W3 /WX- /O2 /Ot /Oy- /D NO_DEBUG /D WIN32 /D _USRDLL /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHa /MD /GS- /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt box.cpp
          box.cpp
-         exe.cpp
-     1>exe.cpp(123): error C2059: erreur de syntaxe : 'constant'
-     1>exe.cpp(126): error C2065: 'RP' : identificateur non déclaré
-     1>exe.cpp(126): error C2065: 'TP' : identificateur non déclaré
-         ray.cpp
-         sphere.cpp
-         Génération de code en cours...
-     1>Génération du projet "C:\Documents and Settings\Tom\Mes documents\Dropbox\Gamagora\TP\4-Ray\stochastic.vcxproj" terminée (build cible(s)) -- ÉCHEC.
+       ManifestResourceCompile:
+         Toutes les sorties sont à jour.
+       Link:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\icom\Mes documents\Cheshire-CSG\cheshire\Debug\stochastic.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\X\Code\Core\Library /LIBPATH:\lib qtmain.lib QtCore4.lib QtGui4.lib QtXml4.lib QtOpenGL4.lib Qt3Support4.lib Core.lib glut32.lib opengl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\stochastic.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"C:\Documents and Settings\icom\Mes documents\Cheshire-CSG\cheshire\Debug\stochastic.pdb" /ASSEMBLYDEBUG:DISABLE /TLBID:1 /DYNAMICBASE:NO /MACHINE:X86 Debug\stochastic.exe.embed.manifest.res
+         Debug\box.obj
+         Debug\exe.obj
+         Debug\node.obj
+         Debug\primitive.obj
+         Debug\ray.obj
+         Debug\sphere.obj
+     1>LINK : fatal error LNK1104: impossible d'ouvrir le fichier 'qtmain.lib'
+     1>Génération du projet "C:\Documents and Settings\icom\Mes documents\Cheshire-CSG\cheshire\stochastic.vcxproj" terminée (build cible(s)) -- ÉCHEC.
 
 ÉCHEC de la build.
 
-Temps écoulé 00:00:03.06
+Temps écoulé 00:00:00.46

@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box.h" />
+    <ClInclude Include="Intersection.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="primitive.h" />
     <ClInclude Include="ray.h" />

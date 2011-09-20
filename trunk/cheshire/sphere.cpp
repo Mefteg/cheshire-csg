@@ -33,13 +33,25 @@ Sphere::Sphere(const double& rad,const Vector& p,Vector& e,Vector& c, int refl) 
 \brief Compute the intersection between the object and a ray
 \return 1 if an intersection exists, 0 otherwise
 */
-int Sphere::Intersect(const Ray &ray,double& t) 
+int Sphere::Intersect(const Ray &ray, Intersection& inter) 
 {
-  t=0.0;
-  Vector op = p-ray.Origin();
-  double b=op*ray.Direction();
-  double det=b*b-op*op+rad*rad; 
-  if (det<=0.0) return 0; 
-  det=sqrt(det); 
-  return (t=b-det)>1e-4 ? 1 : ((t=b+det)>1e-4 ? 1 : 0); 
+	inter.t = 0.0; // initialize distance to the origin
+	Vector op = p - ray.Origin();
+	double b = op * ray.Direction();
+	double det = b * b-op * op+rad * rad;
+
+	if (det <= 0.0) return 0; 
+	det=sqrt(det); 
+
+	// compute normal
+	// get the location of the vertex focused by the ray
+	inter.pos = ray(inter.t);
+	// compute normal
+	inter.normal = Normalized(inter.pos-getPosition());
+	// inverse normal for refraaction?
+	inter.invNorm = inter.normal * (ray.Direction()) < 0 ? inter.normal : inter.normal* - 1.0;
+	// pointer to the object
+	inter.obj = this;
+
+	return (inter.t = b - det) > 1e-4 ? 1 : ((inter.t = b + det) > 1e-4 ? 1 : 0); 
 } 

@@ -49,5 +49,8 @@
     <ClInclude Include="primitive.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Intersection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
