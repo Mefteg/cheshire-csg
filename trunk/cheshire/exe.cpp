@@ -49,20 +49,29 @@ inline int toInt(double x){ return int(pow(clamp(x),1/2.2)*255+.5); }
 \brief Compute the intersection between the ray and the scene.
 \brief Return true if an intersection is found and the nearest object found
 */
-inline bool IntersectScene(const Ray &r, double &t, int &id,Vector& n, Vector& x)
+inline bool IntersectScene(const Ray &r, Intersection& inter)
 { 
+	Intersection tempInter;
 	bool k=false;
 	// for each sphere
 	for (int i=0;i<nbObj;i++) 
 	{
 		double d; 
 		// if the ray intersects the sphere i
-		if(spheres[i]->Intersect(r,d,n,x)) 
+		if(spheres[i]->Intersect(r,tempInter)) 
 		{ 
 			// if it's the first intersection
-			if (k==false) { t=d; id=i;} 
-			// else if the distance d is lower than t
-			else { if (d<t) {t=d; id=i;} } 
+			if (k==false) { 
+				inter = tempInter;
+				d = tempInter.t;
+			} 
+			// else if the new intersection is in front of the last registered
+			else { 
+				if (d>tempInter.t) {
+					inter=tempInter;
+					d=tempInter.t;
+				} 
+			} 
 			k=true;
 		}
 	}
@@ -77,60 +86,62 @@ inline bool IntersectScene(const Ray &r, double &t, int &id,Vector& n, Vector& x
 */
 Vector radiance(const Ray &r, int depth)
 { 
-	double t;
-	Vector n;// distance to Intersection 
-	Vector x; //point d'intersection
-	int id=0;                               // id of Intersected object 
+	Intersection inter;                     // id of Intersected object 
 	// if no intersection found, return the null vector
-	if (!IntersectScene(r, t, id,n,x)) return Vector(0.0,0.0,0.0); 
+	if (!IntersectScene(r, inter)) return Vector(0.0,0.0,0.0); 
 
-	Node * obj = spheres[id];
+	Node * obj = inter.obj;
+
+	Vector nl = inter.invNorm;
+	Vector x = inter.pos;
+	Vector n = inter.normal;
 
 
 	Vector f=obj->getColor();
 	double p=obj->getF();
 
 	// if no rebound is required
-	if (++depth>D) /*if (Random()<p) f=f*(1/p); else*/ return obj->getEmission(); //R.R. 
-	if (obj->getRefl() == 0) // Diffuse
-	{    
-		double r1=2*M_PI*Random(), r2=Random(), r2s=sqrt(r2); 
-		Vector w=n;
-		Vector u;
-		Vector v;
+    if (++depth>D) /*if (Random()<p) f=f*(1/p); else*/ return obj->getEmission(); //R.R. 
+    if (obj->getRefl() == 0) // Diffuse
+    {    
+            double r1=2*M_PI*Random(), r2=Random(), r2s=sqrt(r2); 
+            Vector w=nl;
+            Vector u;
+            Vector v;
 
-		if (fabs(w[0])>0.1) 
-		{
-			u=Vector(0,1,0);
-			v=Vector(w[2],0.0,w[0]);
-		}
-		else
-		{
-			u=Vector(1,0,0);
-			v=Vector(0.0,-w[2],w[1]);
-		}
-		Vector d = Normalized(u*cos(r1)*r2s + v*sin(r1)*r2s + w*sqrt(1-r2)); 
-		return obj->getEmission() + f.Scale(radiance(Ray(x,d),depth)); 
-	} 
-	else if (obj->getRefl() == 1)  // Specular
-	{
-		return obj->getEmission() + f.Scale(radiance(Ray(x,r.Direction()-n*2*(n*r.Direction())),depth)); 
-	}
-	else // Refractive
-	{
-		Ray reflRay(x, r.Direction()-n*2*n*(r.Direction()));    
-		bool into = n/**nl*/>0;                // Ray from outside going in? 
-		double nc=1, nt=1.5, nnt=into?nc/nt:nt/nc, ddn=r.Direction()*nl, cos2t; 
-		if ((cos2t=1-nnt*nnt*(1-ddn*ddn))<0)    // Total internal reflection 
-			return obj->getEmission() + f.Scale(radiance(reflRay,depth)); 
-		Vector tdir = Normalized(r.Direction()*nnt - n*((into?1:-1)*(ddn*nnt+sqrt(cos2t)))); 
-		double a=nt-nc, b=nt+nc, R0=a*a/(b*b), c = 1-(into?-ddn:tdir*n); 
-		double Re=R0+(1-R0)*c*c*c*c*c,Tr=1-Re,P=.25+.5*Re,RP=Re/P,TP=Tr/(1-P); 
+            if (fabs(w[0])>0.1) 
+            {
+                    u=Vector(0,1,0);
+                    v=Vector(w[2],0.0,w[0]);
+            }
+            else
+            {
+                    u=Vector(1,0,0);
+                    v=Vector(0.0,-w[2],w[1]);
+            }
+            Vector d = Normalized(u*cos(r1)*r2s + v*sin(r1)*r2s + w*sqrt(1-r2)); 
+            return obj->getEmission() + f.Scale(radiance(Ray(x,d),depth)); 
+    } 
+    else if (obj->getRefl() == 1)  // Specular
+    {
+            return obj->getEmission() + f.Scale(radiance(Ray(x,r.Direction()-n*2*(n*r.Direction())),depth)); 
+    }
+    else // Refractive
+    {
+            Ray reflRay(x, r.Direction()-n*2*n*(r.Direction()));    
+            bool into = n*nl>0;                // Ray from outside going in? 
+            double nc=1, nt=1.5, nnt=into?nc/nt:nt/nc, ddn=r.Direction()*nl, cos2t; 
+            if ((cos2t=1-nnt*nnt*(1-ddn*ddn))<0)    // Total internal reflection 
+                    return obj->getEmission() + f.Scale(radiance(reflRay,depth)); 
+            Vector tdir = Normalized(r.Direction()*nnt - n*((into?1:-1)*(ddn*nnt+sqrt(cos2t)))); 
+            double a=nt-nc, b=nt+nc, R0=a*a/(b*b), c = 1-(into?-ddn:tdir*n); 
+            double Re=R0+(1-R0)*c*c*c*c*c,Tr=1-Re,P=.25+.5*Re,RP=Re/P,TP=Tr/(1-P); 
 
-		return obj->getEmission() + f.Scale(depth>2 ? (Random()<P ?   // Russian roulette 
-			radiance(reflRay,depth)*RP:radiance(Ray(x,tdir),depth)*TP) : 
-		radiance(reflRay,depth)*Re+radiance(Ray(x,tdir),depth)*Tr); 
-	}
+            return obj->getEmission() + f.Scale(depth>2 ? (Random()<P ?   // Russian roulette 
+                    radiance(reflRay,depth)*RP:radiance(Ray(x,tdir),depth)*TP) : 
+            radiance(reflRay,depth)*Re+radiance(Ray(x,tdir),depth)*Tr); 
+    }
+
 } 
 
 double now()
