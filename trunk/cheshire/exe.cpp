@@ -29,9 +29,9 @@ Node * spheres[] = {
 	new Sphere(1e5, Vector(50, 1e5, 81.6),    Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0),//Botom white
 	new Sphere(1e5, Vector(50,-1e5+81.6,81.6),Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0),//Top white
 	new Sphere(16.5,Vector(27,16.5,47),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 1),//Mirror 
-	//new Sphere(16.5,Vector(73,16.5,78),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 2),//Glass 
+	new Sphere(16.5,Vector(73,16.5,78),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 2),//Glass 
 	new Sphere(600, Vector(50,681.6-.27,81.6),Vector(12,12,12),  Vector(0.0,0.0,0.0), 0),//Light
-	new Box(Vector(50,16.5,147), Vector(75,25,160), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0) //First box 
+	//new Box(Vector(50,16.5,147), Vector(75,25,160), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0) //First box 
 };
 int nbObj=9;
 
@@ -49,15 +49,15 @@ inline int toInt(double x){ return int(pow(clamp(x),1/2.2)*255+.5); }
 \brief Compute the intersection between the ray and the scene.
 \brief Return true if an intersection is found and the nearest object found
 */
-inline bool IntersectScene(const Ray &r, double &t, int &id)
+inline bool IntersectScene(const Ray &r, double &t, int &id,Vector& n, Vector& x)
 { 
 	bool k=false;
 	// for each sphere
 	for (int i=0;i<nbObj;i++) 
 	{
-		double d;
+		double d; 
 		// if the ray intersects the sphere i
-		if(spheres[i]->Intersect(r,d)) 
+		if(spheres[i]->Intersect(r,d,n,x)) 
 		{ 
 			// if it's the first intersection
 			if (k==false) { t=d; id=i;} 
@@ -77,17 +77,15 @@ inline bool IntersectScene(const Ray &r, double &t, int &id)
 */
 Vector radiance(const Ray &r, int depth)
 { 
-	double t;                               // distance to Intersection 
+	double t;
+	Vector n;// distance to Intersection 
+	Vector x; //point d'intersection
 	int id=0;                               // id of Intersected object 
 	// if no intersection found, return the null vector
-	if (!IntersectScene(r, t, id)) return Vector(0.0,0.0,0.0); 
+	if (!IntersectScene(r, t, id,n,x)) return Vector(0.0,0.0,0.0); 
 
 	Node * obj = spheres[id];
 
-	// get the location of the vertex focused by the ray
-	Vector x=r(t);
-	Vector n=Normalized(x-obj->getPosition());
-	Vector nl=n*(r.Direction())<0?n:n*-1.0;
 
 	Vector f=obj->getColor();
 	double p=obj->getF();
@@ -97,7 +95,7 @@ Vector radiance(const Ray &r, int depth)
 	if (obj->getRefl() == 0) // Diffuse
 	{    
 		double r1=2*M_PI*Random(), r2=Random(), r2s=sqrt(r2); 
-		Vector w=nl;
+		Vector w=n;
 		Vector u;
 		Vector v;
 
@@ -121,7 +119,7 @@ Vector radiance(const Ray &r, int depth)
 	else // Refractive
 	{
 		Ray reflRay(x, r.Direction()-n*2*n*(r.Direction()));    
-		bool into = n*nl>0;                // Ray from outside going in? 
+		bool into = n/**nl*/>0;                // Ray from outside going in? 
 		double nc=1, nt=1.5, nnt=into?nc/nt:nt/nc, ddn=r.Direction()*nl, cos2t; 
 		if ((cos2t=1-nnt*nnt*(1-ddn*ddn))<0)    // Total internal reflection 
 			return obj->getEmission() + f.Scale(radiance(reflRay,depth)); 
@@ -180,9 +178,10 @@ int main()
 						double r1=2*Random(), dx=r1<1 ? sqrt(r1)-1: 1-sqrt(2-r1); 
 						double r2=2*Random(), dy=r2<1 ? sqrt(r2)-1: 1-sqrt(2-r2); 
 						Vector d = cx*( ( (sx+0.5 + dx)/Pixel + x)/w - 0.5) + cy*( ( (sy+0.5 + dy)/Pixel + y)/h - 0.5) + camera.Direction(); 
+						//get color of objet hit by the ray
 						r = r + radiance(Ray(camera.Origin()+d*140,Normalized(d)),0)*(1./samps); 
 					}
-
+					//fill the  pixel with color
 					c[i] = c[i] + Vector(clamp(r[0]),clamp(r[1]),clamp(r[2]))*(1.0/((float) (Pixel*Pixel))); 
 				} 
 			} 
