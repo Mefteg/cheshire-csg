@@ -6,9 +6,11 @@
 class OpBin : public Node
 {
 protected:
-	Node * left, right;
+	Node * left;
+	Node * right;
 public:
 	OpBin(void);
+	OpBin(Node*, Node*);
 	~OpBin(void);
 };
 
