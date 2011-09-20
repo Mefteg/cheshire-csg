@@ -100,10 +100,10 @@ Sorted intersection depths are returned if intersection occurs.
 \param ray The ray
 \param tmin, tmax Intersection depths
 */
-int Box::Intersect(const Ray& ray,double& tmin,double& tmax) const
+int Box::Intersect(const Ray& ray,Intersection& intermin, Intersection& intermax) const
 {
-  tmin =-1e16;
-  tmax=1e16;
+  intermin.t =-1e16;
+  intermax.t = 1e16;
 
   Vector p=ray.Origin();
   Vector d=ray.Direction();
@@ -113,31 +113,31 @@ int Box::Intersect(const Ray& ray,double& tmin,double& tmax) const
   if (d[0]<-epsilon)
   {
     t=(a[0]-p[0])/d[0];
-    if (t<tmin)
+    if (t<intermin.t)
       return 0;
-    if (t<=tmax)
-      tmax=t;
+    if (t<=intermax.t)
+      intermax.t=t;
     t=(b[0]-p[0])/d[0];
-    if (t>=tmin)
+    if (t>=intermin.t)
     {
-      if (t>tmax)
+      if (t>intermax.t)
         return 0;
-      tmin=t;
+      intermin.t=t;
     }
   }
   else if (d[0]>epsilon)
   {
     t=(b[0]-p[0])/d[0];
-    if (t<tmin)
+    if (t<intermin.t)
       return 0;
-    if (t<=tmax)
-      tmax=t;
+    if (t<=intermax.t)
+      intermax.t=t;
     t=(a[0]-p[0])/d[0];
-    if (t>=tmin)
+    if (t>=intermin.t)
     {
-      if (t>tmax)
+      if (t>intermax.t)
         return 0;
-      tmin=t;
+      intermin.t=t;
     }
   }
   else if (p[0]<a[0] || p[0]>b[0])
@@ -147,31 +147,31 @@ int Box::Intersect(const Ray& ray,double& tmin,double& tmax) const
   if (d[1]<-epsilon)
   {
     t=(a[1]-p[1])/d[1];
-    if (t<tmin)
+    if (t<intermin.t)
       return 0;
-    if (t<=tmax)
-      tmax=t;
+    if (t<=intermax.t)
+      intermax.t=t;
     t=(b[1]-p[1])/d[1];
-    if (t>=tmin)
+    if (t>=intermin.t)
     {
-      if (t>tmax)
+      if (t>intermax.t)
         return 0;
-      tmin=t;
+      intermin.t=t;
     }
   }
   else if (d[1]>epsilon)
   {
     t=(b[1]-p[1])/d[1];
-    if (t<tmin)
+    if (t<intermin.t)
       return 0;
-    if (t<=tmax)
-      tmax=t;
+    if (t<=intermax.t)
+      intermax.t=t;
     t=(a[1]-p[1])/d[1];
-    if (t>=tmin)
+    if (t>=intermin.t)
     {
-      if (t>tmax)
+      if (t>intermax.t)
         return 0;
-      tmin=t;
+      intermin.t=t;
     }
   }
   else if (p[1]<a[1] || p[1]>b[1])
@@ -181,31 +181,31 @@ int Box::Intersect(const Ray& ray,double& tmin,double& tmax) const
   if (d[2]<-epsilon)
   {
     t=(a[2]-p[2])/d[2];
-    if (t<tmin)
+    if (t<intermin.t)
       return 0;
-    if (t<=tmax)
-      tmax=t;
+    if (t<=intermax.t)
+      intermax.t=t;
     t=(b[2]-p[2])/d[2];
-    if (t>=tmin)
+    if (t>=intermin.t)
     {
-      if (t>tmax)
+      if (t>intermax.t)
         return 0;
-      tmin=t;
+      intermin.t=t;
     }
   }
   else if (d[2]>epsilon)
   {
     t=(b[2]-p[2])/d[2];
-    if (t<tmin)
+    if (t<intermin.t)
       return 0;
-    if (t<=tmax)
-      tmax=t;
+    if (t<=intermax.t)
+      intermax.t=t;
     t=(a[2]-p[2])/d[2];
-    if (t>=tmin)
+    if (t>=intermin.t)
     {
-      if (t>tmax)
+      if (t>intermax.t)
         return 0;
-      tmin=t;
+      intermin.t=t;
     }
   }
   else if (p[2]<a[2] || p[2]>b[2])
@@ -214,12 +214,16 @@ int Box::Intersect(const Ray& ray,double& tmin,double& tmax) const
 }
 
 int Box::Intersect(const Ray& ray, Intersection& inter) {
-	double tab[2];
-	int i = this->Intersect(ray, tab[0], tab[1]);
-	//distance to origin
-	inter.t = tab[0];
+	Intersection inter1,inter2;
+	int i = this->Intersect(ray, inter1, inter2);
+	//get the nearest intersection
+	inter.t = inter1.t;
 	//position of the intersection
-	inter.pos = ray.Origin() + inter.t*ray.Direction();
+	inter.pos = ray(inter.t);
+	//normal
+	inter.normal = Normalized(Vector(0.0,1.0,1.0));//Normalized(inter.pos - getPosition());
+	//pointer to the box
+	inter.obj = this;
 	return i;
 }
 
@@ -235,8 +239,8 @@ variables.
 */
 int Box::Intersect(const Ray& ray) const
 {
-  double t[2];
-  return Intersect(ray,t[0],t[1]);
+  Intersection int1,int2;
+  return Intersect(ray,int1,int2);
 }
 
 /*!
