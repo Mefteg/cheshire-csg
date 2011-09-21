@@ -156,22 +156,37 @@ double now()
 
 int main()
 { 
+
 	Sphere * sp1 = new Sphere(15, Vector( 35,40.8,82.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0);
 	Sphere * sp2 = new Sphere(15, Vector( 25,40.8,82.6), Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0);
 	//creation of the scene
-	nodes.push_back(new Inter( sp1, sp2));
+	//nodes.push_back(new Inter( sp1, sp2));
 	nodes.push_back(new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0));//Left red
 	nodes.push_back(new Sphere(1e5, Vector(-1e5+99,40.8,81.6),Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0));//Right blue
 	nodes.push_back(new Sphere(1e5, Vector(50,40.8, 1e5),     Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Back 
-	nodes.push_back(new Sphere(1e5, Vector(50,40.8,-1e5+170), Vector(0.0,0.0,0.0),Vector(0.0,0.0,0.0),0));//Front 
-	nodes.push_back(new Sphere(1e5, Vector(50, 1e5, 81.6),    Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Botom white
+	//nodes.push_back(new Sphere(1e5, Vector(50,40.8,-1e5+170), Vector(0.0,0.0,0.0),Vector(0.0,0.0,0.0),0));//Front 
+	//nodes.push_back(new Sphere(1e5, Vector(50, 1e5, 81.6),    Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Botom white
 	nodes.push_back(new Sphere(1e5, Vector(50,-1e5+81.6,81.6),Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Top white
-	nodes.push_back(new Sphere(16.5,Vector(27,16.5,47),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror 
-	nodes.push_back(new Sphere(16.5,Vector(73,16.5,78),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 2));//Glass 
+	//nodes.push_back(new Sphere(16.5,Vector(27,16.5,47),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror 
+	//nodes.push_back(new Sphere(16.5,Vector(73,16.5,78),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 2));//Glass 
 	nodes.push_back(new Sphere(600, Vector(50,681.6-.27,81.6),Vector(12,12,12),  Vector(0.0,0.0,0.0), 0));//Light
 	nodes.push_back(new Box(Vector(42,22.5,100), Vector(55,29,120), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0)); //First box 
 
 	nbObj = (int) nodes.size();
+
+
+	Box b = Box(Vector(0,2,-1), Vector(6,4,1), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0);
+	Ray r = Ray(Vector(1,0,0), Vector(1,1,0));
+
+	Intersection i;
+	b.Intersect(r,i);
+
+	fprintf(stderr,"pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);
+	fprintf(stderr,"normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);
+
+
+
+
 
 	double t = now();
 	//fprintf(stderr, " %f %f %f \n \n",nodes[9]->getColor()[0],nodes[9]->getColor()[1],nodes[9]->getColor()[2]);
