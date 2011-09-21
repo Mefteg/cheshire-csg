@@ -4,7 +4,7 @@
 // Include Vector class
 #include "vector.h"
 #include "ray.h"
-#include "Intersection.h"
+#include "intersection.h"
 
 class Node
 {

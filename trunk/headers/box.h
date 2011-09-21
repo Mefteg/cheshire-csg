@@ -15,7 +15,7 @@ public:
   //! Creates a generic box (empty).
   Box() {}
   Box(const Vector&);
-  Box(const Vector&,const Vector&, Vector&, Vector&, int);
+  Box(const Vector&,const Vector&, const Vector&, const Vector&, int);
   Box(const Vector&,const double&);
   Box(Vector*,int);
   Box(const Box&,const Box&);

@@ -11,7 +11,7 @@ protected:
 	double f; //!< Maximum color channel value
 public:
 	Primitive(void);
-	Primitive( Vector&, Vector&, int );
+	Primitive(const Vector&, const Vector&, int );
 	virtual ~Primitive(void);
 
 	Vector getEmission() { return e; };

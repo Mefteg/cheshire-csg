@@ -45,7 +45,7 @@ Box::Box(const Vector& c,const double& r)
 constructor does not check the coordinates of the two vectors.
 \param a,b End vertices.
 */
-Box::Box(const Vector& a,const Vector& b, Vector& e, Vector &c, int refl) :
+Box::Box(const Vector& a,const Vector& b, const Vector& e, const Vector &c, int refl) :
 	Primitive( e, c, refl )
 {
   this->a=a;
