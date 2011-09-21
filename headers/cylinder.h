@@ -8,7 +8,7 @@
 
 
 class Cylinder : public Primitive
-{ 
+{
 protected:
   double radius;
   Vector axis;
@@ -18,10 +18,10 @@ protected:
 public:
   Cylinder() {}
   Cylinder(const double&, const Vector&, const Vector&, const Vector&, const Vector&, const Vector&, int);
-  int Intersect(const Ray&, Intersection&, Intersection&);
-  
-  Vector getPosition() { return p; };
-  
-}; 
+  int Intersect(const Ray&, Intersection&);
+
+  Vector getPosition() { return Vector(0,0,0); };
+
+};
 
 #endif
