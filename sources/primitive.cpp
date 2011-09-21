@@ -5,7 +5,7 @@ Primitive::Primitive(void)
 {
 }
 
-Primitive::Primitive( Vector& e, Vector& c, int refl )
+Primitive::Primitive(const Vector& e, const Vector& c, int refl )
 {
 	this->e = e;
 	this->c = c;

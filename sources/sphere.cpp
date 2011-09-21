@@ -22,7 +22,7 @@
   Sphere::f=c[0]>c[1] && c[0]>c[2] ? c[0] : c[1]>c[2] ? c[1] : c[2];
   Sphere::refl=refl;
 }*/
-Sphere::Sphere(const double& rad,const Vector& p,Vector& e,Vector& c, int refl) : 
+Sphere::Sphere(const double & rad, const Vector& p, const Vector& e, const Vector& c, int refl) : 
 	Primitive( e, c, refl )
 {
   Sphere::rad=rad;

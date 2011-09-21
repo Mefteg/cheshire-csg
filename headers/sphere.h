@@ -22,7 +22,7 @@ public:
 
 public:
   Sphere() {}
-  Sphere(const double&,const Vector&,Vector&,Vector&,int);
+  Sphere(const double&, const Vector&, const Vector&, const Vector&, int);
   int Intersect(const Ray &r,Intersection&);
 
   Vector getPosition() { return p; };

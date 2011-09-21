@@ -6,7 +6,7 @@ CFLAGS	=
 INCLUDES =	headers
 
 all: $(OBJECTS)
-	g++ -o -I $(INCLUDES) $(TARGET) $(OBJECTS) $(LIBS) -fopenmp
+	g++ -o $(TARGET) -I $(INCLUDES) $(OBJECTS) $(LIBS) -fopenmp
 
 %.o: %.cpp
 	g++ -c $< -o $@ $(CFLAGS) -I $(INCLUDES)
