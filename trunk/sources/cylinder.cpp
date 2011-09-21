@@ -17,5 +17,5 @@ Cylinder::Cylinder(const double& radius, const Vector& axis, const Vector& top, 
 
 int Cylinder::Intersect(const Ray&, Intersection&)
 {
-	
+	return 0;
 }

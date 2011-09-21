@@ -6,10 +6,10 @@ CFLAGS	=
 INCLUDES =	headers
 
 all: $(OBJECTS)
-	g++ -o $(TARGET) -I $(INCLUDES) $(OBJECTS) $(LIBS) -fopenmp
+	g++ -fopenmp -o $(TARGET) -I $(INCLUDES) $(OBJECTS) $(LIBS)
 
 %.o: %.cpp
-	g++ -c $< -o $@ $(CFLAGS) -I $(INCLUDES)
+	g++ -fopenmp -c $< -o $@ $(CFLAGS) -I $(INCLUDES)
 
 x:	all
 	./$(TARGET)
