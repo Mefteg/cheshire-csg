@@ -2,6 +2,7 @@
 #include <stdlib.h> 
 #include <stdio.h>
 #include <ctime>
+#include <vector>
 #include <omp.h>
 
 #include "ray.h"
@@ -9,6 +10,9 @@
 #include "primitive.h"
 #include "sphere.h"
 #include "box.h"
+#include "opbin.h"
+#include "union.h"
+#include "inter.h"
 
 
 #define X (512/2) // Width
@@ -20,20 +24,27 @@
 //! \brief Easy coded random function
 inline double Random() { return (rand()%10000)/9999.0;}
 
+//! build a coordinate system from vector v1
+inline 
+void CoordinateSystem( const Vector &v1, Vector *v2, Vector *v3 )
+{
+	if ( fabsf( v1[0] ) > fabsf( v1[1] ) )
+    {
+		float invLen = 1.f / sqrtf( v1[0] * v1[0] + v1[2] * v1[2] );
+        *v2 = Vector( -v1[2] * invLen, 0.f, v1[0] * invLen );
+    }
+    else
+    {
+        float invLen = 1.f / sqrtf( v1[1] * v1[1] + v1[2] * v1[2] );
+        *v2 = Vector( 0.f, v1[2] * invLen, -v1[1] * invLen );
+    }
+    
+    *v3 =  v1 / *v2 ;
+}
+
 //!< Scene defined as an array of nodes (radius, position, emission, color, material) 
-Node * nodes[] = {
-	new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0),//Left red
-	new Sphere(1e5, Vector(-1e5+99,40.8,81.6),Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0),//Right blue
-	new Sphere(1e5, Vector(50,40.8, 1e5),     Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0),//Back 
-	new Sphere(1e5, Vector(50,40.8,-1e5+170), Vector(0.0,0.0,0.0),Vector(0.0,0.0,0.0),0),//Front 
-	new Sphere(1e5, Vector(50, 1e5, 81.6),    Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0),//Botom white
-	new Sphere(1e5, Vector(50,-1e5+81.6,81.6),Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0),//Top white
-	new Sphere(16.5,Vector(27,16.5,47),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 1),//Mirror 
-	new Sphere(16.5,Vector(73,16.5,78),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 2),//Glass 
-	new Sphere(600, Vector(50,681.6-.27,81.6),Vector(12,12,12),  Vector(0.0,0.0,0.0), 0),//Light
-	new Box(Vector(50,16.5,147), Vector(75,25,160), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0) //First box 
-};
-int nbObj=9;
+std::vector<Node *> nodes;
+int nbObj;
 
 /*!
 \brief Clamp value to unity.
@@ -111,16 +122,7 @@ Vector radiance(const Ray &r, int depth)
             Vector u;
             Vector v;
 
-            if (fabs(w[0])>0.1) 
-            {
-                    u=Vector(0,1,0);
-                    v=Vector(w[2],0.0,w[0]);
-            }
-            else
-            {
-                    u=Vector(1,0,0);
-                    v=Vector(0.0,-w[2],w[1]);
-            }
+			CoordinateSystem(w,&u,&v);
             Vector d = Normalized(u*cos(r1)*r2s + v*sin(r1)*r2s + w*sqrt(1-r2)); 
             return obj->getEmission() + f.Scale(radiance(Ray(x,d),depth)); 
     } 
@@ -154,14 +156,31 @@ double now()
 
 int main()
 { 
-	double t = now();
+	Sphere * sp1 = new Sphere(15, Vector( 35,40.8,82.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0);
+	Sphere * sp2 = new Sphere(15, Vector( 25,40.8,82.6), Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0);
+	//creation of the scene
+	nodes.push_back(new Inter( sp1, sp2));
+	nodes.push_back(new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0));//Left red
+	nodes.push_back(new Sphere(1e5, Vector(-1e5+99,40.8,81.6),Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0));//Right blue
+	nodes.push_back(new Sphere(1e5, Vector(50,40.8, 1e5),     Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Back 
+	nodes.push_back(new Sphere(1e5, Vector(50,40.8,-1e5+170), Vector(0.0,0.0,0.0),Vector(0.0,0.0,0.0),0));//Front 
+	nodes.push_back(new Sphere(1e5, Vector(50, 1e5, 81.6),    Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Botom white
+	nodes.push_back(new Sphere(1e5, Vector(50,-1e5+81.6,81.6),Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Top white
+	nodes.push_back(new Sphere(16.5,Vector(27,16.5,47),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror 
+	nodes.push_back(new Sphere(16.5,Vector(73,16.5,78),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 2));//Glass 
+	nodes.push_back(new Sphere(600, Vector(50,681.6-.27,81.6),Vector(12,12,12),  Vector(0.0,0.0,0.0), 0));//Light
+	nodes.push_back(new Box(Vector(42,22.5,100), Vector(55,29,120), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0)); //First box 
 
+	nbObj = (int) nodes.size();
+
+	double t = now();
+	//fprintf(stderr, " %f %f %f \n \n",nodes[9]->getColor()[0],nodes[9]->getColor()[1],nodes[9]->getColor()[2]);
 	int w=X; 
 	int h=Y; 
 	int samps = S;
 	// Save the color of each pixel
 	Vector* c = new Vector[X*Y]; 
-
+	
 	Ray camera(Vector(50,52,295.6), Normalized(Vector(0,-0.042612,-1))); // camera pos, dir 
 	Vector cx=Vector(w*.5135/h,0,0), cy=Normalized(cx/camera.Direction())*.5135;
 

@@ -1,14 +1,14 @@
-#ifndef __Union__
-#define __Union__
+#ifndef __Inter__
+#define __Inter__
 
 #include "opbin.h"
 
-class Union : public OpBin
+class Inter : public OpBin
 {
 public:
-	Union(void);
-	Union(Node*, Node*);
-	~Union(void);
+	Inter(void);
+	Inter(Node*, Node*);
+	~Inter(void);
 
 	int Intersect(const Ray&, Intersection&);
 
