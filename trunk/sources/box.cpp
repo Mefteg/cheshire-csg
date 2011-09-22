@@ -14,8 +14,8 @@ The data structure stores the opposite two corners as vectors.
 The center and the radius (diagonal vector) are computed on the
 fly by inline functions.
 
-The vertices of a box can be obtained by using the Box::Vertex(int) 
-member function which returns one of the eight vertices of the box. 
+The vertices of a box can be obtained by using the Box::Vertex(int)
+member function which returns one of the eight vertices of the box.
 The two opposite corners can be obtained faster as follows:
 \code
 Box box(Vector(0.0,0.0,0.0),Vector(1.0,1.0,1.0)); // Unit box
@@ -31,7 +31,7 @@ of boxes by overloading some operators.
 
 /*!
 \brief Create a box given a center point and the half side length.
-\param c Center. 
+\param c Center.
 \param r Half side length.
 */
 Box::Box(const Vector& c,const double& r)
@@ -218,13 +218,15 @@ int Box::Intersect(const Ray& ray, Intersection& inter) {
 	int i = this->Intersect(ray, inter1, inter2);
 	if(inter1.t > 0.000001)
 		//get the nearest intersection
-		inter.t = inter1.t;
+		inter = inter1;
 	else
-		inter.t = inter2.t;
+		inter = inter2;
 	//position of the intersection
 	inter.pos = ray(inter.t);
 	//pointer to the box
 	inter.obj = this;
+
+/*	fprintf(stderr,"Box Intersect return %d \n",i);*/
 	return i;
 }
 
@@ -390,7 +392,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
 
 
 /*!
-\brief Compute the first positive intersection between an axis 
+\brief Compute the first positive intersection between an axis
 aligned box and a ray.
 \param ray The ray.
 \param t Intersection.
@@ -404,7 +406,7 @@ int Box::Intersect(const Ray& ray,double& t,Vector& n) const
 /*  if (Box::Intersect(ray,t,u,n,nu))
   {
     if (t>0.0)
-    {		
+    {
       return 1;
     }
     else if (u>0.0)
