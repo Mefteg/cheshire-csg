@@ -216,6 +216,9 @@ Sorted intersection depths are returned if intersection occurs.
 int Box::Intersect(const Ray& ray, Intersection& inter) {
 	Intersection inter1,inter2;
 	int i = this->Intersect(ray, inter1, inter2);
+
+    inter = inter2;
+    //get the nearest intersection
 	if(inter1.t > 0.000001)
 		//get the nearest intersection
 		inter = inter1;
@@ -272,7 +275,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
     if (t<=intermax.t)
     {
       intermax.t=t;
-      intermax.normal=Vector(-1.0,0.0,0.0);
+      intermax.normal=Vector(-1.0,0.0,0.0); //face gauche
     }
     t=(b[0]-p[0])/d[0];
     if (t>=intermin.t)
@@ -280,7 +283,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
       if (t>intermax.t)
         return 0;
       intermin.t=t;
-      intermin.normal=Vector(1.0,0.0,0.0);
+      intermin.normal=Vector(1.0,0.0,0.0); //face droite
     }
   }
   else if (d[0]>epsilon)
@@ -291,7 +294,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
     if (t<=intermax.t)
     {
       intermax.t=t;
-      intermax.normal=Vector(1.0,0.0,0.0);
+      intermax.normal=Vector(1.0,0.0,0.0); //face droite
     }
     t=(a[0]-p[0])/d[0];
     if (t>=intermin.t)
@@ -299,7 +302,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
       if (t>intermax.t)
         return 0;
       intermin.t=t;
-      intermin.normal=Vector(-1.0,0.0,0.0);
+      intermin.normal=Vector(-1.0,0.0,0.0); //face gauche
     }
   }
   else if (p[0]<a[0] || p[0]>b[0])
@@ -313,7 +316,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
     if (t<=intermax.t)
     {
       intermax.t=t;
-      intermax.normal=Vector(0.0,-1.0,0.0);
+      intermax.normal=Vector(0.0,-1.0,0.0); //face dessous
     }
     t=(b[1]-p[1])/d[1];
     if (t>=intermin.t)
@@ -321,7 +324,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
       if (t>intermax.t)
         return 0;
       intermin.t=t;
-      intermin.normal=Vector(0.0,1.0,0.0);
+      intermin.normal=Vector(0.0,1.0,0.0); //face dessus
     }
   }
   else if (d[1]>epsilon)
@@ -332,7 +335,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
     if (t<=intermax.t)
     {
       intermax.t=t;
-      intermax.normal=Vector(0.0,1.0,0.0);
+      intermax.normal=Vector(0.0,1.0,0.0); //face dessus
     }
     t=(a[1]-p[1])/d[1];
     if (t>=intermin.t)
@@ -340,7 +343,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
       if (t>intermax.t)
         return 0;
       intermin.t=t;
-      intermin.normal=Vector(0.0,-1.0,0.0);
+      intermin.normal=Vector(0.0,-1.0,0.0); //face dessous
     }
   }
   else if (p[1]<a[1] || p[1]>b[1])
@@ -354,7 +357,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
     if (t<=intermax.t)
     {
       intermax.t=t;
-      intermax.normal=Vector(0.0,0.0,-1.0);
+      intermax.normal=Vector(0.0,0.0,-1.0); //face arrière
     }
     t=(b[2]-p[2])/d[2];
     if (t>=intermin.t)
@@ -362,7 +365,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
       if (t>intermax.t)
         return 0;
       intermin.t=t;
-      intermin.normal=Vector(0.0,0.0,1.0);
+      intermin.normal=Vector(0.0,0.0,1.0); //face avant
     }
   }
   else if (d[2]>epsilon)
@@ -373,7 +376,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
     if (t<=intermax.t)
     {
       intermax.t=t;
-      intermax.normal=Vector(0.0,0.0,1.0);
+      intermax.normal=Vector(0.0,0.0,1.0); //face avant
     }
     t=(a[2]-p[2])/d[2];
     if (t>=intermin.t)
@@ -381,7 +384,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
       if (t>intermax.t)
         return 0;
       intermin.t=t;
-      intermin.normal=Vector(0.0,0.0,-1.0);
+      intermin.normal=Vector(0.0,0.0,-1.0); //face arrière
     }
   }
   else if (p[2]<a[2] || p[2]>b[2])

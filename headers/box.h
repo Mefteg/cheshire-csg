@@ -8,7 +8,7 @@
 #include "primitive.h"
 
 class Box : public Primitive
-{ 
+{
 protected:
   Vector a,b; //!< End vertices of the box.
 public:
@@ -37,7 +37,7 @@ public:
 
   // Intersection with a ray
   int Intersect(const Ray& ray) const;
-  
+
   int Intersect(const Ray&, Intersection&);
 
   //int Intersect(const Ray&,Intersection&,Intersection&) const;
@@ -59,14 +59,14 @@ public:
 };
 
 //! Returns either end vertex of the box.
-inline Vector& Box::operator[] (int i) 
+inline Vector& Box::operator[] (int i)
 {
   if (i==0) return a;
   else return b;
 }
 
 //! Overloaded.
-inline Vector Box::operator[] (int i) const 
+inline Vector Box::operator[] (int i) const
 {
   if (i==0) return a;
   else return b;
