@@ -161,27 +161,32 @@ int main()
 	Sphere * sp2 = new Sphere(15, Vector( 25,40.8,82.6), Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0);
 	//creation of the scene
 	//nodes.push_back(new Inter( sp1, sp2));
-	nodes.push_back(new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0));//Left red
+	//nodes.push_back(new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0));//Left red
 	nodes.push_back(new Sphere(1e5, Vector(-1e5+99,40.8,81.6),Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0));//Right blue
-	nodes.push_back(new Sphere(1e5, Vector(50,40.8, 1e5),     Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Back
+	//nodes.push_back(new Sphere(1e5, Vector(50,40.8, 1e5),     Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Back
 	//nodes.push_back(new Sphere(1e5, Vector(50,40.8,-1e5+170), Vector(0.0,0.0,0.0),Vector(0.0,0.0,0.0),0));//Front
 	//nodes.push_back(new Sphere(1e5, Vector(50, 1e5, 81.6),    Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Botom white
-	nodes.push_back(new Sphere(1e5, Vector(50,-1e5+81.6,81.6),Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Top white
+	//nodes.push_back(new Sphere(1e5, Vector(50,-1e5+81.6,81.6),Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Top white
 	//nodes.push_back(new Sphere(16.5,Vector(27,16.5,47),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
 	//nodes.push_back(new Sphere(16.5,Vector(73,16.5,78),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 2));//Glass
 	nodes.push_back(new Sphere(600, Vector(50,681.6-.27,81.6),Vector(12,12,12),  Vector(0.0,0.0,0.0), 0));//Light
 	//nodes.push_back(new Box(Vector(42,22.5,100), Vector(55,29,120), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0)); //First box
-	nodes.push_back(new Box(Vector(0,0,0), Vector(55,29,120), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0)); //First box
+	nodes.push_back(new Box(Vector(0,0,0), Vector(30,30,30), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0)); //First box
+	//nodes.push_back(new Sphere(1,Vector(0,0,0),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
+	//nodes.push_back(new Sphere(1,Vector(2,0,0),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
+	//nodes.push_back(new Sphere(1,Vector(0,2,0),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
+	//nodes.push_back(new Sphere(1,Vector(0,0,2),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
 
 	nbObj = (int) nodes.size();
 
 
-	Box b = Box(Vector(0,2,1), Vector(6,4,-1), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0);
+	Box b = Box(Vector(0,2,-1), Vector(6,4,1), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0);
 	Ray r1 = Ray(Vector(0,0,0), Vector(1,1,0)); //impact dessous
 	Ray r2 = Ray(Vector(0,6,0), Vector(1,-1,0)); //impact dessus
-	Ray r3 = Ray(Vector(8,1,0), Vector(-1,1,0)); //impact dessus
-	Ray r4 = Ray(Vector(-2,1,0), Vector(1,1,0)); //impact dessus
-	Ray r5 = Ray(Vector(-2,1,0), Vector(1,1,0)); //impact dessus
+	Ray r3 = Ray(Vector(8,1,0), Vector(-1,1,0)); //impact droit
+	Ray r4 = Ray(Vector(-2,1,0), Vector(1,1,0)); //impact gauche
+	Ray r5 = Ray(Vector(3,2,3), Vector(0,0,-1)); //impact devant
+	Ray r6 = Ray(Vector(3,2,-3), Vector(0,0,1)); //impact derrière
 
 	Intersection i;
 
@@ -200,6 +205,14 @@ int main()
 	b.Intersect(r4,i);
 	fprintf(stderr,"pour r4: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);
 	fprintf(stderr,"pour r4: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);
+
+	b.Intersect(r5,i);
+	fprintf(stderr,"pour r5: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);
+	fprintf(stderr,"pour r5: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);
+
+	b.Intersect(r6,i);
+	fprintf(stderr,"pour r6: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);
+	fprintf(stderr,"pour r6: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);
 
 
 	double t = now();
@@ -269,3 +282,4 @@ int main()
 
 	return 0;
 }
+
