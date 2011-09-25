@@ -264,12 +264,15 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
 
   Vector p=ray.Origin();
   Vector d=ray.Direction();
+/*  Vector d=ray.Direction()*-1;*/
 
   double t;
 
+/*  fprintf(stderr, "d : %f %f %f\n",d[0],d[1],d[2]);*/
   if (d[0]<-epsilon)
   {
     t=(a[0]-p[0])/d[0];
+/*    fprintf(stderr, "t : %f\n",t);*/
     if (t<intermin.t)
       return 0;
     if (t<=intermax.t)
@@ -289,6 +292,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
   else if (d[0]>epsilon)
   {
     t=(b[0]-p[0])/d[0];
+/*    fprintf(stderr, "t : %f\n",t);*/
     if (t<intermin.t)
       return 0;
     if (t<=intermax.t)
@@ -311,6 +315,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
   if (d[1]<-epsilon)
   {
     t=(a[1]-p[1])/d[1];
+/*    fprintf(stderr, "t : %f\n",t);*/
     if (t<intermin.t)
       return 0;
     if (t<=intermax.t)
@@ -319,6 +324,7 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
       intermax.normal=Vector(0.0,-1.0,0.0); //face dessous
     }
     t=(b[1]-p[1])/d[1];
+/*    fprintf(stderr, "t : %f\n",t);*/
     if (t>=intermin.t)
     {
       if (t>intermax.t)

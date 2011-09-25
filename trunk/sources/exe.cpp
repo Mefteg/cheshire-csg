@@ -17,8 +17,8 @@
 
 #define X (512/2) // Width
 #define Y (384/2) // Height
-#define S 100     // Samples
-#define D 3       // Recursion depth
+#define S 50     // Samples
+#define D 4       // Recursion depth
 #define Pixel 2 //Pixel subdivision
 
 //! \brief Easy coded random function
@@ -71,19 +71,21 @@ inline bool IntersectScene(const Ray &r, Intersection& inter)
 		// if the ray intersects the sphere i
 		if(nodes[i]->Intersect(r,tempInter))
 		{
-			// if it's the first intersection
-			if (k==false) {
-				inter = tempInter;
-				d = tempInter.t;
-			}
-			// else if the new intersection is in front of the last registered
-			else {
-				if (d>tempInter.t) {
-					inter=tempInter;
-					d=tempInter.t;
-				}
-			}
-			k=true;
+            if ( tempInter.t > 0 ) {
+                // if it's the first intersection
+                if (k==false) {
+                    inter = tempInter;
+                    d = tempInter.t;
+                }
+                // else if the new intersection is in front of the last registered
+                else {
+                    if (d>tempInter.t) {
+                        inter=tempInter;
+                        d=tempInter.t;
+                    }
+                }
+                k=true;
+            }
 		}
 	}
 	return k;
@@ -103,12 +105,20 @@ Vector radiance(const Ray &r, int depth)
 
 	Node * obj = inter.obj;
 
+/*	fprintf(stderr,"radiance niveau %d\n",depth);*/
+/*    fprintf(stderr,"Refl : %d\n",obj->getRefl());*/
+/*    fprintf(stderr, "obj position : %f %f %f \n", obj->getPosition()[0], obj->getPosition()[1], obj->getPosition()[2]);*/
+/*    fprintf(stderr, "rayon origin : %f %f %f \n", r.Origin()[0], r.Origin()[1], r.Origin()[2]);*/
+/*    fprintf(stderr, "rayon direction : %f %f %f \n", r.Direction()[0], r.Direction()[1], r.Direction()[2]);*/
+/*    fprintf(stderr, "rayon/obj impact : %f %f %f \n", inter.pos[0], inter.pos[1], inter.pos[2]);*/
+
 	//intersection coordinates
 	Vector x = inter.pos;
+/*    x += Vector(0,3,0);*/
 	//normal of the object at the intersection
 	Vector n = inter.normal;
 	Vector nl=n*(r.Direction())<0?n:n*-1.0;
-
+/*    fprintf(stderr, "nl : %f %f %f \n", nl[0], nl[1], nl[2]);*/
 
 	Vector f=obj->getColor();
 	double p=obj->getF();
@@ -117,14 +127,14 @@ Vector radiance(const Ray &r, int depth)
     if (++depth>D) /*if (Random()<p) f=f*(1/p); else*/ return obj->getEmission(); //R.R.
     if (obj->getRefl() == 0) // Diffuse
     {
-            double r1=2*M_PI*Random(), r2=Random(), r2s=sqrt(r2);
-            Vector w=nl;
-            Vector u;
-            Vector v;
+        double r1=2*M_PI*Random(), r2=Random(), r2s=sqrt(r2);
+        Vector w=nl;
+        Vector u;
+        Vector v;
 
-			CoordinateSystem(w,&u,&v);
-            Vector d = Normalized(u*cos(r1)*r2s + v*sin(r1)*r2s + w*sqrt(1-r2));
-            return obj->getEmission() + f.Scale(radiance(Ray(x,d),depth));
+        CoordinateSystem(w,&u,&v);
+        Vector d = Normalized(u*cos(r1)*r2s + v*sin(r1)*r2s + w*sqrt(1-r2));
+        return obj->getEmission() + f.Scale(radiance(Ray(x,d),depth));
     }
     else if (obj->getRefl() == 1)  // Specular
     {
@@ -158,31 +168,36 @@ int main()
 {
 
 	Sphere * sp1 = new Sphere(15, Vector( 35,40.8,82.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0);
-	Sphere * sp2 = new Sphere(15, Vector( 25,40.8,82.6), Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0);
+	Sphere * sp2 = new Sphere(30, Vector( 30+10,30,90), Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0);
+	Box * b1 = new Box(Vector(20,50,80), Vector(40,70,100), Vector(0,0,0), Vector(0.75,0.25,0.25), 0); //First box
 	//creation of the scene
-	//nodes.push_back(new Inter( sp1, sp2));
-	//nodes.push_back(new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0));//Left red
+	nodes.push_back(new Inter( b1, sp2));
+	nodes.push_back(new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0));//Left red
 	nodes.push_back(new Sphere(1e5, Vector(-1e5+99,40.8,81.6),Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0));//Right blue
-	//nodes.push_back(new Sphere(1e5, Vector(50,40.8, 1e5),     Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Back
-	//nodes.push_back(new Sphere(1e5, Vector(50,40.8,-1e5+170), Vector(0.0,0.0,0.0),Vector(0.0,0.0,0.0),0));//Front
-	//nodes.push_back(new Sphere(1e5, Vector(50, 1e5, 81.6),    Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Botom white
-	//nodes.push_back(new Sphere(1e5, Vector(50,-1e5+81.6,81.6),Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Top white
-	//nodes.push_back(new Sphere(16.5,Vector(27,16.5,47),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
-	//nodes.push_back(new Sphere(16.5,Vector(73,16.5,78),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 2));//Glass
+	nodes.push_back(new Sphere(1e5, Vector(50,40.8, 1e5),     Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Back
+	nodes.push_back(new Sphere(1e5, Vector(50,40.8,-1e5+170), Vector(0.0,0.0,0.0),Vector(0.0,0.0,0.0),0));//Front
+	nodes.push_back(new Sphere(1e5, Vector(50, 1e5, 81.6),    Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Botom white
+	nodes.push_back(new Sphere(1e5, Vector(50,-1e5+81.6,81.6),Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Top white
+	nodes.push_back(new Sphere(16.5,Vector(27,16.5,47),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
+	nodes.push_back(new Sphere(16.5,Vector(73,16.5,78),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 2));//Glass
 	nodes.push_back(new Sphere(600, Vector(50,681.6-.27,81.6),Vector(12,12,12),  Vector(0.0,0.0,0.0), 0));//Light
 	//nodes.push_back(new Box(Vector(42,22.5,100), Vector(55,29,120), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0)); //First box
-	nodes.push_back(new Box(Vector(0,0,0), Vector(30,30,30), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0)); //First box
+/*	nodes.push_back(new Box(Vector(-30,-30,-30), Vector(30,30,30), Vector(12,12,12), Vector(1,1,1)*0.9, 0)); //First box*/
 	//nodes.push_back(new Sphere(1,Vector(0,0,0),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
 	//nodes.push_back(new Sphere(1,Vector(2,0,0),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
 	//nodes.push_back(new Sphere(1,Vector(0,2,0),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
 	//nodes.push_back(new Sphere(1,Vector(0,0,2),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
+	//nodes.push_back(new Box(Vector(0,2,-1), Vector(6,4,1), Vector(12,12,12), Vector(1,1,1)*0.9, 1)); //Light
 
 	nbObj = (int) nodes.size();
 
 
-	Box b = Box(Vector(0,2,-1), Vector(6,4,1), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0);
+	Box b = Box(Vector(0,2,-1), Vector(6,4,1), Vector(0,0,0), Vector(0.25,0.25,0.75), 0);
+/*    nodes.push_back(&b);*/
+	nbObj = (int) nodes.size();
+
 	Ray r1 = Ray(Vector(0,0,0), Vector(1,1,0)); //impact dessous
-	Ray r2 = Ray(Vector(0,6,0), Vector(1,-1,0)); //impact dessus
+	Ray r2 = Ray(Vector(3,6,0), Vector(0,-1,0)); //impact dessus
 	Ray r3 = Ray(Vector(8,1,0), Vector(-1,1,0)); //impact droit
 	Ray r4 = Ray(Vector(-2,1,0), Vector(1,1,0)); //impact gauche
 	Ray r5 = Ray(Vector(3,2,3), Vector(0,0,-1)); //impact devant
@@ -190,29 +205,33 @@ int main()
 
 	Intersection i;
 
-	b.Intersect(r1,i);
-	fprintf(stderr,"pour r1: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);
-	fprintf(stderr,"pour r1: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);
-
+/*	b.Intersect(r1,i);*/
+/*	fprintf(stderr,"pour r1: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);*/
+/*	fprintf(stderr,"pour r1: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);*/
+/**/
 	b.Intersect(r2,i);
-	fprintf(stderr,"pour r2: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);
-	fprintf(stderr,"pour r2: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);
+    fprintf(stderr, "~~~~~\n");
+/*	fprintf(stderr,"pour r2: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);*/
+/*	fprintf(stderr,"pour r2: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);*/
+/**/
+/*	b.Intersect(r3,i);*/
+/*	fprintf(stderr,"pour r3: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);*/
+/*	fprintf(stderr,"pour r3: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);*/
+/**/
+/*	b.Intersect(r4,i);*/
+/*	fprintf(stderr,"pour r4: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);*/
+/*	fprintf(stderr,"pour r4: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);*/
+/**/
+/*	b.Intersect(r5,i);*/
+/*	fprintf(stderr,"pour r5: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);*/
+/*	fprintf(stderr,"pour r5: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);*/
+/**/
+/*	b.Intersect(r6,i);*/
+/*	fprintf(stderr,"pour r6: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);*/
+/*	fprintf(stderr,"pour r6: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);*/
 
-	b.Intersect(r3,i);
-	fprintf(stderr,"pour r3: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);
-	fprintf(stderr,"pour r3: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);
-
-	b.Intersect(r4,i);
-	fprintf(stderr,"pour r4: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);
-	fprintf(stderr,"pour r4: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);
-
-	b.Intersect(r5,i);
-	fprintf(stderr,"pour r5: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);
-	fprintf(stderr,"pour r5: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);
-
-	b.Intersect(r6,i);
-	fprintf(stderr,"pour r6: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);
-	fprintf(stderr,"pour r6: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);
+    Vector em = radiance(r2,0);
+/*	fprintf(stderr,"emission : %f %f %f \n", em[0],em[1],em[2]);*/
 
 
 	double t = now();
