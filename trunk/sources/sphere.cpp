@@ -54,3 +54,32 @@ int Sphere::Intersect(const Ray &ray, Intersection& inter)
 
 	return ret; 
 } 
+
+int Sphere::Intersect(const Ray &ray, Intersection& intermin,Intersection& intermax) 
+{
+	intermin.t = 0.0; // initialize distance to the origin
+	Vector op = p - ray.Origin();
+	double b = op * ray.Direction();
+	double det = b * b-op * op+rad * rad;
+
+	if (det <= 0.0) return 0; 
+	det=sqrt(det); 
+
+	//compute distance to the origin
+	bool ret = (intermin.t = b - det) > 1e-4 ? 1 : ((intermin.t = b + det) > 1e-4 ? 1 : 0);
+	// get the location of the vertex focused by the ray
+	intermin.pos = ray(intermin.t);
+	// compute normal
+	intermin.normal = Normalized(intermin.pos-getPosition());
+	// pointer to the object
+	intermin.obj = this;
+
+	//compute furthest collision
+	intermax = intermin;
+	intermax.t += this->rad *2;
+	intermax.pos = ray(intermax.t);
+	intermax.normal = Normalized(intermax.pos-getPosition());
+	intermax.obj = this;
+
+	return ret; 
+} 

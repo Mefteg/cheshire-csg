@@ -40,8 +40,7 @@ public:
 
   int Intersect(const Ray&, Intersection&);
 
-  //int Intersect(const Ray&,Intersection&,Intersection&) const;
-  int Intersect(const Ray&,Intersection&,Intersection&) const;
+  int Intersect(const Ray&,Intersection&,Intersection&)const;
   int Intersect(const Ray&,double&,Vector&) const;
 
   int Intersect(const Box&) const;

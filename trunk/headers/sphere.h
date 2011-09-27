@@ -24,6 +24,7 @@ public:
   Sphere() {}
   Sphere(const double&, const Vector&, const Vector&, const Vector&, int);
   int Intersect(const Ray &r,Intersection&);
+  int Intersect( const Ray &, Intersection&, Intersection& );
 
   Vector getPosition() { return p; };
 }; 
