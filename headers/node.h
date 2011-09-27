@@ -13,7 +13,7 @@ public:
 	virtual ~Node(void);
 
 	virtual int Intersect( const Ray &, Intersection&) =0;
-	//virtual int Intersect( const Ray &, double &, double & ) =0;
+	virtual int Intersect( const Ray &, Intersection&, Intersection& ) =0;
 
 	virtual Vector getPosition() =0;
 	virtual Vector getEmission() =0;
