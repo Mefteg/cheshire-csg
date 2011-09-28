@@ -17,7 +17,7 @@ int Inter::Intersect(const Ray& ray, Intersection& t) {
 	Intersection tl, tr;
 	int retLeft = this->left->Intersect(ray,tl);
 	int retRight = this->right->Intersect(ray,tr);
-	
+
 	//if no collision
 	if(!(retLeft || retRight))
 			return 0;
@@ -36,6 +36,10 @@ int Inter::Intersect(const Ray& ray, Intersection& t) {
 			t.obj = this->right;
 		}
 	}
-	
+
 	return 1;
+}
+
+int Inter::PMC(const Vector& u) {
+    return (this->left->PMC(u) && this->right->PMC(u));
 }

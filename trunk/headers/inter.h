@@ -11,6 +11,7 @@ public:
 	~Inter(void);
 
 	int Intersect(const Ray&, Intersection&);
+    int PMC(const Vector&);
 
 	Vector getEmission() { return Vector(); };
 	Vector getColor() { return Vector(); };
