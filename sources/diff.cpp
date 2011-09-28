@@ -17,12 +17,12 @@ int Diff::Intersect(const Ray& ray, Intersection& t) {
 	Intersection tl1,tl2, tr1,tr2;
 	int retLeft = this->left->Intersect(ray,tl1,tl2);
 	int retRight = this->right->Intersect(ray,tr1,tr2);
-	
-	//if no collision 
+
+	//if no collision
 	if( !(retLeft || retRight))
 			return 0;
 	//or collision only to the right
-	if(!retLeft && retRight) 
+	if(!retLeft && retRight)
 		return 0;
 
 	//if collision on the left node only
@@ -43,8 +43,12 @@ int Diff::Intersect(const Ray& ray, Intersection& t) {
 			return 1;
 		}
 	}
-	
+
 
 	return 0;
 
+}
+
+int Diff::PMC(const Vector& u) {
+    return (this->left->PMC(u) && !(this->right->PMC(u)));
 }

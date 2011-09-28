@@ -447,3 +447,7 @@ int Box::Inside(const Vector& u) const
 {
   return ((a<u) && (b>u));
 }
+
+int Box::PMC(const Vector& u) {
+    return this->Inside(u);
+}

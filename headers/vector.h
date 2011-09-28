@@ -26,6 +26,10 @@ public:
   Vector() { }
   Vector(const double& a, const double& b, const double& c) { x=a; y=b; z=c; }
 
+  double length() {
+    return sqrt(x*x + y*y + z*z);
+  }
+
   // Functions to access Vector class components
   double& operator[] (int i) {
     if (i == 0)    return x;
@@ -228,7 +232,7 @@ inline Vector max(const Vector& a,const Vector& b)
 \brief Returns a new vector orthogonal to the argument vector.
 */
 inline Vector Orthogonal(const Vector& u)
-{  
+{
   Vector a=Vector(fabs(u[0]),fabs(u[1]),fabs(u[2]));
   int i=0;
   int j=1;

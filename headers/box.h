@@ -48,6 +48,8 @@ public:
   int Inside(const Box&) const;
   int Inside(const Vector&) const;
 
+  int PMC(const Vector&);
+
   double Volume() const;
   double Area() const;
 
