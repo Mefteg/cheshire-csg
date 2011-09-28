@@ -13,12 +13,14 @@
 #include "opbin.h"
 #include "union.h"
 #include "inter.h"
+#include "diff.h"
+#include "translation.h"
 
 
 #define X (512/2) // Width
 #define Y (384/2) // Height
 #define S 50     // Samples
-#define D 4       // Recursion depth
+#define D 3       // Recursion depth
 #define Pixel 2 //Pixel subdivision
 
 //! \brief Easy coded random function
@@ -167,11 +169,11 @@ double now()
 int main()
 {
 
-	Sphere * sp1 = new Sphere(15, Vector( 35,40.8,82.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0);
-	Sphere * sp2 = new Sphere(30, Vector( 30+10,30,90), Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0);
-	Box * b1 = new Box(Vector(20,50,80), Vector(40,70,100), Vector(0,0,0), Vector(0.75,0.25,0.25), 0); //First box
+	Sphere * sp1 = new Sphere(15, Vector( 34,30.8,100.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0);
+	Sphere * sp2 = new Sphere(30, Vector( 30,30,80), Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0);
+	//Box * b1 = new Box(Vector(20,50,80), Vector(40,70,100), Vector(0,0,0), Vector(0.75,0.25,0.25), 0); //First box
 	//creation of the scene
-	nodes.push_back(new Inter( b1, sp2));
+	nodes.push_back(new Translation( sp1, Vector(1,0,0)));
 	nodes.push_back(new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0));//Left red
 	nodes.push_back(new Sphere(1e5, Vector(-1e5+99,40.8,81.6),Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0));//Right blue
 	nodes.push_back(new Sphere(1e5, Vector(50,40.8, 1e5),     Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Back
@@ -191,48 +193,19 @@ int main()
 
 	nbObj = (int) nodes.size();
 
-
-	Box b = Box(Vector(0,2,-1), Vector(6,4,1), Vector(0,0,0), Vector(0.25,0.25,0.75), 0);
-/*    nodes.push_back(&b);*/
-	nbObj = (int) nodes.size();
-
-	Ray r1 = Ray(Vector(0,0,0), Vector(1,1,0)); //impact dessous
-	Ray r2 = Ray(Vector(3,6,0), Vector(0,-1,0)); //impact dessus
-	Ray r3 = Ray(Vector(8,1,0), Vector(-1,1,0)); //impact droit
-	Ray r4 = Ray(Vector(-2,1,0), Vector(1,1,0)); //impact gauche
-	Ray r5 = Ray(Vector(3,2,3), Vector(0,0,-1)); //impact devant
-	Ray r6 = Ray(Vector(3,2,-3), Vector(0,0,1)); //impact derrière
-
-	Intersection i;
-
-/*	b.Intersect(r1,i);*/
-/*	fprintf(stderr,"pour r1: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);*/
-/*	fprintf(stderr,"pour r1: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);*/
-/**/
-	b.Intersect(r2,i);
-    fprintf(stderr, "~~~~~\n");
-/*	fprintf(stderr,"pour r2: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);*/
-/*	fprintf(stderr,"pour r2: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);*/
-/**/
-/*	b.Intersect(r3,i);*/
-/*	fprintf(stderr,"pour r3: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);*/
-/*	fprintf(stderr,"pour r3: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);*/
-/**/
-/*	b.Intersect(r4,i);*/
-/*	fprintf(stderr,"pour r4: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);*/
-/*	fprintf(stderr,"pour r4: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);*/
-/**/
-/*	b.Intersect(r5,i);*/
-/*	fprintf(stderr,"pour r5: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);*/
-/*	fprintf(stderr,"pour r5: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);*/
-/**/
-/*	b.Intersect(r6,i);*/
-/*	fprintf(stderr,"pour r6: pos %f %f %f \n",i.pos[0],i.pos[1],i.pos[2]);*/
-/*	fprintf(stderr,"pour r6: normal %f %f %f \n",i.normal[0],i.normal[1],i.normal[2]);*/
-
-    Vector em = radiance(r2,0);
-/*	fprintf(stderr,"emission : %f %f %f \n", em[0],em[1],em[2]);*/
-
+	/*Ray ray(Vector(1,1,1),Vector(0,0,1));
+	Matrix4Df m;
+	m.SetIdentity();
+	m(0,3) = 4;
+	m(1,3) = 3;
+	m(0,11) = 2;
+	m.Print();
+	Matrix4Df mInv = m.Invert(m);
+	mInv.Print();
+	fprintf(stderr,"m(0,3) = %f \n\n",m(3,0));
+	Vector d = mInv.MulPt(Vector(ray.Origin()[0],ray.Origin()[1],ray.Origin()[2]));
+	Ray r = Ray( d, ray.Direction());
+	fprintf(stderr,"%f %f %f \n",d[0],d[1],d[2]);*/
 
 	double t = now();
 	//fprintf(stderr, " %f %f %f \n \n",nodes[9]->getColor()[0],nodes[9]->getColor()[1],nodes[9]->getColor()[2]);
@@ -297,7 +270,7 @@ int main()
 	fprintf(stderr, "\nProcessus used: %d", omp_get_num_procs());
 	fprintf( stderr, "\nFunction took : %f seconds\n", (t/1000) );
 	int out;
-	scanf("%d", out );
+	scanf("%d", &out );
 
 	return 0;
 }

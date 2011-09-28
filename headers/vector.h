@@ -93,6 +93,7 @@ inline Vector Vector::operator- () const
 }
 
 // Assignment unary operators
+
 inline Vector& Vector::operator+= (const Vector& u)
 {
   x+=u.x; y+=u.y; z+=u.z;
