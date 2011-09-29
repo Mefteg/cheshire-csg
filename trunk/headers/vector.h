@@ -20,9 +20,9 @@ inline double max(const double& a,const double& b)
 //! \brief Cette classe définit des vecteurs et des sommets dans l'espace.
 class Vector
 {
-protected:
-  double x,y,z;
+
 public:
+	double x,y,z;
   Vector() { }
   Vector(const double& a, const double& b, const double& c) { x=a; y=b; z=c; }
 
