@@ -229,7 +229,6 @@ int Box::Intersect(const Ray& ray, Intersection& inter) {
 	//pointer to the box
 	inter.obj = this;
 
-/*	fprintf(stderr,"Box Intersect return %d \n",i);*/
 	return i;
 }
 
@@ -243,11 +242,11 @@ variables.
 
 \param ray The ray.
 */
-int Box::Intersect(const Ray& ray) const
-{
-  Intersection int1,int2;
-  return Intersect(ray,int1,int2);
-}
+/*int Box::Intersect(const Ray& ray) const*/
+/*{*/
+/*  Intersection int1,int2;*/
+/*  return Intersect(ray,int1,int2);*/
+/*}*/
 
 /*!
 \brief Compute the intersection between an axis aligned box and a ray.
@@ -257,22 +256,21 @@ normal vector at intersection point.
 \param tmin, tmax Minimum and maximum intersection depths.
 \param an, bn Normals at intersection point.
 */
-int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax) const
+int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
 {
   intermin.t =-1e16;
   intermax.t =1e16;
+  intermin.obj = this;
+  intermax.obj = this;
 
   Vector p=ray.Origin();
   Vector d=ray.Direction();
-/*  Vector d=ray.Direction()*-1;*/
 
   double t;
 
-/*  fprintf(stderr, "d : %f %f %f\n",d[0],d[1],d[2]);*/
   if (d[0]<-epsilon)
   {
     t=(a[0]-p[0])/d[0];
-/*    fprintf(stderr, "t : %f\n",t);*/
     if (t<intermin.t)
       return 0;
     if (t<=intermax.t)
@@ -292,7 +290,6 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
   else if (d[0]>epsilon)
   {
     t=(b[0]-p[0])/d[0];
-/*    fprintf(stderr, "t : %f\n",t);*/
     if (t<intermin.t)
       return 0;
     if (t<=intermax.t)
@@ -315,7 +312,6 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
   if (d[1]<-epsilon)
   {
     t=(a[1]-p[1])/d[1];
-/*    fprintf(stderr, "t : %f\n",t);*/
     if (t<intermin.t)
       return 0;
     if (t<=intermax.t)
@@ -324,7 +320,6 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
       intermax.normal=Vector(0.0,-1.0,0.0); //face dessous
     }
     t=(b[1]-p[1])/d[1];
-/*    fprintf(stderr, "t : %f\n",t);*/
     if (t>=intermin.t)
     {
       if (t>intermax.t)
@@ -395,6 +390,9 @@ int Box::Intersect(const Ray& ray,Intersection& intermin,Intersection& intermax)
   }
   else if (p[2]<a[2] || p[2]>b[2])
     return 0;
+
+  intermin.pos = ray(intermin.t);
+  intermax.pos = ray(intermin.t);
 
   return 1;
 }

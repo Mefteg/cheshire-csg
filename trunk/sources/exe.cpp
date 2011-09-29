@@ -21,7 +21,7 @@
 #define Y (384/2) // Height
 #define S 50     // Samples
 #define D 3       // Recursion depth
-#define Pixel 2 //Pixel subdivision
+#define Pixel 1 //Pixel subdivision
 
 //! \brief Easy coded random function
 inline double Random() { return (rand()%10000)/9999.0;}
@@ -64,26 +64,26 @@ inline int toInt(double x){ return int(pow(clamp(x),1/2.2)*255+.5); }
 */
 inline bool IntersectScene(const Ray &r, Intersection& inter)
 {
-	Intersection tempInter;
+	Intersection t1, t2;
 	bool k=false;
 	// for each sphere
 	for (int i=0;i<nbObj;i++)
 	{
 		double d;
 		// if the ray intersects the sphere i
-		if(nodes[i]->Intersect(r,tempInter))
+		if(nodes[i]->Intersect( r, t1, t2 ))
 		{
-            if ( tempInter.t > 0 ) {
+            if ( t1.t > 0 ) {
                 // if it's the first intersection
                 if (k==false) {
-                    inter = tempInter;
-                    d = tempInter.t;
+                    inter = t1;
+                    d = t1.t;
                 }
                 // else if the new intersection is in front of the last registered
                 else {
-                    if (d>tempInter.t) {
-                        inter=tempInter;
-                        d=tempInter.t;
+                    if (d>t1.t) {
+                        inter=t1;
+                        d=t1.t;
                     }
                 }
                 k=true;
@@ -168,28 +168,29 @@ double now()
 
 int main()
 {
-
-	Sphere * sp1 = new Sphere(15, Vector( 34,30.8,100.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0);
-	Sphere * sp2 = new Sphere(30, Vector( 30,30,80), Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0);
-	//Box * b1 = new Box(Vector(20,50,80), Vector(40,70,100), Vector(0,0,0), Vector(0.75,0.25,0.25), 0); //First box
+	Sphere * sp1 = new Sphere(15, Vector( 30,30,80), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0);
+	Sphere * sp2 = new Sphere(15, Vector( 40,30,90), Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0);
+    Box * b1 = new Box(Vector(10,10,80), Vector(30,30,100), Vector(0,0,0), Vector(0.75,0.25,0.25), 0); //First b
+    Box * b2 = new Box(Vector(20,20,80), Vector(40,40,100), Vector(0,0,0), Vector(0.25,0.75,0.25), 0); //First b
 	//creation of the scene
-	nodes.push_back(new Translation( sp1, Vector(1,0,0)));
+/*	nodes.push_back(new Translation( sp1, Vector(1,0,0)));*/
+	nodes.push_back(new Diff( sp1, sp2));
 	nodes.push_back(new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0));//Left red
 	nodes.push_back(new Sphere(1e5, Vector(-1e5+99,40.8,81.6),Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0));//Right blue
 	nodes.push_back(new Sphere(1e5, Vector(50,40.8, 1e5),     Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Back
 	nodes.push_back(new Sphere(1e5, Vector(50,40.8,-1e5+170), Vector(0.0,0.0,0.0),Vector(0.0,0.0,0.0),0));//Front
 	nodes.push_back(new Sphere(1e5, Vector(50, 1e5, 81.6),    Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Botom white
 	nodes.push_back(new Sphere(1e5, Vector(50,-1e5+81.6,81.6),Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Top white
-	nodes.push_back(new Sphere(16.5,Vector(27,16.5,47),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
-	nodes.push_back(new Sphere(16.5,Vector(73,16.5,78),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 2));//Glass
+/*	nodes.push_back(new Sphere(16.5,Vector(27,16.5,47),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror*/
+/*	nodes.push_back(new Sphere(16.5,Vector(73,16.5,78),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 2));//Glass*/
 	nodes.push_back(new Sphere(600, Vector(50,681.6-.27,81.6),Vector(12,12,12),  Vector(0.0,0.0,0.0), 0));//Light
 	//nodes.push_back(new Box(Vector(42,22.5,100), Vector(55,29,120), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0)); //First box
-/*	nodes.push_back(new Box(Vector(-30,-30,-30), Vector(30,30,30), Vector(12,12,12), Vector(1,1,1)*0.9, 0)); //First box*/
+/*	nodes.push_back(new Box(Vector(-30,-30,-30), Vector(30,30,30), Vector(0,0,0), Vector(0.25,0.75,0.25), 0)); //First box*/
 	//nodes.push_back(new Sphere(1,Vector(0,0,0),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
 	//nodes.push_back(new Sphere(1,Vector(2,0,0),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
 	//nodes.push_back(new Sphere(1,Vector(0,2,0),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
 	//nodes.push_back(new Sphere(1,Vector(0,0,2),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
-	//nodes.push_back(new Box(Vector(0,2,-1), Vector(6,4,1), Vector(12,12,12), Vector(1,1,1)*0.9, 1)); //Light
+/*    nodes.push_back(new Box(Vector(0,2,-1), Vector(6,4,1), Vector(12,12,12), Vector(1,1,1)*0.9, 1)); //Lig*/
 
 	nbObj = (int) nodes.size();
 
@@ -269,8 +270,9 @@ int main()
 
 	fprintf(stderr, "\nProcessus used: %d", omp_get_num_procs());
 	fprintf( stderr, "\nFunction took : %f seconds\n", (t/1000) );
-	int out;
-	scanf("%d", &out );
+/*	int out;*/
+/*	scanf("%d", &out );*/
+    system("exit");
 
 	return 0;
 }

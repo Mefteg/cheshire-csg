@@ -46,7 +46,40 @@ int Diff::Intersect(const Ray& ray, Intersection& t) {
 
 
 	return 0;
+}
 
+int Diff::Intersect(const Ray& ray, Intersection& t1, Intersection& t2) {
+	Intersection tl1,tl2, tr1,tr2;
+    tl1.obj = this;
+    tl2.obj = this;
+    tr1.obj = this;
+    tr2.obj = this;
+
+    //s'il y a une collision avec left
+    if ( this->left->Intersect(ray, tl1, tl2) ) {
+        //si l'intersection n'est pas dans right
+        if ( !this->right->PMC(tl1.pos) ) {
+            t1 = tl1;
+            t2 = tl2;
+        }
+        //sinon
+        else {
+            if ( this->right->Intersect(ray, tr1, tr2) ) {
+                t1 = tr2;
+                //on inverse la normale
+                t1.normal = t1.normal * -1;
+                //on change l'obj pour avoir la bonne couleur
+                t1.obj = tl2.obj;
+                t2 = tl2;
+            }
+        }
+
+        return 1;
+    }
+    //sinon
+    else {
+        return 0;
+    }
 }
 
 int Diff::PMC(const Vector& u) {
