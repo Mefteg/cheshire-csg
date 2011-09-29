@@ -25,6 +25,8 @@ int Translation::Intersect(const Ray& ray, Intersection& t) {
 
 	if(left->Intersect(r,tt)){
 		t=tt;
+		t.pos = m.MulPt(t.pos);
+		t.normal = m.MulPt(t.normal);
 		t.obj = this->left;
 		return 1;
 	}
