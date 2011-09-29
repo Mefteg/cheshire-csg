@@ -55,20 +55,42 @@ int Union::Intersect(const Ray& ray, Intersection& t1, Intersection& t2) {
     else {
         //if collision on the left node only
         if(retLeft && !retRight){
-            t = tl;
-            t.obj = this->left;
+            t1 = tl1;
+/*            t1.obj = this->left;*/
+            t2 = tl2;
+/*            t2.obj = this->left;*/
             //if collision on the right node only
-        }else if(!retLeft && retRight){
-            t = tr;
-            t.obj = this->right;
+        }
+        else if (!retLeft && retRight){
+            t1 = tr1;
+/*            t1.obj = this->right;*/
+            t2 = tr2;
+/*            t2.obj = this->right;*/
             //else search for the nearest collision
-        }else if ( tl < tr ) {
-            t = tl;
-            t.obj = this->left;
+        }
+        else if ( tl1 < tr1 ) {
+            t1 = tl1;
+            t1.obj = this->left;
+            if ( tl2 > tr2 ) {
+                t2 = tl2;
+/*                t2.obj = this->left;*/
+            }
+            else {
+                t2 = tr2;
+/*                t2.obj = this->right;*/
+            }
         }
         else {
-            t = tr;
-            t.obj = this->right;
+            t1 = tr1;
+/*            t1.obj = this->right;*/
+            if ( tl2 > tr2 ) {
+                t2 = tl2;
+/*                t2.obj = this->left;*/
+            }
+            else {
+                t2 = tr2;
+/*                t2.obj = this->right;*/
+            }
         }
 
         return 1;

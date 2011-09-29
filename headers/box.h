@@ -36,11 +36,11 @@ public:
   Vector Normal(const Vector&) const;
 
   // Intersection with a ray
-  int Intersect(const Ray& ray) const;
+/*  int Intersect(const Ray& ray) const;*/
 
   int Intersect(const Ray&, Intersection&);
 
-  int Intersect(const Ray&,Intersection&,Intersection&)const;
+  int Intersect(const Ray&,Intersection&,Intersection&);
   int Intersect(const Ray&,double&,Vector&) const;
 
   int Intersect(const Box&) const;

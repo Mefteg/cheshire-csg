@@ -66,22 +66,63 @@ int Sphere::Intersect(const Ray &ray, Intersection& intermin,Intersection& inter
 	det=sqrt(det);
 
 	//compute distance to the origin
-	bool ret = (intermin.t = b - det) > 1e-4 ? 1 : ((intermin.t = b + det) > 1e-4 ? 1 : 0);
-	// get the location of the vertex focused by the ray
-	intermin.pos = ray(intermin.t);
-	// compute normal
-	intermin.normal = Normalized(intermin.pos-getPosition());
-	// pointer to the object
-	intermin.obj = this;
+/*	bool ret = (intermin.t = b - det) > 1e-4 ? 1 : ((intermin.t = b + det) > 1e-4 ? 1 : 0);*/
 
-	//compute furthest collision
-	intermax = intermin;
-	intermax.t += this->rad *2;
-	intermax.pos = ray(intermax.t);
-	intermax.normal = Normalized(intermax.pos-getPosition());
-	intermax.obj = this;
+    bool ok1, ok2;
+    if ( (b - det) > 1e-4 && ( b + det ) > 1e-4 ) {
+        if ( b - det < b + det ) {
+            intermin.t = b - det;
+            intermax.t = b + det;
+        }
+        else {
+            intermin.t = b + det;
+            intermax.t = b - det;
+        }
 
-	return ret;
+        ok1 = 1;
+    }
+    else {
+        if ( (b - det) > 1e-4 ) {
+            intermin.t = b - det;
+        }
+        else {
+            intermin.t = b + det;
+        }
+
+        ok1 = 1;
+    }
+
+    // get the location of the vertex focused by the ray
+    intermin.pos = ray(intermin.t);
+    // compute normal
+    intermin.normal = Normalized(intermin.pos-getPosition());
+    // pointer to the object
+    intermin.obj = this;
+
+    // get the location of the vertex focused by the ray
+    intermax.pos = ray(intermax.t);
+    // compute normal
+    intermax.normal = Normalized(intermax.pos-getPosition());
+    // pointer to the object
+    intermax.obj = this;
+
+    return ok1 || ok2;
+
+/*    // get the location of the vertex focused by the ray*/
+/*	intermin.pos = ray(intermin.t);*/
+/*	// compute normal*/
+/*	intermin.normal = Normalized(intermin.pos-getPosition());*/
+/*	// pointer to the object*/
+/*	intermin.obj = this;*/
+/**/
+/*	//compute furthest collision*/
+/*	intermax = intermin;*/
+/*	intermax.t += this->rad *2;*/
+/*	intermax.pos = ray(intermax.t);*/
+/*	intermax.normal = Normalized(intermax.pos-getPosition());*/
+/*	intermax.obj = this;*/
+/**/
+/*	return ret;*/
 }
 
 int Sphere::PMC( const Vector &a ) {
