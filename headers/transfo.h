@@ -9,7 +9,7 @@ class Transfo : public Node
 protected:
 	Node * left;
 	Node * right;
-	Matrix4Df m;
+	Matrix4Df m,mInv;
 public:
 	Transfo(void){};
 	Transfo(Node*l){m.SetIdentity();left = l;};
