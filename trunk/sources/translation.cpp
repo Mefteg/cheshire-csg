@@ -9,6 +9,9 @@ Translation::Translation(Node * left,const Vector v) : Transfo(left)
 	m(0,3) = v[0];
 	m(1,3) = v[1];
 	m(2,3) = v[2];
+
+	
+	mInv = m.Invert(m);
 }
 
 Translation::~Translation(void)
@@ -34,6 +37,29 @@ int Translation::Intersect(const Ray& ray, Intersection& t) {
 	return 0;
 }
 
+int Translation::Intersect(const Ray& ray, Intersection& t,Intersection& t2) {
+	Intersection tt,tt2;
+
+	Ray r = Ray( mInv.MulPt(Vector(ray.Origin()[0],ray.Origin()[1],ray.Origin()[2])), ray.Direction());
+
+	if(left->Intersect(r,tt,tt2)){
+		//first intersection
+		t=tt;
+		t.pos = m.MulPt(t.pos);
+		//second intersection
+		t2=tt2;
+		t2.pos = m.MulPt(t2.pos);
+
+		t2.obj = this->left;
+		t.obj = this->left;
+
+
+		return 1;
+	}
+
+	return 0;
+}
+
 int Translation::PMC(const Vector& u) {
-    return 0;
+	return 0;
 }

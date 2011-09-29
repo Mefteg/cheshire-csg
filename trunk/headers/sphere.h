@@ -27,7 +27,7 @@ public:
   int Intersect( const Ray &, Intersection&, Intersection& );
   int PMC(const Vector& );
 
-  Vector getPosition() { return p; };
+  Vector getPosition(){return p;};
 };
 
 #endif

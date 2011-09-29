@@ -11,7 +11,7 @@ public:
 	~Translation(void);
 
 	int Intersect(const Ray&, Intersection&);
-	int Intersect(const Ray&, Intersection&, Intersection&){return 0;};
+	int Intersect(const Ray&, Intersection&, Intersection&);
     int PMC(const Vector&);
 
 	Vector getEmission() { return Vector(); };
