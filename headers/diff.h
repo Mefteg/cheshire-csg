@@ -15,8 +15,8 @@ public:
     int PMC(const Vector&);
 
 	Vector getEmission() { return Vector(); };
-	Vector getColor() { return Vector(); };
-	Vector getPosition() { return Vector(); };
+	Vector getColor() { return Vector(0,0,0); };
+	Vector getPosition() { return left->getPosition(); };
 	int getRefl() { return 0; };
 	double getF() { return 0; };
 };

@@ -49,11 +49,7 @@ int Translation::Intersect(const Ray& ray, Intersection& t,Intersection& t2) {
 		//second intersection
 		t2=tt2;
 		t2.pos = m.MulPt(t2.pos);
-
-		t2.obj = this->left;
-		t.obj = this->left;
-
-
+		
 		return 1;
 	}
 
@@ -61,5 +57,5 @@ int Translation::Intersect(const Ray& ray, Intersection& t,Intersection& t2) {
 }
 
 int Translation::PMC(const Vector& u) {
-	return 0;
+	return left->PMC(mInv.MulPt(u));
 }

@@ -18,7 +18,9 @@ Rotation::Rotation(Node * left,const Vector v,float angle) : Transfo(left)
 	m(0,0) = v.x*v.x + (1-v.x*v.x)*c;    m(0,1) = v.x*v.y*(1-c)-v.z*s;     m(0,2) = v.x*v.z*(1-c)+v.y*s;
 	m(1,0) = v.x*v.y*(1-c)+v.z*s;        m(1,1) = v.y*v.y+(1-v.y*v.y)*c;   m(1,2) = v.y*v.z*(1-c)-v.x*s;
 	m(2,0) = v.x*v.z*(1-c)-v.y*s;        m(2,1) = v.y*v.z*(1-c)+v.x*s;     m(2,2) = v.z*v.z+(1-v.z*v.z)*c;
-
+	//garder la matrice de rotation pure
+	mRotate = m;
+	mRotateInv = mRotate.Invert(mRotate);
 	//matrice de translation de l'objet à l'origine
 	Matrix4Df tr;tr.SetIdentity();
 	Vector p = left->getPosition();
@@ -62,23 +64,21 @@ int Rotation::Intersect(const Ray& ray, Intersection& t, Intersection& t2){
 	Ray r = Ray( mInv.MulPt(Vector(ray.Origin()[0],ray.Origin()[1],ray.Origin()[2])),
 				 mInv.MulDir(ray.Direction()));
 
-	if(left->Intersect(r,tt)){
+	if(left->Intersect(r,tt,tt2)){
 		//premiere intersection
 		t=tt;
 		t.pos = m.MulPt(t.pos);
-		t.normal = m.MulPt(t.normal);
+		t.normal = mRotate.MulDir(t.normal);
 		//deuxieme intersection
 		t2=tt2;
 		t2.pos = m.MulPt(t2.pos);
-		t2.normal = m.MulPt(t2.normal);
-		t.obj = this->left;
-		t2.obj = this->left;
+		t2.normal = mRotate.MulDir(t2.normal);
+		
 		return 1;
 	}
 	
 	return 0;
 }
 int Rotation::PMC(const Vector& u) {
-	Vector p = m.MulPt(p);
-	return left->PMC(p);
+	return left->PMC(mInv.MulPt(u));
 }

@@ -20,6 +20,9 @@ public:
 	int getRefl() { return 0; };
 	double getF() { return 0; };
 
+	Matrix4Df mRotate;
+	Matrix4Df mRotateInv;
+
 };
 
 #endif

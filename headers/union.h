@@ -16,7 +16,7 @@ public:
 
 	Vector getEmission() { return Vector(); };
 	Vector getColor() { return Vector(); };
-	Vector getPosition() { return Vector(); };
+	Vector getPosition() { return (0.5*left->getPosition()+0.5*right->getPosition());  };
 	int getRefl() { return 0; };
 	double getF() { return 0; };
 };
