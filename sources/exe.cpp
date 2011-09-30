@@ -171,19 +171,30 @@ int main()
 	Sphere * sp1 = new Sphere(15, Vector( 30,30,80), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0);
 	Sphere * sp2 = new Sphere(15, Vector( 40,30,90), Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0);
     Box * b1 = new Box(Vector(10,10,80), Vector(30,30,100), Vector(0,0,0), Vector(0.75,0.25,0.25), 0); //First b
-    Box * b2 = new Box(Vector(20,20,80), Vector(40,40,100), Vector(0,0,0), Vector(0.25,0.75,0.25), 0); //First b
+    Box * b2 = new Box(Vector(20,20,70), Vector(40,40,110), Vector(0,0,0), Vector(0.25,0.75,0.25), 0); //First b
+    Box * b3 = new Box(Vector(0,0,70), Vector(20,20,110), Vector(0,0,0), Vector(0.25,0.75,0.25), 0); //First b
 	//creation of the scene
 /*	nodes.push_back(new Translation( sp1, Vector(1,0,0)));*/
-	nodes.push_back(new Diff( sp1, sp2));
-	nodes.push_back(new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0));//Left red
-	nodes.push_back(new Sphere(1e5, Vector(-1e5+99,40.8,81.6),Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0));//Right blue
-	nodes.push_back(new Sphere(1e5, Vector(50,40.8, 1e5),     Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Back
-	nodes.push_back(new Sphere(1e5, Vector(50,40.8,-1e5+170), Vector(0.0,0.0,0.0),Vector(0.0,0.0,0.0),0));//Front
-	nodes.push_back(new Sphere(1e5, Vector(50, 1e5, 81.6),    Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Botom white
-	nodes.push_back(new Sphere(1e5, Vector(50,-1e5+81.6,81.6),Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Top white
+/*	nodes.push_back(new Diff( new Diff( b1, b2), b3));*/
+/*	nodes.push_back(new Diff( b1, b2));*/
+    nodes.push_back(new Box(Vector(-20,0,0), Vector(0,100,200), Vector(0,0,0), Vector(0.75,0.25,0.25), 0)); //Wall left
+    nodes.push_back(new Box(Vector(-20+120,0,0), Vector(0+120,100,200), Vector(0,0,0), Vector(0.75,0.25,0.25), 0)); //Wall right
+    nodes.push_back(new Box(Vector(-10,0,-10), Vector(100,100,0), Vector(0,0,0), Vector(0.25,0.25,0.75), 0)); //Wall far
+    nodes.push_back(new Box(Vector(-10,0,-10+200), Vector(100,100,0+200), Vector(0,0,0), Vector(0.25,0.25,0.75), 0)); //Wall near
+    nodes.push_back(new Box(Vector(-10,0,0), Vector(100,10,200), Vector(0,0,0), Vector(0.75,0.75,0.75), 0)); //Ground
+    nodes.push_back(new Box(Vector(-10,0+100,0), Vector(100,10+100,200), Vector(0,0,0), Vector(0.75,0.75,0.75), 0)); //Roof
+/*    nodes.push_back(new Box(Vector(40,90,40), Vector(40+20,90+20,40+20), Vector(12,12,12), Vector(0.75,0.75,0.75), 0)); //Light*/
+	nodes.push_back(new Sphere(30, Vector(50,120,40),Vector(8,8,8),  Vector(0.0,0.0,0.0), 0));//Light
+
+/*	nodes.push_back(new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0));//Left red*/
+/*	nodes.push_back(new Sphere(1e5, Vector(-1e5+99,40.8,81.6),Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0));//Right blue*/
+/*	nodes.push_back(new Sphere(1e5, Vector(50,40.8, 1e5),     Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Back*/
+/*	nodes.push_back(new Sphere(1e5, Vector(50,40.8,-1e5+170), Vector(0.0,0.0,0.0),Vector(0.0,0.0,0.0),0));//Front*/
+/*	nodes.push_back(new Sphere(1e5, Vector(50, 1e5, 81.6),    Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Botom white*/
+/*	nodes.push_back(new Sphere(1e5, Vector(50,-1e5+81.6,81.6),Vector(0.0,0.0,0.0),Vector(.75,.75,.75),0));//Top white*/
 /*	nodes.push_back(new Sphere(16.5,Vector(27,16.5,47),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror*/
 /*	nodes.push_back(new Sphere(16.5,Vector(73,16.5,78),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999, 2));//Glass*/
-	nodes.push_back(new Sphere(600, Vector(50,681.6-.27,81.6),Vector(12,12,12),  Vector(0.0,0.0,0.0), 0));//Light
+/*	nodes.push_back(new Sphere(600, Vector(50,681.6-.27,81.6),Vector(12,12,12),  Vector(0.0,0.0,0.0), 0));//Light*/
 	//nodes.push_back(new Box(Vector(42,22.5,100), Vector(55,29,120), Vector(0.0,0.0,0.0), Vector(0.75,0.25,0.25), 0)); //First box
 /*	nodes.push_back(new Box(Vector(-30,-30,-30), Vector(30,30,30), Vector(0,0,0), Vector(0.25,0.75,0.25), 0)); //First box*/
 	//nodes.push_back(new Sphere(1,Vector(0,0,0),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
@@ -193,20 +204,6 @@ int main()
 /*    nodes.push_back(new Box(Vector(0,2,-1), Vector(6,4,1), Vector(12,12,12), Vector(1,1,1)*0.9, 1)); //Lig*/
 
 	nbObj = (int) nodes.size();
-
-	/*Ray ray(Vector(1,1,1),Vector(0,0,1));
-	Matrix4Df m;
-	m.SetIdentity();
-	m(0,3) = 4;
-	m(1,3) = 3;
-	m(0,11) = 2;
-	m.Print();
-	Matrix4Df mInv = m.Invert(m);
-	mInv.Print();
-	fprintf(stderr,"m(0,3) = %f \n\n",m(3,0));
-	Vector d = mInv.MulPt(Vector(ray.Origin()[0],ray.Origin()[1],ray.Origin()[2]));
-	Ray r = Ray( d, ray.Direction());
-	fprintf(stderr,"%f %f %f \n",d[0],d[1],d[2]);*/
 
 	double t = now();
 	//fprintf(stderr, " %f %f %f \n \n",nodes[9]->getColor()[0],nodes[9]->getColor()[1],nodes[9]->getColor()[2]);
