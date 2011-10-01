@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <ctime>
 #include <vector>
+#include <string>
 #include <omp.h>
 
 #include "ray.h"
@@ -10,6 +11,7 @@
 #include "primitive.h"
 #include "sphere.h"
 #include "box.h"
+#include "cylinder.h"
 #include "opbin.h"
 #include "union.h"
 #include "inter.h"
@@ -17,11 +19,11 @@
 #include "translation.h"
 
 
-#define X (512/2) // Width
-#define Y (384/2) // Height
-#define S 50     // Samples
-#define D 3       // Recursion depth
-#define Pixel 1 //Pixel subdivision
+/*#define X (512/2) // Width*/
+/*#define Y (384/2) // Height*/
+/*#define S 50     // Samples*/
+/*#define D 3       // Recursion depth*/
+/*#define Pixel 1 //Pixel subdivision*/
 
 //! \brief Easy coded random function
 inline double Random() { return (rand()%10000)/9999.0;}
@@ -99,7 +101,7 @@ inline bool IntersectScene(const Ray &r, Intersection& inter)
 \param r The ray.
 \brief depth Recursion depth.
 */
-Vector radiance(const Ray &r, int depth)
+Vector radiance(const Ray &r, int depth, int D)
 {
 	Intersection inter;                     // id of Intersected object
 	// if no intersection found, return the null vector
@@ -136,11 +138,11 @@ Vector radiance(const Ray &r, int depth)
 
         CoordinateSystem(w,&u,&v);
         Vector d = Normalized(u*cos(r1)*r2s + v*sin(r1)*r2s + w*sqrt(1-r2));
-        return obj->getEmission() + f.Scale(radiance(Ray(x,d),depth));
+        return obj->getEmission() + f.Scale(radiance(Ray(x,d),depth,D));
     }
     else if (obj->getRefl() == 1)  // Specular
     {
-            return obj->getEmission() + f.Scale(radiance(Ray(x,r.Direction()-n*2*(n*r.Direction())),depth));
+            return obj->getEmission() + f.Scale(radiance(Ray(x,r.Direction()-n*2*(n*r.Direction())),depth,D));
     }
     else // Refractive
     {
@@ -148,33 +150,72 @@ Vector radiance(const Ray &r, int depth)
             bool into = n*nl>0;                // Ray from outside going in?
             double nc=1, nt=1.5, nnt=into?nc/nt:nt/nc, ddn=r.Direction()*nl, cos2t;
             if ((cos2t=1-nnt*nnt*(1-ddn*ddn))<0)    // Total internal reflection
-                    return obj->getEmission() + f.Scale(radiance(reflRay,depth));
+                    return obj->getEmission() + f.Scale(radiance(reflRay,depth,D));
             Vector tdir = Normalized(r.Direction()*nnt - n*((into?1:-1)*(ddn*nnt+sqrt(cos2t))));
             double a=nt-nc, b=nt+nc, R0=a*a/(b*b), c = 1-(into?-ddn:tdir*n);
             double Re=R0+(1-R0)*c*c*c*c*c,Tr=1-Re,P=.25+.5*Re,RP=Re/P,TP=Tr/(1-P);
 
             return obj->getEmission() + f.Scale(depth>2 ? (Random()<P ?   // Russian roulette
-                    radiance(reflRay,depth)*RP:radiance(Ray(x,tdir),depth)*TP) :
-            radiance(reflRay,depth)*Re+radiance(Ray(x,tdir),depth)*Tr);
+                    radiance(reflRay,depth,D)*RP:radiance(Ray(x,tdir),depth,D)*TP) :
+            radiance(reflRay,depth,D)*Re+radiance(Ray(x,tdir),depth,D)*Tr);
     }
 
 }
 
-double now()
+int main( int argc, char ** argv )
 {
-	clock_t t = clock();
-	return t;
-}
+    int X = (512/2); // Width
+    int Y = (384/2); // Height
+    int S = 50;    // Samples
+    int D = 3;      // Recursion depth
+    int Pixel = 2; //Pixel subdivision
+    int C = 1; //Cores
 
-int main()
-{
+	for ( int i=1; i<argc; i++ ) {
+        std::string str = argv[i];
+
+		//-s pour S
+		if ( str.compare("-s") == 0 ) {
+			if ( argv[i+1] != NULL ) {
+				std::string v = argv[i+1];
+				S = atoi( v.c_str() );
+			}
+		}
+
+		//-d pour D
+		if ( str.compare("-d") == 0 ) {
+			if ( argv[i+1] != NULL ) {
+				std::string v = argv[i+1];
+				D = atoi( v.c_str() );
+			}
+		}
+
+		//-p pour Pixel
+		if ( str.compare("-p") == 0 ) {
+			if ( argv[i+1] != NULL ) {
+				std::string v = argv[i+1];
+				Pixel = atoi( v.c_str() );
+			}
+		}
+
+		//-c pour C
+		if ( str.compare("-c") == 0 ) {
+			if ( argv[i+1] != NULL ) {
+				std::string v = argv[i+1];
+				C = atoi( v.c_str() );
+			}
+		}
+	}
+
 	Sphere * sp1 = new Sphere(15, Vector( 30,30,80), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0);
 	Sphere * sp2 = new Sphere(15, Vector( 40,30,90), Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0);
+
     Box * b1 = new Box(Vector(10,10,80), Vector(30,30,100), Vector(0,0,0), Vector(0.75,0.25,0.25), 0); //First b
-    Box * b2 = new Box(Vector(20,20,70), Vector(40,40,110), Vector(0,0,0), Vector(0.25,0.75,0.25), 0); //First b
+    Box * b2 = new Box(Vector(20,20,90), Vector(40,40,110), Vector(0,0,0), Vector(0.25,0.75,0.25), 0); //First b
     Box * b3 = new Box(Vector(0,0,70), Vector(20,20,110), Vector(0,0,0), Vector(0.25,0.75,0.25), 0); //First b
 	//creation of the scene
 /*	nodes.push_back(new Translation( sp1, Vector(1,0,0)));*/
+
 /*	nodes.push_back(new Diff( new Diff( b1, b2), b3));*/
 /*	nodes.push_back(new Diff( b1, b2));*/
     nodes.push_back(new Box(Vector(-20,0,0), Vector(0,100,200), Vector(0,0,0), Vector(0.75,0.25,0.25), 0)); //Wall left
@@ -184,7 +225,9 @@ int main()
     nodes.push_back(new Box(Vector(-10,0,0), Vector(100,10,200), Vector(0,0,0), Vector(0.75,0.75,0.75), 0)); //Ground
     nodes.push_back(new Box(Vector(-10,0+100,0), Vector(100,10+100,200), Vector(0,0,0), Vector(0.75,0.75,0.75), 0)); //Roof
 /*    nodes.push_back(new Box(Vector(40,90,40), Vector(40+20,90+20,40+20), Vector(12,12,12), Vector(0.75,0.75,0.75), 0)); //Light*/
-	nodes.push_back(new Sphere(30, Vector(50,120,40),Vector(8,8,8),  Vector(0.0,0.0,0.0), 0));//Light
+	nodes.push_back(new Sphere(30, Vector(50,120,40), Vector(8,8,8),  Vector(0.0,0.0,0.0), 0));//Light
+	nodes.push_back( new Cylinder( 10, Vector(50,80,120), 30, Vector(0,0,0), Vector(0.25,0.75,0.25), 0 ) );
+/*	nodes.push_back( new Box( Vector(40,10,60), Vector(60,30,80), Vector(0,0,0), Vector(0.25,0.75,0.25), 0 ) );*/
 
 /*	nodes.push_back(new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0));//Left red*/
 /*	nodes.push_back(new Sphere(1e5, Vector(-1e5+99,40.8,81.6),Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0));//Right blue*/
@@ -205,7 +248,6 @@ int main()
 
 	nbObj = (int) nodes.size();
 
-	double t = now();
 	//fprintf(stderr, " %f %f %f \n \n",nodes[9]->getColor()[0],nodes[9]->getColor()[1],nodes[9]->getColor()[2]);
 	int w=X;
 	int h=Y;
@@ -217,7 +259,7 @@ int main()
 	Vector cx=Vector(w*.5135/h,0,0), cy=Normalized(cx/camera.Direction())*.5135;
 
 	// for each line of pixel
-	#pragma omp parallel for num_threads(omp_get_num_procs())
+	#pragma omp parallel for num_threads(C)
 /*	for (int y=0; y<0; y++)*/
 	for (int y=0; y<h; y++)
 	{
@@ -244,7 +286,7 @@ int main()
 						double r2=2*Random(), dy=r2<1 ? sqrt(r2)-1: 1-sqrt(2-r2);
 						Vector d = cx*( ( (sx+0.5 + dx)/Pixel + x)/w - 0.5) + cy*( ( (sy+0.5 + dy)/Pixel + y)/h - 0.5) + camera.Direction();
 						//get color of objet hit by the ray
-						r = r + radiance(Ray(camera.Origin()+d*140,Normalized(d)),0)*(1./samps);
+						r = r + radiance(Ray(camera.Origin()+d*140,Normalized(d)),0,D)*(1./samps);
 					}
 					//fill the  pixel with color
 					c[i] = c[i] + Vector(clamp(r[0]),clamp(r[1]),clamp(r[2]))*(1.0/((float) (Pixel*Pixel)));
@@ -263,13 +305,7 @@ int main()
 	fclose(f);
 	delete []c;
 
-	t = now() - t;
-
-	fprintf(stderr, "\nProcessus used: %d", omp_get_num_procs());
-	fprintf( stderr, "\nFunction took : %f seconds\n", (t/1000) );
-/*	int out;*/
-/*	scanf("%d", &out );*/
-    system("exit");
+    fprintf(stderr, "\n");
 
 	return 0;
 }
