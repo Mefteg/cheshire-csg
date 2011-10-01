@@ -1,8 +1,12 @@
-/*
- *	(c) LSIIT, UMR CNRS/UdS
- *	Authors: O. Génevaux, F. Larue, G.Gilet.
+/**
+ * \file Matrix4D.h
+ * \brief class Matrix4Df header
+ * \author Gimenez Tom, Roumier Vincent, Matéo Camille
+ * \version 1.0
+ * \date 01 octobre 2011
  *
- *	See licence.txt for additional information.
+ * Matrix4Df allows transformations
+ *
  */
 
 
@@ -12,91 +16,94 @@
 #include <stdio.h>
 #include "vector.h"
 
-/** Single precision floating point 4x4 matrix.
- *	\ingroup Common
- */
+
 class Matrix4Df
 {
-public:
-
+	public:
+	  
+	float v[16];
 	
-		float v[16];
-	
-	// Constructors
-
-	/** Empty constructor. */
+	/**	\brief Empty constructor */
 	inline Matrix4Df();
-	/** Element-by-element matrix initialization. */
+	
+	/**	\brief Element-by-element matrix initialization */
 	inline Matrix4Df(const float m00, const float m10, const float m20, const float m30,
 					const float m01, const float m11, const float m21, const float m31,
 					const float m02, const float m12, const float m22, const float m32,
 					const float m03, const float m13, const float m23, const float m33);
+	
 	inline Matrix4Df(const Vector& vecX, const Vector& vecY, const Vector& vecZ, const Vector& vecT);
-	/** Matrix initialization from an array of scalars (column-first order). */
+	
+	/**	\brief Matrix initialization from an array of scalars (column-first order) */
 	inline Matrix4Df(const float* val);
 	inline Matrix4Df(const Matrix4Df& m);
 
-	
-
-	/** Assignment. */
+	/**	\brief Assignment */
 	inline Matrix4Df& operator=(const Matrix4Df& m);
 
-
-	/** Indexed access to the matrix elements.
+	/** 
+	 *	\brief Indexed access to the matrix elements.
 	 *	\param[in]	l	Row number in [0,3].
 	 *	\param[in]	c	Column number in [0,3].
 	 */
 	inline       float& operator()(const unsigned int l, const unsigned int c);
-	/** Indexed access to the matrix elements (read-only version).
+	
+	/** 
+	 * 	\brief Indexed access to the matrix elements (read-only version)
 	 *	\param[in]	l	Row number in [0,3].
 	 *	\param[in]	c	Column number in [0,3].
 	 */
 	inline const float& operator()(const unsigned int l, const unsigned int c) const;
 
 
-	/** Elementwise addition assignement. */
+	/**	\brief Elementwise addition assignement */
 	inline Matrix4Df& operator+=(const Matrix4Df& m);
-	/** Elementwise substraction assignement. */
+	
+	/**	\brief Elementwise substraction assignement */
 	inline Matrix4Df& operator-=(const Matrix4Df& m);
-	/** Matrix product (multiplication assignement). */
+	
+	/**	\brief Matrix product (multiplication assignement) */
 	inline Matrix4Df& operator*=(const Matrix4Df& m);
-	/** Multiplication assignement by a scalar. */
+	
+	/**	\brief Multiplication assignement by a scalar */
 	inline Matrix4Df& operator*=(const float f);
 
 
-	/** Elementwise addition. */
-	
+	/**	\brief Elementwise addition */
 	friend Matrix4Df operator+(const Matrix4Df& m1, const Matrix4Df& m2);
-	/** Elementwise substraction. */
 	
+	/**	\brief Elementwise substraction */
 	friend Matrix4Df operator-(const Matrix4Df& m1, const Matrix4Df& m2);
-	/** Matrix product. */
 	
+	/**	\brief Matrix product */
 	friend Matrix4Df operator*(const Matrix4Df& m1, const Matrix4Df& m2);
 
 
-	/** Negation. */
-	
+	/**	\brief Negation */
 	friend Matrix4Df operator-(const Matrix4Df& m);
 
 
-	/** Multiplication by a scalar. */
-	
+	/** 	\brief Multiplication by a scalar */
 	friend Matrix4Df operator*(const float f, const Matrix4Df& m);
-	/** Multiplication by a scalar. */
 	
+	/** 	\brief Multiplication by a scalar */
 	friend Matrix4Df operator*(const Matrix4Df& m, const float f);
 
 
-	// Mixed matrix vector ops
-
+	/**	\brief Mixed matrix vector ops */
 	inline Vector Mul(const Vector& v, const float w) const;
-	/** Matrix/vector product.
+	
+	/** 
+	 *	\brief Matrix/vector product
+	 * 
 	 *	The matrix is supposed to be an homogeneous transform in 3D space (composition of scale/rotation/translation),
 	 *	and the vector is supposed to be a point in 3D space.
 	 */
 	inline Vector MulPt(const Vector& v) const;
-	/** Matrix/vector product.
+	
+	/**
+	 *	\brief Matrix/vector product
+	 * 
 	 *	The matrix is supposed to be an homogeneous transform in 3D space (composition of scale/rotation/translation),
 	 *	and the vector is supposed to be a direction in 3D space, which is then not affected by the translational part
 	 *	of the transform.
@@ -104,36 +111,38 @@ public:
 	inline Vector MulDir(const Vector& v) const;
 
 
-	/** Matrix transposition. */
+	/**	\brief Matrix transposition */
 	inline Matrix4Df& Transpose();
 
-	/** Recovery of matrix invert. */
-	
+	/**	\brief Recovery of matrix invert */
 	inline Matrix4Df Invert(const Matrix4Df& m);
-	/** Matrix inversion. */
+	
+	/**	\brief Matrix inversion */
 	inline void Invert();
 
-	/** Recovery of matrix trace. */
+	/**	\brief Recovery of matrix trace */
 	inline float Trace() const;
-	/** Recovery of matrix determinant. */
+	
+	/**	\brief Recovery of matrix determinant */
 	inline float Determinant() const;
 
 
-	/** Initialization to null matrix. */
+	/**	\brief Initialization to null matrix */
 	inline void SetZero();
-	/** Initialization to identity matrix. */
+	
+	/**	\brief Initialization to identity matrix */
 	inline void SetIdentity();
-	/** Initialization by setting all matrix elements to the same scalar value. */
+	
+	/**	\brief Initialization by setting all matrix elements to the same scalar value */
 	inline void SetScalar(const float f);
-	/** Initialization to a diagonal matrix. */
+	
+	/**	\brief Initialization to a diagonal matrix */
 	inline void SetDiagonal(const float f1, const float f2, const float f3, const float f4);
 
 	inline void Print();
 };
 
-/*
- *	Inversion
- */
+
 
 
 inline Matrix4Df Matrix4Df::Invert(const Matrix4Df& m)
@@ -182,14 +191,8 @@ inline Matrix4Df Matrix4Df::Invert(const Matrix4Df& m)
 
 
 
-/*
- *	Constructors
- */
 
-
-inline Matrix4Df::Matrix4Df()
-{
-}
+inline Matrix4Df::Matrix4Df() {}
 
 
 
@@ -252,8 +255,6 @@ inline Matrix4Df::Matrix4Df(const Matrix4Df& m)
 
 
 
-// Assignment
-
 
 inline Matrix4Df& Matrix4Df::operator=(const Matrix4Df& m)
 {
@@ -266,7 +267,6 @@ inline Matrix4Df& Matrix4Df::operator=(const Matrix4Df& m)
 }
 
 
-// Indexed access
 
 
 inline float& Matrix4Df::operator()(const unsigned int l, const unsigned int c)
@@ -282,7 +282,7 @@ inline const float& Matrix4Df::operator()(const unsigned int l, const unsigned i
 }
 
 
-// Combined Op-Assignment
+
 
 inline Matrix4Df& Matrix4Df::operator+=(const Matrix4Df& m)
 {
@@ -328,8 +328,6 @@ inline Matrix4Df& Matrix4Df::operator*=(const float f)
 }
 
 
-
-// Binary ops
 
 
 inline Matrix4Df operator+(const Matrix4Df& m1, const Matrix4Df& m2)
@@ -379,9 +377,6 @@ inline Matrix4Df operator*(const Matrix4Df& m1, const Matrix4Df& m2)
 
 
 
-// Negation
-
-
 inline Matrix4Df operator-(const Matrix4Df& m)
 {
 	return Matrix4Df(	- m.v[0],  - m.v[1],  - m.v[2],  - m.v[3],
@@ -391,7 +386,6 @@ inline Matrix4Df operator-(const Matrix4Df& m)
 }
 
 
-// Mixed scalar-matrix ops
 
 
 inline Matrix4Df operator*(const float f, const Matrix4Df& m)
@@ -413,8 +407,6 @@ inline Matrix4Df operator*(const Matrix4Df& m, const float f)
 }
 
 
-
-// Mixed matrix vector ops
 
 
 Vector Matrix4Df::Mul(const Vector& vec, const float w) const
@@ -455,8 +447,6 @@ Vector Matrix4Df::MulDir(const Vector& vec) const
 						(*this)(2, 0) * vec[0] + (*this)(2, 1) * vec[1] + (*this)(2, 2) * vec[2]);
 }
 
-
-// Matrix ops
 
 
 

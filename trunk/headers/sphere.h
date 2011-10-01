@@ -1,5 +1,14 @@
-// Fast Raytracer
-// Changelog 10.09.16
+/**
+ * \file sphere.h
+ * \brief class Sphere header
+ * \author Gimenez Tom, Roumier Vincent, Matéo Camille
+ * \version 1.0
+ * \date 01 octobre 2011
+ *
+ * Sphere is a primitive of the CSG
+ *
+ */
+
 
 #ifndef __Sphere__
 #define __Sphere__
@@ -16,18 +25,20 @@
 
 class Sphere : public Primitive
 {
-public:
-  double rad;       //!< Radius
-  Vector p;   //!< position, emission, color
+	public:
+	  
+	double rad;       //!< Radius
+	Vector p;   //!< position, emission, color
 
-public:
-  Sphere() {}
-  Sphere(const double&, const Vector&, const Vector&, const Vector&, int);
-  int Intersect(const Ray &r,Intersection&);
-  int Intersect( const Ray &, Intersection&, Intersection& );
-  int PMC(const Vector& );
+	public:
+	  
+	Sphere() {}
+	Sphere(const double&, const Vector&, const Vector&, const Vector&, int);
+	int Intersect(const Ray &r,Intersection&);
+	int Intersect( const Ray &, Intersection&, Intersection& );
+	int PMC(const Vector& );
 
-  Vector getPosition(){return p;};
+	Vector getPosition(){return p;};
 };
 
 #endif
