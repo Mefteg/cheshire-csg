@@ -1,3 +1,15 @@
+/**
+ * \file rotation.h
+ * \brief class Rotation header
+ * \author Gimenez Tom, Roumier Vincent, Matéo Camille
+ * \version 1.0
+ * \date 01 octobre 2011
+ *
+ * Rotation is a transformation for the CSG
+ *
+ */
+
+
 #ifndef __Rotation__
 #define __Rotation__
 
@@ -5,9 +17,10 @@
 
 class Rotation : public Transfo
 {
-public:
+	public:
+	  
 	Rotation(void);
-	Rotation(Node*,const Vector,float angle);
+	Rotation(Node*, const Vector, float angle);
 	~Rotation(void);
 
 	int Intersect(const Ray&, Intersection&);
