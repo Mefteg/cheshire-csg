@@ -222,7 +222,7 @@ int main( int argc, char ** argv )
     nodes.push_back(new Box(Vector(-20+120,0,0), Vector(0+120,100,200), Vector(0,0,0), Vector(0.75,0.25,0.25), 0)); //Wall right
     nodes.push_back(new Box(Vector(-10,0,-10), Vector(100,100,0), Vector(0,0,0), Vector(0.25,0.25,0.75), 0)); //Wall far
     nodes.push_back(new Box(Vector(-10,0,-10+200), Vector(100,100,0+200), Vector(0,0,0), Vector(0.25,0.25,0.75), 0)); //Wall near
-    nodes.push_back(new Box(Vector(-10,0,0), Vector(100,10,200), Vector(0,0,0), Vector(0.75,0.75,0.75), 0)); //Ground
+    nodes.push_back(new Box(Vector(-10,-10,0), Vector(100,0,200), Vector(0,0,0), Vector(0.75,0.75,0.75), 0)); //Ground
     nodes.push_back(new Box(Vector(-10,0+100,0), Vector(100,10+100,200), Vector(0,0,0), Vector(0.75,0.75,0.75), 0)); //Roof
 /*    nodes.push_back(new Box(Vector(40,90,40), Vector(40+20,90+20,40+20), Vector(12,12,12), Vector(0.75,0.75,0.75), 0)); //Light*/
 	nodes.push_back(new Sphere(30, Vector(50,120,40), Vector(8,8,8),  Vector(0.0,0.0,0.0), 0));//Light
