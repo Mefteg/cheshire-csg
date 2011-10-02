@@ -212,7 +212,11 @@ int main( int argc, char ** argv )
 
     Box * b1 = new Box(Vector(10,10,80), Vector(30,30,100), Vector(0,0,0), Vector(0.75,0.25,0.25), 0); //First b
     Box * b2 = new Box(Vector(20,20,90), Vector(40,40,110), Vector(0,0,0), Vector(0.25,0.75,0.25), 0); //First b
-    Box * b3 = new Box(Vector(0,0,70), Vector(20,20,110), Vector(0,0,0), Vector(0.25,0.75,0.25), 0); //First b
+    Box * b3 = new Box(Vector(50,30,100), Vector(70,50,130), Vector(0,0,0), Vector(0.25,0.75,0.25), 0); //First b
+
+    Cylinder * c1 = new Cylinder( 10, Vector(40,10,80), 20, Vector(0,0,0), Vector(0.25,0.75,0.75), 0 );
+    Cylinder * c2 = new Cylinder( 10, Vector(50,50,50), 20, Vector(0,0,0), Vector(0.25,0.75,0.75), 0 );
+    Cylinder * c3 = new Cylinder( 5, Vector(80,20,50), 40, Vector(0,0,0), Vector(0.25,0.75,0.75), 0 );
 	//creation of the scene
 /*	nodes.push_back(new Translation( sp1, Vector(1,0,0)));*/
 
@@ -226,7 +230,9 @@ int main( int argc, char ** argv )
     nodes.push_back(new Box(Vector(-10,0+100,0), Vector(100,10+100,200), Vector(0,0,0), Vector(0.75,0.75,0.75), 0)); //Roof
 /*    nodes.push_back(new Box(Vector(40,90,40), Vector(40+20,90+20,40+20), Vector(12,12,12), Vector(0.75,0.75,0.75), 0)); //Light*/
 	nodes.push_back(new Sphere(30, Vector(50,120,40), Vector(8,8,8),  Vector(0.0,0.0,0.0), 0));//Light
-	nodes.push_back( new Cylinder( 10, Vector(50,80,120), 30, Vector(0,0,0), Vector(0.25,0.75,0.25), 0 ) );
+	nodes.push_back( c1 );
+	nodes.push_back( c2 );
+	nodes.push_back( c3 );
 /*	nodes.push_back( new Box( Vector(40,10,60), Vector(60,30,80), Vector(0,0,0), Vector(0.25,0.75,0.25), 0 ) );*/
 
 /*	nodes.push_back(new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0));//Left red*/
