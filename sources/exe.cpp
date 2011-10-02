@@ -277,7 +277,7 @@ int main( int argc, char ** argv )
 	Node* sourire = new Diff(new Sphere(, Vector(,,), Vector(0,0,0),  Vector(0.0,0.0,0.0), 0),new Diff(new Sphere(, Vector(,,), Vector(0,0,0),  Vector(0.0,0.0,0.0), 0), dents));
 */	
 	// Les oreilles :
-/*	Triangle* oreille_gauche = new Triangle(Vector(13,79,68),Vector(20,79,68),Vector(16,86,68), Vector(0,0,0), Vector(0.8,0.8,0.2), 0);
+	Triangle* oreille_gauche = new Triangle(Vector(13,79,68),Vector(20,79,68),Vector(16,86,68), Vector(0,0,0), Vector(0.8,0.8,0.2), 0);
 	Triangle* oreille_droite = new Triangle(Vector(26,79,68),Vector(33,79,68),Vector(28,86,68), Vector(0,0,0), Vector(0.8,0.8,0.2), 0);
 
 	// Les yeux :
@@ -294,16 +294,9 @@ int main( int argc, char ** argv )
 	// le visage :
 	Sphere* visage = new Sphere(15, Vector(22,70,60), Vector(0,0,0), Vector(0.8,0.8,0.2), 0);
 
-	nodes.push_back(oreille_gauche);
-	nodes.push_back(oreille_droite);
-	nodes.push_back(nez);
-	nodes.push_back(pupille_gauche);
-	nodes.push_back(pupille_droite);
-	nodes.push_back(oeil_gauche);
-	nodes.push_back(oeil_droit);
-	nodes.push_back(visage);
 
-*/
+
+
 //	Node* tete = new Union(new Union(new Union(new Union(new Union(new Union(new Union(visage, nez), pupille_gauche), pupille_droite), oeil_gauche), oeil_droit), oreille_gauche), oreille_droite);
 //nodes.push_back(tete);	
 //	Node* tete = new Union(new Union(new Union(new Union(new Union(new Union(new Union(new Union(visage, nez), pupille_gauche), pupille_droite), oeil_gauche), oeil_droite), oreille_gauche), oreilles_droite), sourire);
@@ -313,15 +306,15 @@ int main( int argc, char ** argv )
 	/*** Le corps ***/
 
 	// Les épaules :
-//	Sphere* epaules = new Sphere(15, Vector(37,47,60), Vector(0,0,0), Vector(0.8,0.8,0.2), 0);
-//nodes.push_back(epaules);
+	Sphere* epaules = new Sphere(15, Vector(37,47,60), Vector(0,0,0), Vector(0.8,0.8,0.2), 0);
+
 
 	// Le bassin :
-//	Node* bassin = new Inter(new Sphere( , Vector(,,), Vector(0,0,0), Vector(204,51,204), 0), new Sphere( , Vector(,,), Vector(0,0,0), Vector(204,51,204), 0));
+	Node* bassin = new Inter(new Sphere( , Vector(,,), Vector(0,0,0), Vector(204,51,204), 0), new Sphere( , Vector(,,), Vector(0,0,0), Vector(204,51,204), 0));
 	
 	// Le buste :
 	Rotation* buste = new Rotation(new Cylinder(15, Vector(37,47,60), 30, Vector(0,0,0), Vector(0.8,0.8,0.2), 0), Vector(0,0,1), 90);
-nodes.push_back(buste);
+
 
 	// La patte avant :
 	
@@ -334,6 +327,18 @@ nodes.push_back(buste);
 	// YAHOUUUUUU
 	
 	/****************/
+	
+	nodes.push_back(oreille_gauche);
+	nodes.push_back(oreille_droite);
+	nodes.push_back(nez);
+	nodes.push_back(pupille_gauche);
+	nodes.push_back(pupille_droite);
+	nodes.push_back(oeil_gauche);
+	nodes.push_back(oeil_droit);
+	nodes.push_back(visage);
+	nodes.push_back(buste);
+	nodes.push_back(epaules);
+	
 /******************************************************************/
 
 	nbObj = (int) nodes.size();
