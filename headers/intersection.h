@@ -5,7 +5,7 @@
  * \version 1.0
  * \date 01 octobre 2011
  *
- * Intersection is data structure
+ * Containing Intersection class
  *
  */
 
@@ -15,17 +15,24 @@
 
 class Node;
 
+/*! 
+ * \class Intersection
+ * \brief Intersection class
+ * 
+ * Intersection is data structure
+ * 
+ */
 class Intersection
 {
 	public:
+
+	double t;	/*!< Distance to the origin */
+	Node * obj;	/*!< Intersected object */
+	Vector pos;	/*!< Intersection coordinates */
+	Vector normal;  /*!< Intersection normal */
 	  
 	Intersection(){};
 	~Intersection(){};
-
-	double t; 		// distance to the origin
-	Node * obj;		// intersected object
-	Vector pos;
-	Vector normal;
 
 	// Opérateur de tri des intersections
 	int operator<(const Intersection & i) const { return t < i.t; }
