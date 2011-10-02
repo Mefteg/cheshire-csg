@@ -204,16 +204,16 @@ inline int operator!=(const Vector& u,const Vector& v)
 }
 
 /*!
-\brief Compute the Euclidean norm of a vector.
-*/
+ *  \brief Compute the Euclidean norm of a vector
+ */
 inline double Norm(const Vector& u)
 {
 	return sqrt(u.x * u.x + u.y * u.y + u.z * u.z);
 }
 
 /*!
-\brief Compute the Euclidean norm of a vector.
-*/
+ *  \brief Compute the Euclidean norm of a vector
+ */
 inline Vector Normalized(const Vector& u)
 {
 	return u / sqrt(u.x * u.x + u.y * u.y + u.z * u.z);
@@ -230,18 +230,16 @@ inline int operator>(const Vector& a,const Vector& b)
 }
 
 /*!
-\brief Return a new vector with coordinates set to the minimum coordinates
-of the two argument vectors.
-*/
+ *  \brief Return a new vector with coordinates set to the minimum coordinates of the two argument vectors
+ */
 inline Vector min(const Vector& a,const Vector& b)
 {
 	return Vector(a[0] < b[0] ? a[0] : b[0], a[1] < b[1] ? a[1] : b[1], a[2] < b[2] ? a[2] : b[2]);
 }
 
 /*!
-\brief Return a new vector with coordinates set to the maximum coordinates
-of the two argument vectors.
-*/
+ *  \brief Return a new vector with coordinates set to the maximum coordinates of the two argument vectors
+ */
 inline Vector max(const Vector& a,const Vector& b)
 {
 	return Vector(a[0] > b[0] ? a[0] : b[0], a[1] > b[1] ? a[1] : b[1], a[2] > b[2] ? a[2] : b[2]);
@@ -249,8 +247,8 @@ inline Vector max(const Vector& a,const Vector& b)
 
 
 /*!
-\brief Returns a new vector orthogonal to the argument vector.
-*/
+ *  \brief Returns a new vector orthogonal to the argument vector
+ */
 inline Vector Orthogonal(const Vector& u)
 {
 	Vector a = Vector(fabs(u[0]), fabs(u[1]), fabs(u[2]));
