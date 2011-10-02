@@ -5,7 +5,7 @@
  * \version 1.0
  * \date 01 octobre 2011
  *
- * Transfo is a kind of node
+ * Containing Transfo class
  *
  */
 
@@ -16,6 +16,13 @@
 #include "node.h"
 #include "Matrix4D.h"
 
+/*! 
+ * \class Transfo
+ * \brief Transfo class
+ * 
+ * Transfo is a kind of node
+ * 
+ */
 class Transfo : public Node
 {
 	protected:

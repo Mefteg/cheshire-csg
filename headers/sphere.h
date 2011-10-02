@@ -5,7 +5,7 @@
  * \version 1.0
  * \date 01 octobre 2011
  *
- * Sphere is a primitive of the CSG
+ * Containing Sphere class
  *
  */
 
@@ -13,16 +13,15 @@
 #ifndef __Sphere__
 #define __Sphere__
 
-//#include <iostream>
-//using namespace std;
-
 #include "primitive.h"
 
-// Material types are as follows
-// Diffuse : 0
-// Specular : 1
-// Refractive : 2
-
+/*! 
+ * \class Sphere
+ * \brief Sphere class
+ * 
+ * Sphere is a primitive of the CSG
+ * 
+ */
 class Sphere : public Primitive
 {
 	public:
@@ -34,8 +33,35 @@ class Sphere : public Primitive
 	  
 	Sphere() {}
 	Sphere(const double&, const Vector&, const Vector&, const Vector&, int);
+	
+	/*!
+	*  \brief Intersecting function
+	*
+	*  Compute the intersection between a sphere and a ray
+	*
+	*  \param ray : the ray
+	*  \param inter : the intersection
+	*/
 	int Intersect(const Ray &r,Intersection&);
+	
+	/*!
+	*  \brief Intersecting function
+	*
+	*  Compute the intersections between a sphere and a ray
+	*
+	*  \param ray : the ray
+	*  \param intermin : the first intersection
+	*  \param intermax : the second intersection
+	*/
 	int Intersect( const Ray &, Intersection&, Intersection& );
+	
+	/*!
+	*  \brief Containing function
+	*
+	*  Checks if a point is inside the instance
+	*
+	*  \param a : the point
+	*/
 	int PMC(const Vector& );
 
 	Vector getPosition(){return p;};

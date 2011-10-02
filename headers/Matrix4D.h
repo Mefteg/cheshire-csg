@@ -5,7 +5,7 @@
  * \version 1.0
  * \date 01 octobre 2011
  *
- * Matrix4Df allows transformations
+ * Containing Matrix4Df class
  *
  */
 
@@ -16,17 +16,27 @@
 #include <stdio.h>
 #include "vector.h"
 
-
+/*! 
+ * \class Matrix4Df
+ * \brief Matri4Df class
+ * 
+ * Matrix4Df allows transformations
+ * 
+ */
 class Matrix4Df
 {
 	public:
 	  
 	float v[16];
-	
-	/**	\brief Empty constructor */
+
+	/*!
+	/*  \brief Empty constructor
+	 */
 	inline Matrix4Df();
 	
-	/**	\brief Element-by-element matrix initialization */
+	/*!
+	/*  \brief Element-by-element matrix initialization
+	 */
 	inline Matrix4Df(const float m00, const float m10, const float m20, const float m30,
 					const float m01, const float m11, const float m21, const float m31,
 					const float m02, const float m12, const float m22, const float m32,
@@ -34,109 +44,150 @@ class Matrix4Df
 	
 	inline Matrix4Df(const Vector& vecX, const Vector& vecY, const Vector& vecZ, const Vector& vecT);
 	
-	/**	\brief Matrix initialization from an array of scalars (column-first order) */
+	/*!
+	 *  \brief Matrix initialization from an array of scalars (column-first order)
+	 */
 	inline Matrix4Df(const float* val);
+	
+	/*!
+	 *  \brief Matrix initialization by copy
+	 */
 	inline Matrix4Df(const Matrix4Df& m);
 
-	/**	\brief Assignment */
+	/*!
+	 *  \brief Assignment
+	 */
 	inline Matrix4Df& operator=(const Matrix4Df& m);
 
-	/** 
-	 *	\brief Indexed access to the matrix elements.
-	 *	\param[in]	l	Row number in [0,3].
-	 *	\param[in]	c	Column number in [0,3].
+	/*!
+	 *  \brief Indexed access to the matrix elements
+	 *  \param[in] l : Row number in [0,3]
+	 *  \param[in] c : Column number in [0,3]
 	 */
 	inline       float& operator()(const unsigned int l, const unsigned int c);
 	
-	/** 
-	 * 	\brief Indexed access to the matrix elements (read-only version)
-	 *	\param[in]	l	Row number in [0,3].
-	 *	\param[in]	c	Column number in [0,3].
+	/*!
+	 *  \brief Indexed access to the matrix elements (read-only version)
+	 *  \param[in] l : Row number in [0,3]
+	 *  \param[in] c : Column number in [0,3]
 	 */
 	inline const float& operator()(const unsigned int l, const unsigned int c) const;
 
 
-	/**	\brief Elementwise addition assignement */
+	/*!
+	 *  \brief Elementwise addition assignement
+	 */
 	inline Matrix4Df& operator+=(const Matrix4Df& m);
 	
-	/**	\brief Elementwise substraction assignement */
+	/*!
+	 *  \brief Elementwise substraction assignement
+	 */
 	inline Matrix4Df& operator-=(const Matrix4Df& m);
 	
-	/**	\brief Matrix product (multiplication assignement) */
+	/*!
+	 *  \brief Matrix product (multiplication assignement)
+	 */
 	inline Matrix4Df& operator*=(const Matrix4Df& m);
 	
-	/**	\brief Multiplication assignement by a scalar */
+	/*!
+	 *  \brief Multiplication assignement by a scalar
+	 */
 	inline Matrix4Df& operator*=(const float f);
 
 
-	/**	\brief Elementwise addition */
+	/*!
+	 *  \brief Elementwise addition
+	 */
 	friend Matrix4Df operator+(const Matrix4Df& m1, const Matrix4Df& m2);
 	
-	/**	\brief Elementwise substraction */
+	/*!
+	 *  \brief Elementwise substraction
+	 */
 	friend Matrix4Df operator-(const Matrix4Df& m1, const Matrix4Df& m2);
 	
-	/**	\brief Matrix product */
+	/*!
+	 *  \brief Matrix product
+	 */
 	friend Matrix4Df operator*(const Matrix4Df& m1, const Matrix4Df& m2);
 
 
-	/**	\brief Negation */
+	/*!
+	 *  \brief Negation
+	 */
 	friend Matrix4Df operator-(const Matrix4Df& m);
 
 
-	/** 	\brief Multiplication by a scalar */
+	/*!
+	 *  \brief Multiplication by a scalar
+	 */
 	friend Matrix4Df operator*(const float f, const Matrix4Df& m);
 	
-	/** 	\brief Multiplication by a scalar */
+	/*!
+	 *  \brief Multiplication by a scalar
+	 */
 	friend Matrix4Df operator*(const Matrix4Df& m, const float f);
 
 
-	/**	\brief Mixed matrix vector ops */
+	/*!
+	 *  \brief Mixed matrix vector ops
+	 */
 	inline Vector Mul(const Vector& v, const float w) const;
 	
-	/** 
-	 *	\brief Matrix/vector product
-	 * 
-	 *	The matrix is supposed to be an homogeneous transform in 3D space (composition of scale/rotation/translation),
-	 *	and the vector is supposed to be a point in 3D space.
+	/*!
+	 *  \brief Matrix/vector product
 	 */
 	inline Vector MulPt(const Vector& v) const;
 	
-	/**
-	 *	\brief Matrix/vector product
-	 * 
-	 *	The matrix is supposed to be an homogeneous transform in 3D space (composition of scale/rotation/translation),
-	 *	and the vector is supposed to be a direction in 3D space, which is then not affected by the translational part
-	 *	of the transform.
+	/*!
+	 *  \brief Matrix/vector product
 	 */
 	inline Vector MulDir(const Vector& v) const;
 
 
-	/**	\brief Matrix transposition */
+	/*!
+	 *  \brief Matrix transposition
+	 */
 	inline Matrix4Df& Transpose();
 
-	/**	\brief Recovery of matrix invert */
+	/*!
+	 *  \brief Recovery of matrix invert
+	 */
 	inline Matrix4Df Invert(const Matrix4Df& m);
 	
-	/**	\brief Matrix inversion */
+	/*!
+	 *  \brief Matrix inversion
+	 */
 	inline void Invert();
 
-	/**	\brief Recovery of matrix trace */
+	/*!
+	 *  \brief Recovery of matrix trace
+	 */
 	inline float Trace() const;
 	
-	/**	\brief Recovery of matrix determinant */
+	/*!
+	 *  \brief Recovery of matrix determinant
+	 */
 	inline float Determinant() const;
 
 
-	/**	\brief Initialization to null matrix */
+	/*!
+	 *  \brief Initialization to null matrix
+	 */
 	inline void SetZero();
 	
-	/**	\brief Initialization to identity matrix */
+	/*!
+	 *  \brief Initialization to identity matrix
+	 */
 	inline void SetIdentity();
 	
-	/**	\brief Initialization by setting all matrix elements to the same scalar value */
+	/*!
+	 *  \brief Initialization by setting all matrix elements to the same scalar value
+	 */
 	inline void SetScalar(const float f);
 	
-	/**	\brief Initialization to a diagonal matrix */
+	/*!
+	 *  \brief Initialization to a diagonal matrix
+	 */
 	inline void SetDiagonal(const float f1, const float f2, const float f3, const float f4);
 
 	inline void Print();
@@ -211,26 +262,25 @@ inline Matrix4Df::Matrix4Df(	const float m00, const float m10, const float m20, 
 
 inline Matrix4Df::Matrix4Df(const Vector& vecX, const Vector& vecY, const Vector& vecZ, const Vector& vecT)
 {
+	v[0] = vecX[0];
+	v[1] = vecX[1];
+	v[2] = vecX[2];
+	v[3] = 0.0;
 
-v[0] = vecX[0];
-v[1] = vecX[1];
-v[2] = vecX[2];
-v[3] = 0.0;
+	v[4] = vecY[0];
+	v[5] = vecY[1];
+	v[6] = vecY[2];
+	v[7] = 0.0;
 
-v[4] = vecY[0];
-v[5] = vecY[1];
-v[6] = vecY[2];
-v[7] = 0.0;
+	v[8] = vecZ[0];
+	v[9] = vecZ[1];
+	v[10] = vecZ[2];
+	v[11] = 0.0;
 
-v[8] = vecZ[0];
-v[9] = vecZ[1];
-v[10] = vecZ[2];
-v[11] = 0.0;
-
-v[12] = vecT[0];
-v[13] = vecT[1];
-v[14] = vecT[2];
-v[15] = 1.0;
+	v[12] = vecT[0];
+	v[13] = vecT[1];
+	v[14] = vecT[2];
+	v[15] = 1.0;
 }
 
 
@@ -546,7 +596,5 @@ void Matrix4Df::Print(){
 	}
 	fprintf(stderr,"\n");
 }
-
-
 
 #endif
