@@ -62,7 +62,7 @@ class Rotation : public Transfo
 
 	Vector getEmission() { return Vector(); };
 	Vector getColor() { return Vector(); };
-	Vector getPosition() { return Vector(); };
+	Vector getPosition() { return m.MulPt( left->getPosition()); };
 	int getRefl() { return 0; };
 	double getF() { return 0; };
 
