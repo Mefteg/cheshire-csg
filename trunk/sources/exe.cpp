@@ -17,6 +17,8 @@
 #include "inter.h"
 #include "diff.h"
 #include "translation.h"
+#include "triangle.h"
+#include "rotation.h"
 
 
 /*#define X (512/2) // Width*/
@@ -206,7 +208,7 @@ int main( int argc, char ** argv )
 			}
 		}
 	}
-
+/*
 	Sphere * sp1 = new Sphere(15, Vector( 30,30,80), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0);
 	Sphere * sp2 = new Sphere(15, Vector( 40,30,90), Vector(0.0,0.0,0.0),Vector(.25,.25,.75),0);
 
@@ -217,6 +219,7 @@ int main( int argc, char ** argv )
     Cylinder * c1 = new Cylinder( 10, Vector(40,10,80), 20, Vector(0,0,0), Vector(0.25,0.75,0.75), 0 );
     Cylinder * c2 = new Cylinder( 10, Vector(50,50,50), 20, Vector(0,0,0), Vector(0.25,0.75,0.75), 0 );
     Cylinder * c3 = new Cylinder( 5, Vector(80,20,50), 40, Vector(0,0,0), Vector(0.25,0.75,0.75), 0 );
+*/
 	//creation of the scene
 /*	nodes.push_back(new Translation( sp1, Vector(1,0,0)));*/
 
@@ -228,11 +231,8 @@ int main( int argc, char ** argv )
     nodes.push_back(new Box(Vector(-10,0,-10+200), Vector(100,100,0+200), Vector(0,0,0), Vector(0.25,0.25,0.75), 0)); //Wall near
     nodes.push_back(new Box(Vector(-10,-10,0), Vector(100,0,200), Vector(0,0,0), Vector(0.75,0.75,0.75), 0)); //Ground
     nodes.push_back(new Box(Vector(-10,0+100,0), Vector(100,10+100,200), Vector(0,0,0), Vector(0.75,0.75,0.75), 0)); //Roof
-/*    nodes.push_back(new Box(Vector(40,90,40), Vector(40+20,90+20,40+20), Vector(12,12,12), Vector(0.75,0.75,0.75), 0)); //Light*/
-	nodes.push_back(new Sphere(30, Vector(50,120,40), Vector(8,8,8),  Vector(0.0,0.0,0.0), 0));//Light
-	nodes.push_back( c1 );
-	nodes.push_back( c2 );
-	nodes.push_back( c3 );
+    nodes.push_back(new Sphere(30, Vector(50,120,40), Vector(8,8,8),  Vector(0.0,0.0,0.0), 0));//Light
+
 /*	nodes.push_back( new Box( Vector(40,10,60), Vector(60,30,80), Vector(0,0,0), Vector(0.25,0.75,0.25), 0 ) );*/
 
 /*	nodes.push_back(new Sphere(1e5, Vector( 1e5+1,40.8,81.6), Vector(0.0,0.0,0.0),Vector(.75,.25,.25),0));//Left red*/
@@ -251,6 +251,90 @@ int main( int argc, char ** argv )
 	//nodes.push_back(new Sphere(1,Vector(0,2,0),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
 	//nodes.push_back(new Sphere(1,Vector(0,0,2),       Vector(0.0,0.0,0.0),Vector(1,1,1)*.999,1));//Mirror
 /*    nodes.push_back(new Box(Vector(0,2,-1), Vector(6,4,1), Vector(12,12,12), Vector(1,1,1)*0.9, 1)); //Lig*/
+
+ 
+/************************  Cheshire's Cat  ************************/
+
+	/*** La tête ***/
+
+	// Les dents :
+/*	Box* dent_1 = new Box(Vector(20,10,50), Vector(22,30,50), Vector(0,0,0), Vector(0,0,0), 0);
+	Box* dent_2 = new Box(Vector(22,10,50), Vector(24,30,50), Vector(0,0,0), Vector(255,255,255), 0);
+	Box* dent_3 = new Box(Vector(24,10,50), Vector(26,30,50), Vector(0,0,0), Vector(0,0,0), 0);
+	Box* dent_4 = new Box(Vector(26,10,50), Vector(28,30,50), Vector(0,0,0), Vector(255,255,255), 0);
+	Box* dent_5 = new Box(Vector(28,10,50), Vector(30,30,50), Vector(0,0,0), Vector(0,0,0), 0);
+	Box* dent_6 = new Box(Vector(30,10,50), Vector(32,30,50), Vector(0,0,0), Vector(255,255,255), 0);
+	Box* dent_7 = new Box(Vector(32,10,50), Vector(34,30,50), Vector(0,0,0), Vector(0,0,0), 0);
+	Box* dent_8 = new Box(Vector(34,10,50), Vector(36,30,50), Vector(0,0,0), Vector(255,255,255), 0);
+	Box* dent_9 = new Box(Vector(36,10,50), Vector(38,30,50), Vector(0,0,0), Vector(0,0,0), 0);
+	Box* dent_10 = new Box(Vector(38,10,50), Vector(40,30,50), Vector(0,0,0), Vector(255,255,255), 0);
+	Box* dent_11 = new Box(Vector(40,10,50), Vector(42,30,50), Vector(0,0,0), Vector(255,255,255), 0);
+	Box* dent_12 = new Box(Vector(42,10,50), Vector(44,30,50), Vector(0,0,0), Vector(0,0,0), 0);
+	Box* dent_13 = new Box(Vector(44,10,50), Vector(46,30,50), Vector(0,0,0), Vector(255,255,255), 0);
+	Node* dents = new Union(new Union(new Union(new Union(new Union(new Union(new Union(new Union(new Union(new Union(new Union(new Union(dent_1, dent_2), dent_3), dent_4), dent_5), dent_6), dent_7), dent_8), dent_9), dent_10), dent_11), dent_12), dent_13);
+	
+	// Le sourire :
+	Node* sourire = new Diff(new Sphere(, Vector(,,), Vector(0,0,0),  Vector(0.0,0.0,0.0), 0),new Diff(new Sphere(, Vector(,,), Vector(0,0,0),  Vector(0.0,0.0,0.0), 0), dents));
+*/	
+	// Les oreilles :
+/*	Triangle* oreille_gauche = new Triangle(Vector(13,79,68),Vector(20,79,68),Vector(16,86,68), Vector(0,0,0), Vector(0.8,0.8,0.2), 0);
+	Triangle* oreille_droite = new Triangle(Vector(26,79,68),Vector(33,79,68),Vector(28,86,68), Vector(0,0,0), Vector(0.8,0.8,0.2), 0);
+
+	// Les yeux :
+	Sphere* oeil_gauche = new Sphere(4, Vector(19,72,82), Vector(0,0,0),  Vector(255,255,255), 0);
+	Sphere* oeil_droit = new Sphere(4, Vector(28,72,82), Vector(0,0,0),  Vector(255,255,255), 0);
+
+	// Les pupilles :
+	Sphere* pupille_gauche = new Sphere(2, Vector(20,71,86), Vector(0,0,0),  Vector(0,0,0), 0);
+	Sphere* pupille_droite = new Sphere(2, Vector(29,71,86), Vector(0,0,0),  Vector(0,0,0), 0);
+
+	// Le nez :
+	Triangle* nez = new Triangle(Vector(23,66,90),Vector(26,66,90),Vector(24,68,90), Vector(0,0,0), Vector(255,0,0), 0);
+	
+	// le visage :
+	Sphere* visage = new Sphere(15, Vector(22,70,60), Vector(0,0,0), Vector(0.8,0.8,0.2), 0);
+
+	nodes.push_back(oreille_gauche);
+	nodes.push_back(oreille_droite);
+	nodes.push_back(nez);
+	nodes.push_back(pupille_gauche);
+	nodes.push_back(pupille_droite);
+	nodes.push_back(oeil_gauche);
+	nodes.push_back(oeil_droit);
+	nodes.push_back(visage);
+
+*/
+//	Node* tete = new Union(new Union(new Union(new Union(new Union(new Union(new Union(visage, nez), pupille_gauche), pupille_droite), oeil_gauche), oeil_droit), oreille_gauche), oreille_droite);
+//nodes.push_back(tete);	
+//	Node* tete = new Union(new Union(new Union(new Union(new Union(new Union(new Union(new Union(visage, nez), pupille_gauche), pupille_droite), oeil_gauche), oeil_droite), oreille_gauche), oreilles_droite), sourire);
+
+	/***************/
+	
+	/*** Le corps ***/
+
+	// Les épaules :
+//	Sphere* epaules = new Sphere(15, Vector(37,47,60), Vector(0,0,0), Vector(0.8,0.8,0.2), 0);
+//nodes.push_back(epaules);
+
+	// Le bassin :
+//	Node* bassin = new Inter(new Sphere( , Vector(,,), Vector(0,0,0), Vector(204,51,204), 0), new Sphere( , Vector(,,), Vector(0,0,0), Vector(204,51,204), 0));
+	
+	// Le buste :
+	Rotation* buste = new Rotation(new Cylinder(15, Vector(37,47,60), 30, Vector(0,0,0), Vector(0.8,0.8,0.2), 0), Vector(0,0,1), 90);
+nodes.push_back(buste);
+
+	// La patte avant :
+	
+	// La patte arrière :
+
+	/****************/
+	
+	/*** La queue ***/
+	
+	// YAHOUUUUUU
+	
+	/****************/
+/******************************************************************/
 
 	nbObj = (int) nodes.size();
 
