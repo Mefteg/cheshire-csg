@@ -5,7 +5,7 @@
  * \version 1.0
  * \date 01 octobre 2011
  *
- * Box is a primitive of the CSG
+ * Containing Box class
  *
  */
 
@@ -15,17 +15,24 @@
 
 #include "primitive.h"
 
-
+/*! 
+ * \class Box
+ * \brief Box class
+ * 
+ * Box is a primitive of the CSG
+ * 
+ */
 class Box : public Primitive
 {
 	protected:
   
-	//!< End vertices of the box.
-	Vector a, b;
+	Vector a; /*!< Box bottom left point */
+	Vector b; /*!< Box upper right point */
 	
 	public:
 	
-	static const double epsilon;
+	static const double epsilon;  /*!< Epsilon value used to check intersections and some round off errors */
+
 	  
 	//! Creates a generic box (empty).
 	Box() {}
@@ -50,19 +57,64 @@ class Box : public Primitive
 	double R(const Vector&) const;
 	Vector Normal(const Vector&) const;
 
-	// Intersection with a ray
-	/*  int Intersect(const Ray& ray) const;*/
-
+	/*!
+	*  \brief Intersecting function
+	*
+	*  Compute the intersection between a box and a ray
+	*
+	*  \param ray : the ray
+	*  \param inter1 : the intersection
+	*/
 	int Intersect(const Ray&, Intersection&);
-
+	
+	/*!
+	*  \brief Intersecting function
+	*
+	*  Compute the intersections between a box and a ray
+	*
+	*  \param ray : the ray
+	*  \param inter1 : the first intersection
+	*  \param inter2 : the second intersection
+	*/
 	int Intersect(const Ray&, Intersection&, Intersection&);
+	
+	/*!
+	*  \brief Intersecting function
+	* 
+	*   Compute the first positive intersection between an axis aligned box and a ray
+	* 
+	*  \param ray : the ray
+	*  \param t : the first intersection
+	*  \param n : the normal at intersection point
+	*/
 	int Intersect(const Ray&, double&, Vector&) const;
-
 	int Intersect(const Box&) const;
 
+	/*!
+	*  \brief Containing function
+	*
+	*  Checks if a box is inside the instance
+	*
+	*  \param box : the box
+	*/
 	int Inside(const Box&) const;
+	
+	/*!
+	*  \brief Containing function
+	*
+	*  Checks if a point is inside the instance
+	*
+	*  \param u : the box
+	*/
 	int Inside(const Vector&) const;
 
+	/*!
+	*  \brief Containing function
+	*
+	*  Checks if a point is inside the instance
+	*
+	*  \param u : the box
+	*/
 	int PMC(const Vector&);
 
 	double Volume() const;
