@@ -42,7 +42,8 @@ Rotation::~Rotation(void)
 	delete left;
 }
 
-int Rotation::Intersect(const Ray& ray, Intersection& t) {
+int Rotation::Intersect(const Ray& ray, Intersection& t)
+{
 	Intersection tt;
 		
 	Ray r = Ray( mInv.MulPt(Vector(ray.Origin()[0],ray.Origin()[1],ray.Origin()[2])),
@@ -58,7 +59,8 @@ int Rotation::Intersect(const Ray& ray, Intersection& t) {
 	return 0;
 }
 
-int Rotation::Intersect(const Ray& ray, Intersection& t, Intersection& t2){
+int Rotation::Intersect(const Ray& ray, Intersection& t, Intersection& t2)
+{
 	Intersection tt,tt2;
 	
 	Ray r = Ray( mInv.MulPt(Vector(ray.Origin()[0],ray.Origin()[1],ray.Origin()[2])),
@@ -79,6 +81,7 @@ int Rotation::Intersect(const Ray& ray, Intersection& t, Intersection& t2){
 	
 	return 0;
 }
-int Rotation::PMC(const Vector& u) {
+int Rotation::PMC(const Vector& u)
+{
 	return left->PMC(mInv.MulPt(u));
 }

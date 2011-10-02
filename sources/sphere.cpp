@@ -125,10 +125,8 @@ int Sphere::Intersect(const Ray &ray, Intersection& intermin,Intersection& inter
 /*	return ret;*/
 }
 
-int Sphere::PMC( const Vector &a ) {
-    Vector v = p-a;
-    if ( v.length() <= rad )
-        return 1;
-    else
-        return 0;
+int Sphere::PMC(const Vector& a) {
+	Vector v = p-a;
+	if (v.length() <= rad) return 1;
+	else return 0;
 }
