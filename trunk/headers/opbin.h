@@ -5,7 +5,7 @@
  * \version 1.0
  * \date 01 octobre 2011
  *
- * OpBin is a operand with two primitives
+ * Containing OpBin class
  *
  */
 
@@ -15,13 +15,19 @@
 
 #include "node.h"
 
-
+/*! 
+ * \class OpBin
+ * \brief OpBin class
+ * 
+ * OpBin is a operand with two primitives
+ * 
+ */
 class OpBin : public Node
 {
 	protected:
 	  
-	Node * left;
-	Node * right;
+	Node * left; /*!< Left element of the operation */
+	Node * right; /*!< Right element of the operation */
 	
 	public:
 	  

@@ -5,7 +5,7 @@
  * \version 1.0
  * \date 01 octobre 2011
  *
- * Vector is a data structure
+ * Containing Vector class
  *
  */
 
@@ -26,7 +26,13 @@ inline double max(const double& a, const double& b)
 	return (a > b) ? a : b;
 }
 
-
+/*! 
+ * \class Vector
+ * \brief Vector class
+ * 
+ * Vector is a data structure
+ * 
+ */
 class Vector
 {
 	public:

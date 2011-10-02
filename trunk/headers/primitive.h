@@ -5,7 +5,7 @@
  * \version 1.0
  * \date 01 octobre 2011
  *
- * Primitive is a kind of node
+ * Containing Primitive class
  *
  */
 
@@ -15,13 +15,21 @@
 
 #include "node.h"
 
+/*! 
+ * \class Primitive
+ * \brief Primitive class
+ * 
+ * Primitive is a kind of node
+ * 
+ */
 class Primitive : public Node
 {
 	protected:
 	  
-	Vector e, c;	//!< emission, color
-	int refl;	//!< reflection type
-	double f;	//!< Maximum color channel value
+	Vector e;	/*!< Emission */
+	Vector c;	/*!< Color */
+	int refl;	/*!< Reflection type */
+	double f;	/*!< Maximum color channel value */
 
 	public:
 	  

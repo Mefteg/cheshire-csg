@@ -113,7 +113,7 @@ class Box : public Primitive
 	*
 	*  Checks if a point is inside the instance
 	*
-	*  \param u : the box
+	*  \param u : the point
 	*/
 	int PMC(const Vector&);
 

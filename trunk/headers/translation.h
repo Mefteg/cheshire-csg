@@ -5,7 +5,7 @@
  * \version 1.0
  * \date 01 octobre 2011
  *
- * Translation is a transformation for the CSG
+ * Containing Translation class
  *
  */
 
@@ -15,6 +15,13 @@
 
 #include "transfo.h"
 
+/*! 
+ * \class Translation
+ * \brief Translation class
+ * 
+ * Translation is a transformation for the CSG
+ * 
+ */
 class Translation : public Transfo
 {
 
@@ -24,8 +31,34 @@ class Translation : public Transfo
 	Translation(Node*, const Vector);
 	~Translation(void);
 
+	/*!
+	*  \brief Intersecting function
+	*
+	*  Compute the intersection between a translation and a ray
+	*
+	*  \param ray : the ray
+	*  \param t : the intersection
+	*/
 	int Intersect(const Ray&, Intersection&);
+	
+	/*!
+	*  \brief Intersecting function
+	*
+	*  Compute the intersections between a translation and a ray
+	*
+	*  \param ray : the ray
+	*  \param t : the first intersection
+	*  \param t2 : the second intersection
+	*/
 	int Intersect(const Ray&, Intersection&, Intersection&);
+	
+	/*!
+	*  \brief Containing function
+	*
+	*  Checks if a point is inside the instance
+	*
+	*  \param u : the point
+	*/
 	int PMC(const Vector&);
 
 	Vector getEmission() { return Vector(); };
