@@ -63,7 +63,7 @@ class Cylinder : public Primitive
 	*  Compute the cylinder position
 	*
 	*/	
-	Vector getPosition() { return Vector(0,0,0); };
+	Vector getPosition();
 
 };
 
