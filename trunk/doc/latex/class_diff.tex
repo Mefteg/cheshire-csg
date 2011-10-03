@@ -1,0 +1,152 @@
+\hypertarget{class_diff}{
+\section{\-Diff \-Class \-Reference}
+\label{class_diff}\index{\-Diff@{\-Diff}}
+}
+
+
+\hyperlink{class_diff}{\-Diff} class.  
+
+
+
+
+{\ttfamily \#include $<$diff.\-h$>$}
+
+\-Inheritance diagram for \-Diff\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_diff}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_diff_a97d13870f4c698c6242937f91092330e}{
+{\bfseries \-Diff} (\hyperlink{class_node}{\-Node} $\ast$, \hyperlink{class_node}{\-Node} $\ast$)}
+\label{class_diff_a97d13870f4c698c6242937f91092330e}
+
+\item 
+int \hyperlink{class_diff_a9d9ee35accad3efbed3aba5fc9da022c}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_diff_ad2e06f30b3998b3c9592821e9a037697}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&, \hyperlink{class_intersection}{\-Intersection} \&, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_diff_a9569764d64e3cc072c554ceffad7934a}{\-P\-M\-C} (const \hyperlink{class_vector}{\-Vector} \&)
+\begin{DoxyCompactList}\small\item\em \-Containing function. \end{DoxyCompactList}\item 
+\hypertarget{class_diff_a3c7c9dfc158002c877a4ef0aeac30900}{
+\hyperlink{class_vector}{\-Vector} {\bfseries get\-Emission} ()}
+\label{class_diff_a3c7c9dfc158002c877a4ef0aeac30900}
+
+\item 
+\hypertarget{class_diff_afb4a403e4cbc49710fb7b6f570c3fe39}{
+\hyperlink{class_vector}{\-Vector} {\bfseries get\-Color} ()}
+\label{class_diff_afb4a403e4cbc49710fb7b6f570c3fe39}
+
+\item 
+\hypertarget{class_diff_a8c962ee4f6a0df72e7a69322de3210b8}{
+\hyperlink{class_vector}{\-Vector} {\bfseries get\-Position} ()}
+\label{class_diff_a8c962ee4f6a0df72e7a69322de3210b8}
+
+\item 
+\hypertarget{class_diff_ad9c0799bfde75340e584a1ea20d7f564}{
+int {\bfseries get\-Refl} ()}
+\label{class_diff_ad9c0799bfde75340e584a1ea20d7f564}
+
+\item 
+\hypertarget{class_diff_a55bd9230b7be32d4e9a1e20a5ff5df10}{
+double {\bfseries get\-F} ()}
+\label{class_diff_a55bd9230b7be32d4e9a1e20a5ff5df10}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\hyperlink{class_diff}{\-Diff} class. 
+
+\hyperlink{class_diff}{\-Diff} is a binary operand of the \-C\-S\-G 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_diff_a9d9ee35accad3efbed3aba5fc9da022c}{
+\index{\-Diff@{\-Diff}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Diff@{\-Diff}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Diff\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_diff_a9d9ee35accad3efbed3aba5fc9da022c}
+
+
+\-Intersecting function. 
+
+\-Compute the intersection between a difference and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em t} & \-: the intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_ac0836475b7b0275dffe5ce89547f6852}{\-Node}.
+
+\hypertarget{class_diff_ad2e06f30b3998b3c9592821e9a037697}{
+\index{\-Diff@{\-Diff}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Diff@{\-Diff}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Diff\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_diff_ad2e06f30b3998b3c9592821e9a037697}
+
+
+\-Intersecting function. 
+
+\-Compute the intersections between a difference and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em t1} & \-: the first intersection \\
+\hline
+{\em t2} & \-: the second intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_a8f308647523fba2603248b83149855a5}{\-Node}.
+
+\hypertarget{class_diff_a9569764d64e3cc072c554ceffad7934a}{
+\index{\-Diff@{\-Diff}!\-P\-M\-C@{\-P\-M\-C}}
+\index{\-P\-M\-C@{\-P\-M\-C}!Diff@{\-Diff}}
+\subsubsection[{\-P\-M\-C}]{\setlength{\rightskip}{0pt plus 5cm}int \-Diff\-::\-P\-M\-C (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vector} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_diff_a9569764d64e3cc072c554ceffad7934a}
+
+
+\-Containing function. 
+
+\-Checks if a point is inside the instance
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em u} & \-: the point \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_aeecdf01a88be40840b65eb34cecc7a3c}{\-Node}.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{diff_8h}{diff.\-h}\end{DoxyCompactItemize}

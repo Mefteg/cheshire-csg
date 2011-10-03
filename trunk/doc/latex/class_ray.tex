@@ -1,0 +1,110 @@
+\hypertarget{class_ray}{
+\section{\-Ray \-Class \-Reference}
+\label{class_ray}\index{\-Ray@{\-Ray}}
+}
+
+
+\hyperlink{class_ray}{\-Ray} class.  
+
+
+
+
+{\ttfamily \#include $<$ray.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_ray_ac042e01bad2bc40d7b82782d606d73bc}{\-Ray} (const \hyperlink{class_vector}{\-Vector} \&, const \hyperlink{class_vector}{\-Vector} \&)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_ray}{\-Ray} constructor. \end{DoxyCompactList}\item 
+\hypertarget{class_ray_ac7370340c4d068b895e96197affbdd55}{
+\hyperlink{class_ray}{\-Ray} {\bfseries \-Reflect} (const \hyperlink{class_vector}{\-Vector} \&, const \hyperlink{class_vector}{\-Vector} \&) const }
+\label{class_ray_ac7370340c4d068b895e96197affbdd55}
+
+\item 
+\hyperlink{class_vector}{\-Vector} \hyperlink{class_ray_a001ec0c1257895bfd10cd707f17b10b7}{operator()} (const double \&t) const 
+\begin{DoxyCompactList}\small\item\em \-Computes the location of a vertex along the ray. \end{DoxyCompactList}\item 
+\hypertarget{class_ray_a1f64bed4515cb96aadbe4d0e5f86458f}{
+\hyperlink{class_vector}{\-Vector} {\bfseries \-Origin} () const }
+\label{class_ray_a1f64bed4515cb96aadbe4d0e5f86458f}
+
+\item 
+\hypertarget{class_ray_a03b73a4709636a9a2c526c569265f84e}{
+\hyperlink{class_vector}{\-Vector} {\bfseries \-Direction} () const }
+\label{class_ray_a03b73a4709636a9a2c526c569265f84e}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_vector}{\-Vector} \hyperlink{class_ray_a2e41a40406edbbb3103ca0734a435c08}{c}
+\item 
+\hyperlink{class_vector}{\-Vector} \hyperlink{class_ray_a70e0d3a943faf00a399e432c386fd146}{n}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\hyperlink{class_ray}{\-Ray} class. 
+
+\hyperlink{class_ray}{\-Ray} is a data structure 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_ray_ac042e01bad2bc40d7b82782d606d73bc}{
+\index{\-Ray@{\-Ray}!\-Ray@{\-Ray}}
+\index{\-Ray@{\-Ray}!Ray@{\-Ray}}
+\subsubsection[{\-Ray}]{\setlength{\rightskip}{0pt plus 5cm}\-Ray\-::\-Ray (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vector} \&}]{p, }
+\item[{const {\bf \-Vector} \&}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_ray_ac042e01bad2bc40d7b82782d606d73bc}
+
+
+\hyperlink{class_ray}{\-Ray} constructor. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em p} & \-: \-Origin \\
+\hline
+{\em d} & \-: \-Direction \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_ray_a001ec0c1257895bfd10cd707f17b10b7}{
+\index{\-Ray@{\-Ray}!operator()@{operator()}}
+\index{operator()@{operator()}!Ray@{\-Ray}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vector} \-Ray\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const double \&}]{t}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_ray_a001ec0c1257895bfd10cd707f17b10b7}
+
+
+\-Computes the location of a vertex along the ray. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em t} & \-: \-Distance between the ray origin and the vertex \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_ray_a2e41a40406edbbb3103ca0734a435c08}{
+\index{\-Ray@{\-Ray}!c@{c}}
+\index{c@{c}!Ray@{\-Ray}}
+\subsubsection[{c}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vector} {\bf \-Ray\-::c}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_ray_a2e41a40406edbbb3103ca0734a435c08}
+\-Origin of the ray \hypertarget{class_ray_a70e0d3a943faf00a399e432c386fd146}{
+\index{\-Ray@{\-Ray}!n@{n}}
+\index{n@{n}!Ray@{\-Ray}}
+\subsubsection[{n}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vector} {\bf \-Ray\-::n}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_ray_a70e0d3a943faf00a399e432c386fd146}
+\-Direction 
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{ray_8h}{ray.\-h}\end{DoxyCompactItemize}

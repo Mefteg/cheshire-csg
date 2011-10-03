@@ -1,0 +1,145 @@
+\hypertarget{class_sphere}{
+\section{\-Sphere \-Class \-Reference}
+\label{class_sphere}\index{\-Sphere@{\-Sphere}}
+}
+
+
+\hyperlink{class_sphere}{\-Sphere} class.  
+
+
+
+
+{\ttfamily \#include $<$sphere.\-h$>$}
+
+\-Inheritance diagram for \-Sphere\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_sphere}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_sphere_ae1b26180ec6543e7705c69dc680a54b5}{
+{\bfseries \-Sphere} (const double \&, const \hyperlink{class_vector}{\-Vector} \&, const \hyperlink{class_vector}{\-Vector} \&, const \hyperlink{class_vector}{\-Vector} \&, int)}
+\label{class_sphere_ae1b26180ec6543e7705c69dc680a54b5}
+
+\item 
+int \hyperlink{class_sphere_a4d1505b571540d40c3a6a60bd06e5fe8}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&r, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_sphere_a4199ccb2215a5c4ba1d2e80ffc842592}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&, \hyperlink{class_intersection}{\-Intersection} \&, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_sphere_abccfe78233b90c14e6e2afe74e27e6d5}{\-P\-M\-C} (const \hyperlink{class_vector}{\-Vector} \&)
+\begin{DoxyCompactList}\small\item\em \-Containing function. \end{DoxyCompactList}\item 
+\hypertarget{class_sphere_af1989cb4d1c48de8e2f90c7e9ef21db8}{
+\hyperlink{class_vector}{\-Vector} {\bfseries get\-Position} ()}
+\label{class_sphere_af1989cb4d1c48de8e2f90c7e9ef21db8}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_sphere_a78176ca986a3d21fe84fbff0a82e2ed1}{
+double \hyperlink{class_sphere_a78176ca986a3d21fe84fbff0a82e2ed1}{rad}}
+\label{class_sphere_a78176ca986a3d21fe84fbff0a82e2ed1}
+
+\begin{DoxyCompactList}\small\item\em \-Radius. \end{DoxyCompactList}\item 
+\hypertarget{class_sphere_a66360df163b9107d8ee28b67a41fe4af}{
+\hyperlink{class_vector}{\-Vector} \hyperlink{class_sphere_a66360df163b9107d8ee28b67a41fe4af}{p}}
+\label{class_sphere_a66360df163b9107d8ee28b67a41fe4af}
+
+\begin{DoxyCompactList}\small\item\em position, emission, color \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\hyperlink{class_sphere}{\-Sphere} class. 
+
+\hyperlink{class_sphere}{\-Sphere} is a primitive of the \-C\-S\-G 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_sphere_a4d1505b571540d40c3a6a60bd06e5fe8}{
+\index{\-Sphere@{\-Sphere}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Sphere@{\-Sphere}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Sphere\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{r, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_sphere_a4d1505b571540d40c3a6a60bd06e5fe8}
+
+
+\-Intersecting function. 
+
+\-Compute the intersection between a sphere and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em inter} & \-: the intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_ac0836475b7b0275dffe5ce89547f6852}{\-Node}.
+
+\hypertarget{class_sphere_a4199ccb2215a5c4ba1d2e80ffc842592}{
+\index{\-Sphere@{\-Sphere}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Sphere@{\-Sphere}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Sphere\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_sphere_a4199ccb2215a5c4ba1d2e80ffc842592}
+
+
+\-Intersecting function. 
+
+\-Compute the intersections between a sphere and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em intermin} & \-: the first intersection \\
+\hline
+{\em intermax} & \-: the second intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_a8f308647523fba2603248b83149855a5}{\-Node}.
+
+\hypertarget{class_sphere_abccfe78233b90c14e6e2afe74e27e6d5}{
+\index{\-Sphere@{\-Sphere}!\-P\-M\-C@{\-P\-M\-C}}
+\index{\-P\-M\-C@{\-P\-M\-C}!Sphere@{\-Sphere}}
+\subsubsection[{\-P\-M\-C}]{\setlength{\rightskip}{0pt plus 5cm}int \-Sphere\-::\-P\-M\-C (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vector} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_sphere_abccfe78233b90c14e6e2afe74e27e6d5}
+
+
+\-Containing function. 
+
+\-Checks if a point is inside the instance
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em a} & \-: the point \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_aeecdf01a88be40840b65eb34cecc7a3c}{\-Node}.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{sphere_8h}{sphere.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,152 @@
+\hypertarget{class_translation}{
+\section{\-Translation \-Class \-Reference}
+\label{class_translation}\index{\-Translation@{\-Translation}}
+}
+
+
+\hyperlink{class_translation}{\-Translation} class.  
+
+
+
+
+{\ttfamily \#include $<$translation.\-h$>$}
+
+\-Inheritance diagram for \-Translation\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_translation}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_translation_a1ecd9177ce516202fe010b47ef007265}{
+{\bfseries \-Translation} (\hyperlink{class_node}{\-Node} $\ast$, const \hyperlink{class_vector}{\-Vector})}
+\label{class_translation_a1ecd9177ce516202fe010b47ef007265}
+
+\item 
+int \hyperlink{class_translation_a4bd8b42e23e632d986b9b781d73676fa}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_translation_aedd95cffebc575c47464090c4ac24c6f}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&, \hyperlink{class_intersection}{\-Intersection} \&, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_translation_a23217f05d1442f4f5fc7db511dd57434}{\-P\-M\-C} (const \hyperlink{class_vector}{\-Vector} \&)
+\begin{DoxyCompactList}\small\item\em \-Containing function. \end{DoxyCompactList}\item 
+\hypertarget{class_translation_af54c9803dfefa1ec04c13a40daedb823}{
+\hyperlink{class_vector}{\-Vector} {\bfseries get\-Emission} ()}
+\label{class_translation_af54c9803dfefa1ec04c13a40daedb823}
+
+\item 
+\hypertarget{class_translation_abdb54c49d261e8770d1d12119542fc1b}{
+\hyperlink{class_vector}{\-Vector} {\bfseries get\-Color} ()}
+\label{class_translation_abdb54c49d261e8770d1d12119542fc1b}
+
+\item 
+\hypertarget{class_translation_a27c4202120108256e3f5cbc940d619b1}{
+\hyperlink{class_vector}{\-Vector} {\bfseries get\-Position} ()}
+\label{class_translation_a27c4202120108256e3f5cbc940d619b1}
+
+\item 
+\hypertarget{class_translation_ae2dce5d15431d1a602dc763ebe615495}{
+int {\bfseries get\-Refl} ()}
+\label{class_translation_ae2dce5d15431d1a602dc763ebe615495}
+
+\item 
+\hypertarget{class_translation_aeefc7fa602cd2eb815f1a9c06f1d4d0c}{
+double {\bfseries get\-F} ()}
+\label{class_translation_aeefc7fa602cd2eb815f1a9c06f1d4d0c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\hyperlink{class_translation}{\-Translation} class. 
+
+\hyperlink{class_translation}{\-Translation} is a transformation for the \-C\-S\-G 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_translation_a4bd8b42e23e632d986b9b781d73676fa}{
+\index{\-Translation@{\-Translation}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Translation@{\-Translation}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Translation\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_translation_a4bd8b42e23e632d986b9b781d73676fa}
+
+
+\-Intersecting function. 
+
+\-Compute the intersection between a translation and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em t} & \-: the intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_ac0836475b7b0275dffe5ce89547f6852}{\-Node}.
+
+\hypertarget{class_translation_aedd95cffebc575c47464090c4ac24c6f}{
+\index{\-Translation@{\-Translation}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Translation@{\-Translation}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Translation\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_translation_aedd95cffebc575c47464090c4ac24c6f}
+
+
+\-Intersecting function. 
+
+\-Compute the intersections between a translation and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em t} & \-: the first intersection \\
+\hline
+{\em t2} & \-: the second intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_a8f308647523fba2603248b83149855a5}{\-Node}.
+
+\hypertarget{class_translation_a23217f05d1442f4f5fc7db511dd57434}{
+\index{\-Translation@{\-Translation}!\-P\-M\-C@{\-P\-M\-C}}
+\index{\-P\-M\-C@{\-P\-M\-C}!Translation@{\-Translation}}
+\subsubsection[{\-P\-M\-C}]{\setlength{\rightskip}{0pt plus 5cm}int \-Translation\-::\-P\-M\-C (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vector} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_translation_a23217f05d1442f4f5fc7db511dd57434}
+
+
+\-Containing function. 
+
+\-Checks if a point is inside the instance
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em u} & \-: the point \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_aeecdf01a88be40840b65eb34cecc7a3c}{\-Node}.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{translation_8h}{translation.\-h}\end{DoxyCompactItemize}

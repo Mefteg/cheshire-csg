@@ -1,0 +1,173 @@
+\hypertarget{class_triangle}{
+\section{\-Triangle \-Class \-Reference}
+\label{class_triangle}\index{\-Triangle@{\-Triangle}}
+}
+
+
+\hyperlink{class_triangle}{\-Triangle} class.  
+
+
+
+
+{\ttfamily \#include $<$triangle.\-h$>$}
+
+\-Inheritance diagram for \-Triangle\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_triangle}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_triangle_a793ed45b623e913b5ea59799a29a2ebf}{
+{\bfseries \-Triangle} (const \hyperlink{class_vector}{\-Vector} \&, const \hyperlink{class_vector}{\-Vector} \&, const \hyperlink{class_vector}{\-Vector} \&, const \hyperlink{class_vector}{\-Vector} \&, const \hyperlink{class_vector}{\-Vector} \&, int)}
+\label{class_triangle_a793ed45b623e913b5ea59799a29a2ebf}
+
+\item 
+int \hyperlink{class_triangle_a24e02176baf3ba8b613bef47e4f416a9}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_triangle_a4c4505c8ada8702526051f53f5a951cd}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&, \hyperlink{class_intersection}{\-Intersection} \&, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_triangle_ab6066a8828559d40c1f88dfcf92723bb}{\-P\-M\-C} (const \hyperlink{class_vector}{\-Vector} \&)
+\begin{DoxyCompactList}\small\item\em \-P\-M\-C function. \end{DoxyCompactList}\item 
+\hyperlink{class_vector}{\-Vector} \hyperlink{class_triangle_ad26a8346e3d5f5c65c3e982d8e1f260e}{get\-Position} ()
+\begin{DoxyCompactList}\small\item\em \-Get position function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_vector}{\-Vector} \hyperlink{class_triangle_adebd4b41a74691d5da67db5c8f852672}{p1}
+\item 
+\hyperlink{class_vector}{\-Vector} \hyperlink{class_triangle_a7bba48c61a088c93914768018b2329af}{p2}
+\item 
+\hyperlink{class_vector}{\-Vector} \hyperlink{class_triangle_a7df8e8ed225f77daee7e5eb4bf5b9f99}{p3}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\hyperlink{class_triangle}{\-Triangle} class. 
+
+\hyperlink{class_triangle}{\-Triangle} is a primitive of the \-C\-S\-G 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_triangle_ad26a8346e3d5f5c65c3e982d8e1f260e}{
+\index{\-Triangle@{\-Triangle}!get\-Position@{get\-Position}}
+\index{get\-Position@{get\-Position}!Triangle@{\-Triangle}}
+\subsubsection[{get\-Position}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vector} \-Triangle\-::get\-Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_triangle_ad26a8346e3d5f5c65c3e982d8e1f260e}
+
+
+\-Get position function. 
+
+\-Compute the triangle position 
+
+\-Implements \hyperlink{class_node}{\-Node}.
+
+\hypertarget{class_triangle_a24e02176baf3ba8b613bef47e4f416a9}{
+\index{\-Triangle@{\-Triangle}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Triangle@{\-Triangle}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Triangle\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_triangle_a24e02176baf3ba8b613bef47e4f416a9}
+
+
+\-Intersecting function. 
+
+\-Compute the intersection between a node and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em t} & \-: the intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_ac0836475b7b0275dffe5ce89547f6852}{\-Node}.
+
+\hypertarget{class_triangle_a4c4505c8ada8702526051f53f5a951cd}{
+\index{\-Triangle@{\-Triangle}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Triangle@{\-Triangle}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Triangle\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_triangle_a4c4505c8ada8702526051f53f5a951cd}
+
+
+\-Intersecting function. 
+
+\-Compute the intersections between a triangle and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em inter1} & \-: the first intersection \\
+\hline
+{\em inter2} & \-: the second intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_a8f308647523fba2603248b83149855a5}{\-Node}.
+
+\hypertarget{class_triangle_ab6066a8828559d40c1f88dfcf92723bb}{
+\index{\-Triangle@{\-Triangle}!\-P\-M\-C@{\-P\-M\-C}}
+\index{\-P\-M\-C@{\-P\-M\-C}!Triangle@{\-Triangle}}
+\subsubsection[{\-P\-M\-C}]{\setlength{\rightskip}{0pt plus 5cm}int \-Triangle\-::\-P\-M\-C (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vector} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_triangle_ab6066a8828559d40c1f88dfcf92723bb}
+
+
+\-P\-M\-C function. 
+
+\-Compute if the point is in the triangle
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em point} & \-: the point \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_aeecdf01a88be40840b65eb34cecc7a3c}{\-Node}.
+
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_triangle_adebd4b41a74691d5da67db5c8f852672}{
+\index{\-Triangle@{\-Triangle}!p1@{p1}}
+\index{p1@{p1}!Triangle@{\-Triangle}}
+\subsubsection[{p1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vector} {\bf \-Triangle\-::p1}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_triangle_adebd4b41a74691d5da67db5c8f852672}
+\hyperlink{class_triangle}{\-Triangle} point p1 \hypertarget{class_triangle_a7bba48c61a088c93914768018b2329af}{
+\index{\-Triangle@{\-Triangle}!p2@{p2}}
+\index{p2@{p2}!Triangle@{\-Triangle}}
+\subsubsection[{p2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vector} {\bf \-Triangle\-::p2}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_triangle_a7bba48c61a088c93914768018b2329af}
+\hyperlink{class_triangle}{\-Triangle} point p2 \hypertarget{class_triangle_a7df8e8ed225f77daee7e5eb4bf5b9f99}{
+\index{\-Triangle@{\-Triangle}!p3@{p3}}
+\index{p3@{p3}!Triangle@{\-Triangle}}
+\subsubsection[{p3}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vector} {\bf \-Triangle\-::p3}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_triangle_a7df8e8ed225f77daee7e5eb4bf5b9f99}
+\hyperlink{class_triangle}{\-Triangle} point p3 
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{triangle_8h}{triangle.\-h}\end{DoxyCompactItemize}
