@@ -1,0 +1,269 @@
+\hypertarget{class_matrix4_df}{
+\section{\-Matrix4\-Df \-Class \-Reference}
+\label{class_matrix4_df}\index{\-Matrix4\-Df@{\-Matrix4\-Df}}
+}
+
+
+\-Matri4\-Df class.  
+
+
+
+
+{\ttfamily \#include $<$\-Matrix4\-D.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_matrix4_df_a2fe54703eee28a4223a28eefa68296d7}{\-Matrix4\-Df} ()
+\begin{DoxyCompactList}\small\item\em \-Empty constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_matrix4_df_a2c3d926646349c153b1e8e7fd5735b09}{\-Matrix4\-Df} (const float m00, const float m10, const float m20, const float m30, const float m01, const float m11, const float m21, const float m31, const float m02, const float m12, const float m22, const float m32, const float m03, const float m13, const float m23, const float m33)
+\begin{DoxyCompactList}\small\item\em \-Element-\/by-\/element matrix initialization. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a7ccf1f4d0904efdc8e532c5f9e2486d8}{
+{\bfseries \-Matrix4\-Df} (const \hyperlink{class_vector}{\-Vector} \&vec\-X, const \hyperlink{class_vector}{\-Vector} \&vec\-Y, const \hyperlink{class_vector}{\-Vector} \&vec\-Z, const \hyperlink{class_vector}{\-Vector} \&vec\-T)}
+\label{class_matrix4_df_a7ccf1f4d0904efdc8e532c5f9e2486d8}
+
+\item 
+\hypertarget{class_matrix4_df_a0634ea4d8f7312adaa5f780d42b8d5e3}{
+\hyperlink{class_matrix4_df_a0634ea4d8f7312adaa5f780d42b8d5e3}{\-Matrix4\-Df} (const float $\ast$val)}
+\label{class_matrix4_df_a0634ea4d8f7312adaa5f780d42b8d5e3}
+
+\begin{DoxyCompactList}\small\item\em \-Matrix initialization from an array of scalars (column-\/first order) \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a14ce89423a261129333c5bd1f0ff6644}{
+\hyperlink{class_matrix4_df_a14ce89423a261129333c5bd1f0ff6644}{\-Matrix4\-Df} (const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m)}
+\label{class_matrix4_df_a14ce89423a261129333c5bd1f0ff6644}
+
+\begin{DoxyCompactList}\small\item\em \-Matrix initialization by copy. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a2310ba8d71b1b3077b6df339beea6f8a}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} \& \hyperlink{class_matrix4_df_a2310ba8d71b1b3077b6df339beea6f8a}{operator=} (const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m)}
+\label{class_matrix4_df_a2310ba8d71b1b3077b6df339beea6f8a}
+
+\begin{DoxyCompactList}\small\item\em \-Assignment. \end{DoxyCompactList}\item 
+float \& \hyperlink{class_matrix4_df_ad7e75be328ebc701a3cba9a37a424939}{operator()} (const unsigned int l, const unsigned int c)
+\begin{DoxyCompactList}\small\item\em \-Indexed access to the matrix elements. \end{DoxyCompactList}\item 
+const float \& \hyperlink{class_matrix4_df_a4403f205c494937bd4992dc186466026}{operator()} (const unsigned int l, const unsigned int c) const 
+\begin{DoxyCompactList}\small\item\em \-Indexed access to the matrix elements (read-\/only version) \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a167312c1af18eaf230dff051bde772a4}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} \& \hyperlink{class_matrix4_df_a167312c1af18eaf230dff051bde772a4}{operator+=} (const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m)}
+\label{class_matrix4_df_a167312c1af18eaf230dff051bde772a4}
+
+\begin{DoxyCompactList}\small\item\em \-Elementwise addition assignement. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_add536edec4c836d1f5a3fe02cbfd04ff}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} \& \hyperlink{class_matrix4_df_add536edec4c836d1f5a3fe02cbfd04ff}{operator-\/=} (const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m)}
+\label{class_matrix4_df_add536edec4c836d1f5a3fe02cbfd04ff}
+
+\begin{DoxyCompactList}\small\item\em \-Elementwise substraction assignement. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a640aaeab5bd481cb386b4215a96e9b11}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} \& \hyperlink{class_matrix4_df_a640aaeab5bd481cb386b4215a96e9b11}{operator$\ast$=} (const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m)}
+\label{class_matrix4_df_a640aaeab5bd481cb386b4215a96e9b11}
+
+\begin{DoxyCompactList}\small\item\em \-Matrix product (multiplication assignement) \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a9b55ffcbb7a04cf4be18d94f353de640}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} \& \hyperlink{class_matrix4_df_a9b55ffcbb7a04cf4be18d94f353de640}{operator$\ast$=} (const float f)}
+\label{class_matrix4_df_a9b55ffcbb7a04cf4be18d94f353de640}
+
+\begin{DoxyCompactList}\small\item\em \-Multiplication assignement by a scalar. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a664d6f9bba8780ed3e1d95e963415035}{
+\hyperlink{class_vector}{\-Vector} \hyperlink{class_matrix4_df_a664d6f9bba8780ed3e1d95e963415035}{\-Mul} (const \hyperlink{class_vector}{\-Vector} \&v, const float w) const }
+\label{class_matrix4_df_a664d6f9bba8780ed3e1d95e963415035}
+
+\begin{DoxyCompactList}\small\item\em \-Mixed matrix vector ops. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_adc095474932b5b365bbd146d9be18577}{
+\hyperlink{class_vector}{\-Vector} \hyperlink{class_matrix4_df_adc095474932b5b365bbd146d9be18577}{\-Mul\-Pt} (const \hyperlink{class_vector}{\-Vector} \&v) const }
+\label{class_matrix4_df_adc095474932b5b365bbd146d9be18577}
+
+\begin{DoxyCompactList}\small\item\em \-Matrix/vector product. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_adfe24f1ecc992078c6408c4ebf8d6377}{
+\hyperlink{class_vector}{\-Vector} \hyperlink{class_matrix4_df_adfe24f1ecc992078c6408c4ebf8d6377}{\-Mul\-Dir} (const \hyperlink{class_vector}{\-Vector} \&v) const }
+\label{class_matrix4_df_adfe24f1ecc992078c6408c4ebf8d6377}
+
+\begin{DoxyCompactList}\small\item\em \-Matrix/vector product. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_abe972ba129800a38927c1a1c6dfb8b54}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} \& \hyperlink{class_matrix4_df_abe972ba129800a38927c1a1c6dfb8b54}{\-Transpose} ()}
+\label{class_matrix4_df_abe972ba129800a38927c1a1c6dfb8b54}
+
+\begin{DoxyCompactList}\small\item\em \-Matrix transposition. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_ac760c789d0dc8b540b8b3784d4b2eeeb}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} \hyperlink{class_matrix4_df_ac760c789d0dc8b540b8b3784d4b2eeeb}{\-Invert} (const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m)}
+\label{class_matrix4_df_ac760c789d0dc8b540b8b3784d4b2eeeb}
+
+\begin{DoxyCompactList}\small\item\em \-Recovery of matrix invert. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a4e569837b04785ee487ed6ad6aad5bd7}{
+void \hyperlink{class_matrix4_df_a4e569837b04785ee487ed6ad6aad5bd7}{\-Invert} ()}
+\label{class_matrix4_df_a4e569837b04785ee487ed6ad6aad5bd7}
+
+\begin{DoxyCompactList}\small\item\em \-Matrix inversion. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_af5a26bc64adf73064f59a36ccb4ffb1c}{
+float \hyperlink{class_matrix4_df_af5a26bc64adf73064f59a36ccb4ffb1c}{\-Trace} () const }
+\label{class_matrix4_df_af5a26bc64adf73064f59a36ccb4ffb1c}
+
+\begin{DoxyCompactList}\small\item\em \-Recovery of matrix trace. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a80fcdeff5b17e0af14720a3363e3ec08}{
+float \hyperlink{class_matrix4_df_a80fcdeff5b17e0af14720a3363e3ec08}{\-Determinant} () const }
+\label{class_matrix4_df_a80fcdeff5b17e0af14720a3363e3ec08}
+
+\begin{DoxyCompactList}\small\item\em \-Recovery of matrix determinant. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_ad618c9a4c6085ead309d487c147b094f}{
+void \hyperlink{class_matrix4_df_ad618c9a4c6085ead309d487c147b094f}{\-Set\-Zero} ()}
+\label{class_matrix4_df_ad618c9a4c6085ead309d487c147b094f}
+
+\begin{DoxyCompactList}\small\item\em \-Initialization to null matrix. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_aeaa2ae0ce7fc69f6260a60a274135204}{
+void \hyperlink{class_matrix4_df_aeaa2ae0ce7fc69f6260a60a274135204}{\-Set\-Identity} ()}
+\label{class_matrix4_df_aeaa2ae0ce7fc69f6260a60a274135204}
+
+\begin{DoxyCompactList}\small\item\em \-Initialization to identity matrix. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a7621000713ff579f426e362cb85c1e03}{
+void \hyperlink{class_matrix4_df_a7621000713ff579f426e362cb85c1e03}{\-Set\-Scalar} (const float f)}
+\label{class_matrix4_df_a7621000713ff579f426e362cb85c1e03}
+
+\begin{DoxyCompactList}\small\item\em \-Initialization by setting all matrix elements to the same scalar value. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a69f275480d89821fc6db2215cff22f57}{
+void \hyperlink{class_matrix4_df_a69f275480d89821fc6db2215cff22f57}{\-Set\-Diagonal} (const float f1, const float f2, const float f3, const float f4)}
+\label{class_matrix4_df_a69f275480d89821fc6db2215cff22f57}
+
+\begin{DoxyCompactList}\small\item\em \-Initialization to a diagonal matrix. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a2608d195dcfcf2ef0dec831600b5ecb9}{
+void {\bfseries \-Print} ()}
+\label{class_matrix4_df_a2608d195dcfcf2ef0dec831600b5ecb9}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_matrix4_df_a6ab3777076d9cf39f46adf2a8c1f404e}{
+float {\bfseries v} \mbox{[}16\mbox{]}}
+\label{class_matrix4_df_a6ab3777076d9cf39f46adf2a8c1f404e}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_matrix4_df_aa8b49e6b5d204995a97bdcdff56e1ff8}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} \hyperlink{class_matrix4_df_aa8b49e6b5d204995a97bdcdff56e1ff8}{operator+} (const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m1, const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m2)}
+\label{class_matrix4_df_aa8b49e6b5d204995a97bdcdff56e1ff8}
+
+\begin{DoxyCompactList}\small\item\em \-Elementwise addition. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a4cd11065198b040b1bc3e3026835b368}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} \hyperlink{class_matrix4_df_a4cd11065198b040b1bc3e3026835b368}{operator-\/} (const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m1, const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m2)}
+\label{class_matrix4_df_a4cd11065198b040b1bc3e3026835b368}
+
+\begin{DoxyCompactList}\small\item\em \-Elementwise substraction. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_ac4aad75706ee141200622ba4c5b59aae}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} \hyperlink{class_matrix4_df_ac4aad75706ee141200622ba4c5b59aae}{operator$\ast$} (const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m1, const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m2)}
+\label{class_matrix4_df_ac4aad75706ee141200622ba4c5b59aae}
+
+\begin{DoxyCompactList}\small\item\em \-Matrix product. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a6e845817f2128ac90102744e21e98a27}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} \hyperlink{class_matrix4_df_a6e845817f2128ac90102744e21e98a27}{operator-\/} (const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m)}
+\label{class_matrix4_df_a6e845817f2128ac90102744e21e98a27}
+
+\begin{DoxyCompactList}\small\item\em \-Negation. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_a58ee3262b5ce3fba49f1a3de3cac112e}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} \hyperlink{class_matrix4_df_a58ee3262b5ce3fba49f1a3de3cac112e}{operator$\ast$} (const float f, const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m)}
+\label{class_matrix4_df_a58ee3262b5ce3fba49f1a3de3cac112e}
+
+\begin{DoxyCompactList}\small\item\em \-Multiplication by a scalar. \end{DoxyCompactList}\item 
+\hypertarget{class_matrix4_df_aa310e684369ce51992642e9371f87228}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} \hyperlink{class_matrix4_df_aa310e684369ce51992642e9371f87228}{operator$\ast$} (const \hyperlink{class_matrix4_df}{\-Matrix4\-Df} \&m, const float f)}
+\label{class_matrix4_df_aa310e684369ce51992642e9371f87228}
+
+\begin{DoxyCompactList}\small\item\em \-Multiplication by a scalar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Matri4\-Df class. 
+
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} allows transformations 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_matrix4_df_a2fe54703eee28a4223a28eefa68296d7}{
+\index{\-Matrix4\-Df@{\-Matrix4\-Df}!\-Matrix4\-Df@{\-Matrix4\-Df}}
+\index{\-Matrix4\-Df@{\-Matrix4\-Df}!Matrix4Df@{\-Matrix4\-Df}}
+\subsubsection[{\-Matrix4\-Df}]{\setlength{\rightskip}{0pt plus 5cm}\-Matrix4\-Df\-::\-Matrix4\-Df (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix4_df_a2fe54703eee28a4223a28eefa68296d7}
+
+
+\-Empty constructor. 
+
+/$\ast$ \hypertarget{class_matrix4_df_a2c3d926646349c153b1e8e7fd5735b09}{
+\index{\-Matrix4\-Df@{\-Matrix4\-Df}!\-Matrix4\-Df@{\-Matrix4\-Df}}
+\index{\-Matrix4\-Df@{\-Matrix4\-Df}!Matrix4Df@{\-Matrix4\-Df}}
+\subsubsection[{\-Matrix4\-Df}]{\setlength{\rightskip}{0pt plus 5cm}\-Matrix4\-Df\-::\-Matrix4\-Df (
+\begin{DoxyParamCaption}
+\item[{const float}]{m00, }
+\item[{const float}]{m10, }
+\item[{const float}]{m20, }
+\item[{const float}]{m30, }
+\item[{const float}]{m01, }
+\item[{const float}]{m11, }
+\item[{const float}]{m21, }
+\item[{const float}]{m31, }
+\item[{const float}]{m02, }
+\item[{const float}]{m12, }
+\item[{const float}]{m22, }
+\item[{const float}]{m32, }
+\item[{const float}]{m03, }
+\item[{const float}]{m13, }
+\item[{const float}]{m23, }
+\item[{const float}]{m33}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix4_df_a2c3d926646349c153b1e8e7fd5735b09}
+
+
+\-Element-\/by-\/element matrix initialization. 
+
+/$\ast$ 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_matrix4_df_ad7e75be328ebc701a3cba9a37a424939}{
+\index{\-Matrix4\-Df@{\-Matrix4\-Df}!operator()@{operator()}}
+\index{operator()@{operator()}!Matrix4Df@{\-Matrix4\-Df}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}float \& \-Matrix4\-Df\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{l, }
+\item[{const unsigned int}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix4_df_ad7e75be328ebc701a3cba9a37a424939}
+
+
+\-Indexed access to the matrix elements. 
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em l} & \-: \-Row number in \mbox{[}0,3\mbox{]} \\
+\hline
+\mbox{\tt in}  & {\em c} & \-: \-Column number in \mbox{[}0,3\mbox{]} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_matrix4_df_a4403f205c494937bd4992dc186466026}{
+\index{\-Matrix4\-Df@{\-Matrix4\-Df}!operator()@{operator()}}
+\index{operator()@{operator()}!Matrix4Df@{\-Matrix4\-Df}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}const float \& \-Matrix4\-Df\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{l, }
+\item[{const unsigned int}]{c}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix4_df_a4403f205c494937bd4992dc186466026}
+
+
+\-Indexed access to the matrix elements (read-\/only version) 
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+\mbox{\tt in}  & {\em l} & \-: \-Row number in \mbox{[}0,3\mbox{]} \\
+\hline
+\mbox{\tt in}  & {\em c} & \-: \-Column number in \mbox{[}0,3\mbox{]} \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{_matrix4_d_8h}{\-Matrix4\-D.\-h}\end{DoxyCompactItemize}

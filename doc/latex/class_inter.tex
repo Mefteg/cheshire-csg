@@ -1,0 +1,152 @@
+\hypertarget{class_inter}{
+\section{\-Inter \-Class \-Reference}
+\label{class_inter}\index{\-Inter@{\-Inter}}
+}
+
+
+\hyperlink{class_inter}{\-Inter} class.  
+
+
+
+
+{\ttfamily \#include $<$inter.\-h$>$}
+
+\-Inheritance diagram for \-Inter\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_inter}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_inter_aac4a41fc06f70c3daac8e38919cc9b79}{
+{\bfseries \-Inter} (\hyperlink{class_node}{\-Node} $\ast$, \hyperlink{class_node}{\-Node} $\ast$)}
+\label{class_inter_aac4a41fc06f70c3daac8e38919cc9b79}
+
+\item 
+int \hyperlink{class_inter_a8b67290ace7c86e6cba66b5571466204}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_inter_a50b2aa819ddbd2c53d26e8e7342312da}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&, \hyperlink{class_intersection}{\-Intersection} \&, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_inter_a62fb756b8848c042f6ea48bbe204f4a6}{\-P\-M\-C} (const \hyperlink{class_vector}{\-Vector} \&)
+\begin{DoxyCompactList}\small\item\em \-Containing function. \end{DoxyCompactList}\item 
+\hypertarget{class_inter_a858d782251352e10594425ccff10b162}{
+\hyperlink{class_vector}{\-Vector} {\bfseries get\-Emission} ()}
+\label{class_inter_a858d782251352e10594425ccff10b162}
+
+\item 
+\hypertarget{class_inter_a9fafa04883ee457fd41e4a5cb0461470}{
+\hyperlink{class_vector}{\-Vector} {\bfseries get\-Color} ()}
+\label{class_inter_a9fafa04883ee457fd41e4a5cb0461470}
+
+\item 
+\hypertarget{class_inter_a2a1d193dacdbae9b7393fbdf3592c434}{
+\hyperlink{class_vector}{\-Vector} {\bfseries get\-Position} ()}
+\label{class_inter_a2a1d193dacdbae9b7393fbdf3592c434}
+
+\item 
+\hypertarget{class_inter_a6fe2fa17f2c74536482f8b24eee5cea4}{
+int {\bfseries get\-Refl} ()}
+\label{class_inter_a6fe2fa17f2c74536482f8b24eee5cea4}
+
+\item 
+\hypertarget{class_inter_affe69e09e6b0f4455699a23a93688cf4}{
+double {\bfseries get\-F} ()}
+\label{class_inter_affe69e09e6b0f4455699a23a93688cf4}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\hyperlink{class_inter}{\-Inter} class. 
+
+\hyperlink{class_inter}{\-Inter} is a binary operand of the \-C\-S\-G 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_inter_a8b67290ace7c86e6cba66b5571466204}{
+\index{\-Inter@{\-Inter}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Inter@{\-Inter}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Inter\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_inter_a8b67290ace7c86e6cba66b5571466204}
+
+
+\-Intersecting function. 
+
+\-Compute the intersection between a intersection and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em t} & \-: the intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_ac0836475b7b0275dffe5ce89547f6852}{\-Node}.
+
+\hypertarget{class_inter_a50b2aa819ddbd2c53d26e8e7342312da}{
+\index{\-Inter@{\-Inter}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Inter@{\-Inter}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Inter\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_inter_a50b2aa819ddbd2c53d26e8e7342312da}
+
+
+\-Intersecting function. 
+
+\-Compute the intersections between a intersection and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em t1} & \-: the first intersection \\
+\hline
+{\em t2} & \-: the second intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_a8f308647523fba2603248b83149855a5}{\-Node}.
+
+\hypertarget{class_inter_a62fb756b8848c042f6ea48bbe204f4a6}{
+\index{\-Inter@{\-Inter}!\-P\-M\-C@{\-P\-M\-C}}
+\index{\-P\-M\-C@{\-P\-M\-C}!Inter@{\-Inter}}
+\subsubsection[{\-P\-M\-C}]{\setlength{\rightskip}{0pt plus 5cm}int \-Inter\-::\-P\-M\-C (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vector} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_inter_a62fb756b8848c042f6ea48bbe204f4a6}
+
+
+\-Containing function. 
+
+\-Checks if a point is inside the instance
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em u} & \-: the point \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_aeecdf01a88be40840b65eb34cecc7a3c}{\-Node}.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{inter_8h}{inter.\-h}\end{DoxyCompactItemize}

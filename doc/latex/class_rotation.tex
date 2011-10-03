@@ -1,0 +1,165 @@
+\hypertarget{class_rotation}{
+\section{\-Rotation \-Class \-Reference}
+\label{class_rotation}\index{\-Rotation@{\-Rotation}}
+}
+
+
+\hyperlink{class_rotation}{\-Rotation} class.  
+
+
+
+
+{\ttfamily \#include $<$rotation.\-h$>$}
+
+\-Inheritance diagram for \-Rotation\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_rotation}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_rotation_a19ef7fb0baa64a4a518923f5c831fdd2}{
+{\bfseries \-Rotation} (\hyperlink{class_node}{\-Node} $\ast$, const \hyperlink{class_vector}{\-Vector}, float angle)}
+\label{class_rotation_a19ef7fb0baa64a4a518923f5c831fdd2}
+
+\item 
+int \hyperlink{class_rotation_a1209bbedf18d64a7fd7411235fb651bf}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_rotation_a1b1ecff10f85a2f7ab778c06e9f6f263}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&, \hyperlink{class_intersection}{\-Intersection} \&, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_rotation_a1dbfa88ef89ea7bd50a875ca7fe9f911}{\-P\-M\-C} (const \hyperlink{class_vector}{\-Vector} \&)
+\begin{DoxyCompactList}\small\item\em \-Containing function. \end{DoxyCompactList}\item 
+\hypertarget{class_rotation_a16df69dc33ea554cfde8c8fa2d0174f2}{
+\hyperlink{class_vector}{\-Vector} {\bfseries get\-Emission} ()}
+\label{class_rotation_a16df69dc33ea554cfde8c8fa2d0174f2}
+
+\item 
+\hypertarget{class_rotation_a15418e82c782df1687eb2dd11cc469eb}{
+\hyperlink{class_vector}{\-Vector} {\bfseries get\-Color} ()}
+\label{class_rotation_a15418e82c782df1687eb2dd11cc469eb}
+
+\item 
+\hypertarget{class_rotation_a3dd8b11ab6ff47d626e49d766702210c}{
+\hyperlink{class_vector}{\-Vector} {\bfseries get\-Position} ()}
+\label{class_rotation_a3dd8b11ab6ff47d626e49d766702210c}
+
+\item 
+\hypertarget{class_rotation_acd09beb7679985b103b4e638deae0904}{
+int {\bfseries get\-Refl} ()}
+\label{class_rotation_acd09beb7679985b103b4e638deae0904}
+
+\item 
+\hypertarget{class_rotation_acea503033dd5293b86e3481682f6b29b}{
+double {\bfseries get\-F} ()}
+\label{class_rotation_acea503033dd5293b86e3481682f6b29b}
+
+\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_rotation_a3abe27c3f55eefef38dd5097485a3b2b}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} {\bfseries m\-Rotate}}
+\label{class_rotation_a3abe27c3f55eefef38dd5097485a3b2b}
+
+\item 
+\hypertarget{class_rotation_a3a6d1397aaa3ed90101e705747ebf19a}{
+\hyperlink{class_matrix4_df}{\-Matrix4\-Df} {\bfseries m\-Rotate\-Inv}}
+\label{class_rotation_a3a6d1397aaa3ed90101e705747ebf19a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\hyperlink{class_rotation}{\-Rotation} class. 
+
+\hyperlink{class_rotation}{\-Rotation} is a transformation for the \-C\-S\-G 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_rotation_a1209bbedf18d64a7fd7411235fb651bf}{
+\index{\-Rotation@{\-Rotation}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Rotation@{\-Rotation}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Rotation\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_rotation_a1209bbedf18d64a7fd7411235fb651bf}
+
+
+\-Intersecting function. 
+
+\-Compute the intersection between a rotation and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em t} & \-: the intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_ac0836475b7b0275dffe5ce89547f6852}{\-Node}.
+
+\hypertarget{class_rotation_a1b1ecff10f85a2f7ab778c06e9f6f263}{
+\index{\-Rotation@{\-Rotation}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Rotation@{\-Rotation}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Rotation\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_rotation_a1b1ecff10f85a2f7ab778c06e9f6f263}
+
+
+\-Intersecting function. 
+
+\-Compute the intersections between a rotation and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em t} & \-: the first intersection \\
+\hline
+{\em t2} & \-: the second intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_a8f308647523fba2603248b83149855a5}{\-Node}.
+
+\hypertarget{class_rotation_a1dbfa88ef89ea7bd50a875ca7fe9f911}{
+\index{\-Rotation@{\-Rotation}!\-P\-M\-C@{\-P\-M\-C}}
+\index{\-P\-M\-C@{\-P\-M\-C}!Rotation@{\-Rotation}}
+\subsubsection[{\-P\-M\-C}]{\setlength{\rightskip}{0pt plus 5cm}int \-Rotation\-::\-P\-M\-C (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vector} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_rotation_a1dbfa88ef89ea7bd50a875ca7fe9f911}
+
+
+\-Containing function. 
+
+\-Checks if a point is inside the instance
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em u} & \-: the point \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_aeecdf01a88be40840b65eb34cecc7a3c}{\-Node}.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{rotation_8h}{rotation.\-h}\end{DoxyCompactItemize}

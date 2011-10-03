@@ -1,0 +1,173 @@
+\hypertarget{class_cylinder}{
+\section{\-Cylinder \-Class \-Reference}
+\label{class_cylinder}\index{\-Cylinder@{\-Cylinder}}
+}
+
+
+\hyperlink{class_cylinder}{\-Cylinder} class.  
+
+
+
+
+{\ttfamily \#include $<$cylinder.\-h$>$}
+
+\-Inheritance diagram for \-Cylinder\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_cylinder}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_cylinder_aac916600a494275d514aa7ca14d1e61a}{
+{\bfseries \-Cylinder} (const double \&, const \hyperlink{class_vector}{\-Vector} \&, const double, const \hyperlink{class_vector}{\-Vector} \&, const \hyperlink{class_vector}{\-Vector} \&, int)}
+\label{class_cylinder_aac916600a494275d514aa7ca14d1e61a}
+
+\item 
+int \hyperlink{class_cylinder_ac0fefa4e21c59f64bd1b52d46ffc660f}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_cylinder_ad5f756db8354800d0a95862f6de2a5fe}{\-Intersect} (const \hyperlink{class_ray}{\-Ray} \&, \hyperlink{class_intersection}{\-Intersection} \&, \hyperlink{class_intersection}{\-Intersection} \&)
+\begin{DoxyCompactList}\small\item\em \-Intersecting function. \end{DoxyCompactList}\item 
+int \hyperlink{class_cylinder_a54d8f47f574488e583868fbd5dfd9abf}{\-P\-M\-C} (const \hyperlink{class_vector}{\-Vector} \&)
+\begin{DoxyCompactList}\small\item\em \-P\-M\-C function. \end{DoxyCompactList}\item 
+\hyperlink{class_vector}{\-Vector} \hyperlink{class_cylinder_aaec0c6f325302a116df1d210791b575c}{get\-Position} ()
+\begin{DoxyCompactList}\small\item\em \-Get position function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_cylinder_a8a825799285bcf60b49b8aef0459b498}{radius}
+\item 
+double \hyperlink{class_cylinder_a211cebc37f1025850cdacffe1badb578}{height}
+\item 
+\hyperlink{class_vector}{\-Vector} \hyperlink{class_cylinder_ad6d4d4070807f4680a250ec1227fc482}{bottom}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\hyperlink{class_cylinder}{\-Cylinder} class. 
+
+\hyperlink{class_cylinder}{\-Cylinder} is a primitive of the \-C\-S\-G 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_cylinder_aaec0c6f325302a116df1d210791b575c}{
+\index{\-Cylinder@{\-Cylinder}!get\-Position@{get\-Position}}
+\index{get\-Position@{get\-Position}!Cylinder@{\-Cylinder}}
+\subsubsection[{get\-Position}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vector} \-Cylinder\-::get\-Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_cylinder_aaec0c6f325302a116df1d210791b575c}
+
+
+\-Get position function. 
+
+\-Compute the cylinder position 
+
+\-Implements \hyperlink{class_node}{\-Node}.
+
+\hypertarget{class_cylinder_ac0fefa4e21c59f64bd1b52d46ffc660f}{
+\index{\-Cylinder@{\-Cylinder}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Cylinder@{\-Cylinder}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Cylinder\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_cylinder_ac0fefa4e21c59f64bd1b52d46ffc660f}
+
+
+\-Intersecting function. 
+
+\-Compute the intersection between a node and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em t} & \-: the intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_ac0836475b7b0275dffe5ce89547f6852}{\-Node}.
+
+\hypertarget{class_cylinder_ad5f756db8354800d0a95862f6de2a5fe}{
+\index{\-Cylinder@{\-Cylinder}!\-Intersect@{\-Intersect}}
+\index{\-Intersect@{\-Intersect}!Cylinder@{\-Cylinder}}
+\subsubsection[{\-Intersect}]{\setlength{\rightskip}{0pt plus 5cm}int \-Cylinder\-::\-Intersect (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ray} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{, }
+\item[{{\bf \-Intersection} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_cylinder_ad5f756db8354800d0a95862f6de2a5fe}
+
+
+\-Intersecting function. 
+
+\-Compute the intersections between a cylinder and a ray
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ray} & \-: the ray \\
+\hline
+{\em inter1} & \-: the first intersection \\
+\hline
+{\em inter2} & \-: the second intersection \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_a8f308647523fba2603248b83149855a5}{\-Node}.
+
+\hypertarget{class_cylinder_a54d8f47f574488e583868fbd5dfd9abf}{
+\index{\-Cylinder@{\-Cylinder}!\-P\-M\-C@{\-P\-M\-C}}
+\index{\-P\-M\-C@{\-P\-M\-C}!Cylinder@{\-Cylinder}}
+\subsubsection[{\-P\-M\-C}]{\setlength{\rightskip}{0pt plus 5cm}int \-Cylinder\-::\-P\-M\-C (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vector} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_cylinder_a54d8f47f574488e583868fbd5dfd9abf}
+
+
+\-P\-M\-C function. 
+
+\-Compute if the point is in the cylinder
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em point} & \-: the point \\
+\hline
+\end{DoxyParams}
+
+
+\-Implements \hyperlink{class_node_aeecdf01a88be40840b65eb34cecc7a3c}{\-Node}.
+
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_cylinder_ad6d4d4070807f4680a250ec1227fc482}{
+\index{\-Cylinder@{\-Cylinder}!bottom@{bottom}}
+\index{bottom@{bottom}!Cylinder@{\-Cylinder}}
+\subsubsection[{bottom}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vector} {\bf \-Cylinder\-::bottom}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_cylinder_ad6d4d4070807f4680a250ec1227fc482}
+\hyperlink{class_cylinder}{\-Cylinder} bottom center \hypertarget{class_cylinder_a211cebc37f1025850cdacffe1badb578}{
+\index{\-Cylinder@{\-Cylinder}!height@{height}}
+\index{height@{height}!Cylinder@{\-Cylinder}}
+\subsubsection[{height}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Cylinder\-::height}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_cylinder_a211cebc37f1025850cdacffe1badb578}
+\hyperlink{class_cylinder}{\-Cylinder} upper lenght \hypertarget{class_cylinder_a8a825799285bcf60b49b8aef0459b498}{
+\index{\-Cylinder@{\-Cylinder}!radius@{radius}}
+\index{radius@{radius}!Cylinder@{\-Cylinder}}
+\subsubsection[{radius}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Cylinder\-::radius}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_cylinder_a8a825799285bcf60b49b8aef0459b498}
+\hyperlink{class_cylinder}{\-Cylinder} radius 
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+headers/\hyperlink{cylinder_8h}{cylinder.\-h}\end{DoxyCompactItemize}
